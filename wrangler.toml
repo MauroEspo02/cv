@@ -5,4 +5,4 @@ compatibility_date = "2026-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "cv-db"
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+database_id = "f3c05f7a-b055-43f2-939a-8cb80c56b15f"
