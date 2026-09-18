@@ -303,7 +303,7 @@ function render(lang){
 
   $("linkList").innerHTML = DATA.links.map(l => `<li><a href="${esc(l.url)}"${l.url.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="tile">${svg(l.icon)}</span><span><span class="name">${esc(l.name)}</span><span class="desc">${esc(l.desc[lang])}</span></span></a></li>`).join("");
 
-  $("bio").innerHTML = DATA.bio[lang].map(p => `<p>${esc(p)}</p>`).join("");
+  $("bio").innerHTML = DATA.bio[lang].map(p => `<p>${esc(p).replace(/\n/g, "<br>")}</p>`).join("");
   const orgList = arr => arr.map(e => `<li>${esc(e.org[lang])}<em>${esc(e.role[lang])} <span class="yr">${esc(e.year)}</span></em></li>`).join("");
   $("expList").innerHTML = orgList(DATA.experience);
   $("eduList").innerHTML = orgList(DATA.education);
