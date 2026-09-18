@@ -1,0 +1,10 @@
+# Copia questo file in .dev.vars per lo sviluppo locale (wrangler lo legge automaticamente,
+# non serve installare altro). Su Cloudflare, le stesse variabili vanno impostate come
+# "secrets" nelle impostazioni del progetto Pages (vedi README.md).
+
+# Password per accedere a /admin. Cambiala prima di pubblicare il sito.
+ADMIN_PASSWORD=cambia-questa-password
+
+# Stringa segreta usata per firmare i cookie di sessione. Genera un valore lungo e casuale,
+# ad esempio con: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+SESSION_SECRET=cambia-anche-questa-stringa

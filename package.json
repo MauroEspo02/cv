@@ -2,18 +2,18 @@
   "name": "mauroesposito-cv",
   "version": "1.0.0",
   "private": true,
-  "description": "Sito portfolio di Mauro Esposito con pannello di amministrazione per modificare i contenuti.",
-  "main": "server/index.js",
+  "description": "Sito portfolio di Mauro Esposito con pannello di amministrazione per modificare i contenuti, su Cloudflare Pages + D1.",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "node --watch server/index.js"
+    "dev": "wrangler pages dev public --persist-to=.wrangler/state",
+    "db:migrate:local": "wrangler d1 migrations apply cv-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply cv-db --remote",
+    "db:seed:regen": "node scripts/generate-seed.js",
+    "deploy": "wrangler pages deploy public"
   },
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-session": "^1.18.0"
+  "devDependencies": {
+    "wrangler": "^4.134.0"
   }
 }

@@ -1,5 +1,5 @@
-const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
-const OBJECTS = ["jar", "stage", "passport", "generic"];
+export const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
+export const OBJECTS = ["jar", "stage", "passport", "generic"];
 
 function fail(msg) {
   const err = new Error(msg);
@@ -27,6 +27,17 @@ function array(v, label) {
 function oneOf(v, list, label) {
   if (!list.includes(v)) fail(`${label} deve essere uno tra: ${list.join(", ")}.`);
   return v;
+}
+
+function validateOrgList(label) {
+  return function (v) {
+    return array(v, label).map((item, i) => {
+      bilingual(item.org, `${label}[${i}].org`);
+      bilingual(item.role, `${label}[${i}].role`);
+      str(item.year, `${label}[${i}].year`);
+      return item;
+    });
+  };
 }
 
 const validators = {
@@ -110,21 +121,10 @@ const validators = {
   },
 };
 
-function validateOrgList(label) {
-  return function (v) {
-    return array(v, label).map((item, i) => {
-      bilingual(item.org, `${label}[${i}].org`);
-      bilingual(item.role, `${label}[${i}].role`);
-      str(item.year, `${label}[${i}].year`);
-      return item;
-    });
-  };
-}
-
-function validateSection(section, value) {
+export function validateSection(section, value) {
   const fn = validators[section];
   if (!fn) fail("Sezione sconosciuta: " + section);
   return fn(value);
 }
 
-module.exports = { validateSection, ICONS, OBJECTS };
+export const SECTIONS = ["hero", "links", "projects", "work", "experience", "education", "bio", "skills", "tools"];
