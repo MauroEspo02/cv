@@ -33,11 +33,11 @@ a{color:inherit}
 
 /* hero */
 .hero{padding:clamp(6rem,17vh,10rem) 0 1rem}
-.hero h1{font-weight:400;font-size:clamp(1.75rem,4.9vw,4.2rem);line-height:1.12;margin:0}
+.hero h1{font-weight:400;font-size:clamp(2rem,6vw,4.2rem);line-height:1.12;margin:0}
 .hero h1 .d{font-family:var(--display);text-transform:uppercase}
 .hero h1 em{font-family:var(--serif);font-style:italic;font-size:1.1em;white-space:nowrap}
 .hero h1 .l2{display:block;padding-left:clamp(1.25rem,11vw,9.5rem)}
-.intro{font-size:clamp(1.3rem,2.3vw,1.75rem);line-height:1.32;max-width:33em;text-indent:3.5em;margin:2.5rem 0 0 clamp(0rem,6vw,5.5rem)}
+.intro{font-size:clamp(1.4rem,3.2vw,1.75rem);line-height:1.32;max-width:33em;text-indent:3.5em;margin:2.5rem 0 0 clamp(0rem,6vw,5.5rem)}
 
 /* route */
 .route{list-style:none;margin:4.5rem 0 0;padding:0;display:grid}
@@ -141,16 +141,21 @@ a{color:inherit}
 /* loading / error */
 .state-msg{padding:1.5rem clamp(1.25rem,4vw,3rem);font-style:italic;color:var(--muted)}
 
-@media (max-width:760px){
-  .proj{grid-template-columns:1fr}
+/* the animated route needs real width per stop (city name + year): below
+   desktop widths it switches to a vertical list well before the general
+   mobile breakpoint, so tablets don't get 5 columns squeezed into ~150px each */
+@media (max-width:900px){
   .route{grid-template-columns:1fr!important;margin-top:3.5rem}
-  .route li{text-align:left;display:grid;grid-template-columns:2.4rem 1fr;padding-bottom:1.6rem}
-  .route .dot{margin:.2rem 0 0}
-  .route .city{margin-top:0}
-  .route .when{grid-column:2}
-  .route .seg{top:.75rem;left:calc(.55rem - 1.25px);width:2.5px;height:100%;transform-origin:top;animation-name:drawv}
+  .route li{text-align:left;display:grid;grid-template-columns:2.6rem 1fr;padding-bottom:1.8rem;gap:0 .2rem}
+  .route .dot{width:1.3rem;height:1.3rem;margin:.15rem 0 0}
+  .route .city{margin-top:0;font-size:1.15rem}
+  .route .when{grid-column:2;font-size:1.1rem}
+  .route .seg{top:.85rem;left:calc(.65rem - 1.25px);width:2.5px;height:100%;transform-origin:top;animation-name:drawv}
   .route .seg.dash{background:repeating-linear-gradient(180deg,var(--violet) 0 7px,transparent 7px 13px);background-size:100% 13px;animation:drawv .9s cubic-bezier(.6,0,.2,1) var(--seg-delay,0s) both,marchv .8s linear infinite}
   .route .traveler{left:50%;top:0;animation-name:travelv}
+}
+@media (max-width:760px){
+  .proj{grid-template-columns:1fr}
   .intro{text-indent:2em;margin-left:0}
   .about,.skillgrid{grid-template-columns:1fr}
   .works li{grid-template-columns:1fr}
