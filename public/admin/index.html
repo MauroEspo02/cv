@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Accesso admin · Mauro Esposito</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="login-wrap">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <h1>Pannello di amministrazione</h1>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required autofocus>
+    </div>
+    <button class="btn" type="submit" id="loginBtn" style="width:100%">Accedi</button>
+    <p class="error" id="loginError"></p>
+  </form>
+</div>
+<script>
+const form = document.getElementById("loginForm");
+const errorEl = document.getElementById("loginError");
+const btn = document.getElementById("loginBtn");
+
+fetch("/api/admin/session").then(r => r.json()).then(s => {
+  if (s.authenticated) window.location.href = "dashboard.html";
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorEl.textContent = "";
+  btn.disabled = true;
+  try {
+    const password = document.getElementById("password").value;
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Accesso non riuscito.");
+    window.location.href = "dashboard.html";
+  } catch (err) {
+    errorEl.textContent = err.message;
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

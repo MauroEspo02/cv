@@ -1,0 +1,62 @@
+:root{
+  --bg:#F7F6FB; --panel:#fff; --ink:#1A1730; --muted:#6B6880;
+  --violet:#4A1CF5; --lav:#EEEBFF; --lav2:#DCD6FF; --rule:#E7E3F5; --danger:#D6336C; --danger-bg:#FCE9EF;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--violet)}
+h1,h2,h3{font-weight:600;margin:0}
+button{font:inherit;cursor:pointer}
+input,textarea,select{font:inherit;width:100%;padding:.55rem .7rem;border:1.5px solid var(--rule);border-radius:.5rem;background:#fff;color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--violet);outline-offset:1px;border-color:var(--violet)}
+textarea{resize:vertical;min-height:4.5rem}
+label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.25rem}
+
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:1.5rem}
+.login-card{width:100%;max-width:22rem;background:var(--panel);border-radius:1rem;padding:2rem;box-shadow:0 10px 40px rgba(74,28,245,.1)}
+.login-card h1{font-size:1.3rem;margin-bottom:1.5rem}
+.login-card .field{margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;background:var(--violet);color:#fff;border:0;border-radius:.6rem;padding:.65rem 1.1rem;font-weight:600}
+.btn:hover{background:#3510c9}
+.btn.secondary{background:var(--lav);color:var(--violet)}
+.btn.secondary:hover{background:var(--lav2)}
+.btn.danger{background:var(--danger-bg);color:var(--danger)}
+.btn.danger:hover{background:#f8d1de}
+.btn:disabled{opacity:.6;cursor:default}
+.error{color:var(--danger);background:var(--danger-bg);border-radius:.5rem;padding:.6rem .8rem;font-size:.9rem;margin-top:.75rem}
+.error:empty{display:none}
+
+.app{max-width:64rem;margin:0 auto;padding:1.5rem clamp(1rem,4vw,2rem) 6rem}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;gap:1rem;flex-wrap:wrap}
+.topbar h1{font-size:1.2rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;border-bottom:1.5px solid var(--rule);padding-bottom:1rem}
+.tabs button{background:transparent;border:1.5px solid var(--rule);border-radius:2rem;padding:.5rem 1rem;color:var(--muted)}
+.tabs button.active{background:var(--violet);border-color:var(--violet);color:#fff}
+
+.section{display:none;background:var(--panel);border-radius:1rem;padding:1.5rem clamp(1rem,3vw,2rem);box-shadow:0 1px 3px rgba(20,10,60,.06)}
+.section.active{display:block}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap}
+.section-head h2{font-size:1.05rem}
+.status{font-size:.85rem;color:var(--muted)}
+.status.ok{color:#1a8a4b}
+.status.err{color:var(--danger)}
+
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+@media (max-width:640px){.row-2{grid-template-columns:1fr}}
+
+.item-card{border:1.5px solid var(--rule);border-radius:.75rem;padding:1rem;margin-bottom:1rem;position:relative}
+.item-card .item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+.item-card .item-title{font-weight:600;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.02em}
+.item-actions{display:flex;gap:.35rem}
+.icon-btn{background:var(--lav);color:var(--violet);border:0;border-radius:.4rem;width:2rem;height:2rem;display:grid;place-items:center;font-size:1rem;line-height:1}
+.icon-btn:hover{background:var(--lav2)}
+.icon-btn.danger{background:var(--danger-bg);color:var(--danger)}
+.icon-btn.danger:hover{background:#f8d1de}
+.field{margin-bottom:.75rem}
+.field:last-child{margin-bottom:0}
+.hint{font-size:.8rem;color:var(--muted);margin-top:1rem}
+.list-actions{margin-top:.5rem}
+.footer-actions{display:flex;align-items:center;gap:1rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1.5px solid var(--rule)}
+.lang-tag{display:inline-block;font-size:.7rem;font-weight:700;color:var(--violet);background:var(--lav);border-radius:.3rem;padding:.1rem .4rem;margin-right:.4rem;vertical-align:middle}
+.sub-h{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin:1.5rem 0 .75rem;padding-top:1.25rem;border-top:1.5px solid var(--rule)}
+.sub-h:first-child{margin-top:0;padding-top:0;border-top:0}

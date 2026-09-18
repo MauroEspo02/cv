@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Pannello admin · Mauro Esposito</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <h1>Pannello di amministrazione</h1>
+    <div style="display:flex;gap:.6rem;align-items:center">
+      <a class="btn secondary" href="/" target="_blank" rel="noopener">Vedi il sito ↗</a>
+      <button class="btn secondary" id="logoutBtn">Esci</button>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="hero" class="active">Intestazione</button>
+    <button data-tab="links">Link</button>
+    <button data-tab="projects">Progetti</button>
+    <button data-tab="work">Lavori</button>
+    <button data-tab="experience">Esperienze</button>
+    <button data-tab="education">Formazione</button>
+    <button data-tab="bio">Chi sono</button>
+    <button data-tab="skills">Competenze</button>
+    <button data-tab="tools">Strumenti</button>
+  </nav>
+
+  <section class="section active" id="section-hero"><div class="section-head"><h2>Intestazione e percorso</h2><span class="status" data-status="hero"></span></div><div class="section-body" data-body="hero"></div></section>
+  <section class="section" id="section-links"><div class="section-head"><h2>Link</h2><span class="status" data-status="links"></span></div><div class="section-body" data-body="links"></div></section>
+  <section class="section" id="section-projects"><div class="section-head"><h2>Progetti</h2><span class="status" data-status="projects"></span></div><div class="section-body" data-body="projects"></div></section>
+  <section class="section" id="section-work"><div class="section-head"><h2>Lavori</h2><span class="status" data-status="work"></span></div><div class="section-body" data-body="work"></div></section>
+  <section class="section" id="section-experience"><div class="section-head"><h2>Esperienze</h2><span class="status" data-status="experience"></span></div><div class="section-body" data-body="experience"></div></section>
+  <section class="section" id="section-education"><div class="section-head"><h2>Formazione</h2><span class="status" data-status="education"></span></div><div class="section-body" data-body="education"></div></section>
+  <section class="section" id="section-bio"><div class="section-head"><h2>Chi sono (biografia)</h2><span class="status" data-status="bio"></span></div><div class="section-body" data-body="bio"></div></section>
+  <section class="section" id="section-skills"><div class="section-head"><h2>Competenze</h2><span class="status" data-status="skills"></span></div><div class="section-body" data-body="skills"></div></section>
+  <section class="section" id="section-tools"><div class="section-head"><h2>Strumenti</h2><span class="status" data-status="tools"></span></div><div class="section-body" data-body="tools"></div></section>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

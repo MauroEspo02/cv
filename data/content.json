@@ -1,0 +1,136 @@
+{
+  "hero": {
+    "name": "Mauro Esposito",
+    "headline": {
+      "en": { "verb": "lives between", "word1": "culture", "joiner": "and", "word2": "territory" },
+      "it": { "verb": "vive tra", "word1": "cultura", "joiner": "e", "word2": "territorio" }
+    },
+    "intro": {
+      "en": "Truth is, I don't know what I want to do or what I'll end up doing, but in the meantime I've been... a master's student in Cultural and Territorial Economics at the University of Turin, and a graphic designer and content creator since 2018. I make visuals and communication for restaurants, creators and cultural projects.",
+      "it": "In realtà non so cosa voglio fare e cosa farò, ma nel frattempo sono stato... studente della magistrale in Economia della cultura e del territorio all'Università di Torino, graphic designer e content creator dal 2018. Creo grafica e comunicazione per ristoranti, creator e progetti culturali."
+    },
+    "route": [
+      { "city": { "en": "Naples", "it": "Napoli" }, "when": "2018" },
+      { "city": { "en": "Liège", "it": "Liegi" }, "when": "2023" },
+      { "city": { "en": "Turin", "it": "Torino" }, "when": "2024" }
+    ],
+    "current": {
+      "city": { "en": "Milan", "it": "Milano" },
+      "when": { "en": "Today", "it": "Oggi" }
+    },
+    "next": {
+      "when": { "en": "Exploring", "it": "In esplorazione" }
+    }
+  },
+  "links": [
+    { "icon": "mail", "name": "Email", "url": "mailto:mauro.esposito19@protonmail.com", "desc": { "en": "Write to me about projects and collaborations", "it": "Scrivimi per progetti e collaborazioni" } },
+    { "icon": "card", "name": "LinkedIn", "url": "https://www.linkedin.com/in/mauro-esposito-6890a825a", "desc": { "en": "Experience, studies and network", "it": "Esperienze, studi e contatti" } }
+  ],
+  "projects": [
+    {
+      "title": "Mercoleterry", "year": "2026", "url": "https://passatadipomodoro.mauroesposito19.com/", "object": "jar", "model": "",
+      "kind": { "en": "Brand and website", "it": "Brand e sito web" },
+      "text": {
+        "en": "My own tomato passata, made with Campanian datterini and cherry tomatoes. I designed the whole brand, from label and logo to the videos and the website.",
+        "it": "La mia passata di pomodoro, fatta con datterini campani e ciliegini. Ho curato tutto il brand, dall'etichetta e il logo ai video e al sito."
+      }
+    },
+    {
+      "title": "FRITZ Festival", "year": "2026", "url": "https://fritz.mauroesposito19.com/", "object": "stage", "model": "",
+      "kind": { "en": "Audience research and results website", "it": "Ricerca sul pubblico e sito dei risultati" },
+      "text": {
+        "en": "Can a festival change how people live, see and remember a place? A survey of 318 people at FRITZ in Sala Consilina, told through four paths: those who live there, come back, visit often or arrive for the first time.",
+        "it": "Un festival può cambiare il modo in cui viviamo, guardiamo e ricordiamo un territorio? Un sondaggio a 318 persone del FRITZ di Sala Consilina, raccontato in quattro percorsi: chi abita, chi ritorna, chi frequenta e chi arriva."
+      }
+    },
+    {
+      "title": "Passaporto partecipato", "year": "2025–2026", "url": "https://passaportosabaudo.mauroesposito19.com/", "object": "passport", "model": "",
+      "kind": { "en": "Cultural project design", "it": "Progettazione culturale" },
+      "text": {
+        "en": "A participatory passport linking children, schools and families to the 22 UNESCO sites of the Savoy Royal Residences in Piedmont, from research and strategy to the passport itself.",
+        "it": "Un passaporto partecipato che collega bambini, scuole e famiglie ai 22 luoghi UNESCO delle Residenze Reali Sabaude in Piemonte, dalla ricerca alla strategia fino al passaporto."
+      }
+    }
+  ],
+  "work": [
+    {
+      "year": "2025", "title": { "en": "BEYOND 2025: Being Many", "it": "BEYOND 2025: Being Many" },
+      "kind": { "en": "Event project assistant, Turin", "it": "Assistente di progetto, Torino" },
+      "text": {
+        "en": "Two interactive stands on culture, territory, sustainability and participation for an international conference of the European cultural sector, with Fondazione Club Silencio, Culture Action Europe and Fondazione Fitzcarraldo. Three months from concept to the event days.",
+        "it": "Due stand interattivi su cultura, territorio, sostenibilità e partecipazione per una conferenza internazionale del settore culturale europeo, con Fondazione Club Silencio, Culture Action Europe e Fondazione Fitzcarraldo. Tre mesi dal concept alle giornate dell'evento."
+      }
+    },
+    {
+      "year": "2025–", "title": { "en": "Live event stand", "it": "Stand per eventi live" },
+      "kind": { "en": "Event marketing project", "it": "Progetto di event marketing" },
+      "text": {
+        "en": "An interactive stand for concert-goers, with research on attendance and on how the audience experiences live events.",
+        "it": "Uno stand interattivo per il pubblico dei concerti, con una ricerca sulla partecipazione e su come il pubblico vive gli eventi dal vivo."
+      }
+    },
+    {
+      "year": "2020–2026", "title": { "en": "Ten independent restaurants", "it": "Dieci ristoranti indipendenti" },
+      "kind": { "en": "Social media management", "it": "Social media management" },
+      "text": {
+        "en": "Photos, videos, graphics and editorial plans on Meta platforms, shaped around each restaurant's identity and built together with the owners.",
+        "it": "Foto, video, grafiche e piani editoriali sulle piattaforme Meta, costruiti sull'identità di ciascun ristorante insieme ai titolari."
+      }
+    },
+    {
+      "year": "2023–2024", "title": { "en": "Fammi un Fisco", "it": "Fammi un Fisco" },
+      "kind": { "en": "University radio show", "it": "Programma radio universitario" },
+      "text": {
+        "en": "A radio programme that makes taxes understandable for young listeners. I worked on the concept, the structure of the episodes and the pilot recordings.",
+        "it": "Un programma radio che rende il fisco comprensibile ai più giovani. Ho lavorato al concept, alla struttura delle puntate e alle registrazioni pilota."
+      }
+    }
+  ],
+  "experience": [
+    { "org": { "en": "University of Turin", "it": "Università di Torino" }, "role": { "en": "Student representative", "it": "Rappresentante degli studenti" }, "year": "2025–2027" },
+    { "org": { "en": "BEYOND 2025: Being Many, Turin", "it": "BEYOND 2025: Being Many, Torino" }, "role": { "en": "Event project assistant", "it": "Assistente di progetto" }, "year": "2025" },
+    { "org": { "en": "Suor Orsola Benincasa, Erasmus+ International Week", "it": "Suor Orsola Benincasa, International Week Erasmus+" }, "role": { "en": "Event support", "it": "Supporto all'organizzazione" }, "year": "2024" },
+    { "org": { "en": "Ten independent restaurants", "it": "Dieci ristoranti indipendenti" }, "role": { "en": "Social media manager", "it": "Social media manager" }, "year": "2020–2026" },
+    { "org": { "en": "Freelance", "it": "Freelance" }, "role": { "en": "Graphic designer and content creator", "it": "Graphic designer e content creator" }, "year": "2018–2026" },
+    { "org": { "en": "Avellino youth team, Chioggia (Serie D)", "it": "Giovanili Avellino, Chioggia (Serie D)" }, "role": { "en": "Competitive football player", "it": "Calciatore agonista" }, "year": "2015–2020" }
+  ],
+  "education": [
+    { "org": { "en": "University of Turin", "it": "Università di Torino" }, "role": { "en": "Master's, Cultural and Territorial Economics", "it": "Magistrale, Economia della cultura e del territorio" }, "year": "2024–2026" },
+    { "org": { "en": "HELMo, Liège", "it": "HELMo, Liegi" }, "role": { "en": "International Business and Marketing", "it": "International Business and Marketing" }, "year": "2023–2024" },
+    { "org": { "en": "Suor Orsola Benincasa, Naples", "it": "Suor Orsola Benincasa, Napoli" }, "role": { "en": "Bachelor's, Green Economy", "it": "Triennale, Green Economy" }, "year": "2021–2024" },
+    { "org": { "en": "ILAS, Naples", "it": "ILAS, Napoli" }, "role": { "en": "Graphic design, social media and web marketing", "it": "Grafica, social media e web marketing" }, "year": "2020–2022" }
+  ],
+  "bio": {
+    "en": [
+      "I grew up in Naples, where I started making graphics, photos and videos for local businesses and creators in 2018. Alongside a bachelor's in Green Economy and a graphic design course, I began running social media for independent restaurants, ten of them over the years.",
+      "After a year of international business and marketing in Liège, I moved to Turin for a master's in Cultural and Territorial Economics. There I work on cultural projects, live events and audience participation, and I represent my fellow students.",
+      "Before all this I played competitive football, from Avellino's youth team to Serie D with Chioggia. Today I live in Milan, looking for the next place to explore."
+    ],
+    "it": [
+      "Sono cresciuto a Napoli, dove nel 2018 ho iniziato a fare grafiche, foto e video per attività locali e creator. Tra la triennale in Green Economy e un corso di grafica ho cominciato a gestire i social di ristoranti indipendenti, dieci nel corso degli anni.",
+      "Dopo un anno di international business e marketing a Liegi, mi sono trasferito a Torino per la magistrale in Economia della cultura e del territorio. Lì lavoro su progetti culturali, eventi dal vivo e partecipazione del pubblico, e rappresento gli altri studenti.",
+      "Prima di tutto questo ho giocato a calcio a livello agonistico, dalle giovanili dell'Avellino alla Serie D con il Chioggia. Oggi vivo a Milano, in cerca del prossimo posto da esplorare."
+    ]
+  },
+  "skills": {
+    "do": {
+      "en": ["Graphic design", "Digital communication", "Digital marketing", "Audience engagement", "Event communication", "Qualitative research", "Cultural project development", "Client communication"],
+      "it": ["Graphic design", "Comunicazione digitale", "Marketing digitale", "Coinvolgimento del pubblico", "Comunicazione di eventi", "Ricerca qualitativa", "Sviluppo di progetti culturali", "Relazione con i clienti"]
+    },
+    "languages": {
+      "en": [{ "language": "Italian", "level": "native" }, { "language": "English", "level": "professional, IELTS 7" }],
+      "it": [{ "language": "Italiano", "level": "madrelingua" }, { "language": "Inglese", "level": "professionale, IELTS 7" }]
+    }
+  },
+  "tools": [
+    { "icon": "image", "name": "Photoshop", "desc": { "en": "Photo editing", "it": "Fotoritocco" } },
+    { "icon": "vector", "name": "Illustrator", "desc": { "en": "Vector graphics and logos", "it": "Grafica vettoriale e loghi" } },
+    { "icon": "layout", "name": "InDesign", "desc": { "en": "Layout and print", "it": "Impaginazione e stampa" } },
+    { "icon": "shapes", "name": "Canva", "desc": { "en": "Quick social graphics", "it": "Grafiche rapide per i social" } },
+    { "icon": "video", "name": "Premiere Pro", "desc": { "en": "Video editing", "it": "Montaggio video" } },
+    { "icon": "keys", "name": "After Effects", "desc": { "en": "Motion graphics", "it": "Motion graphics" } },
+    { "icon": "chat", "name": "Meta Business Suite", "desc": { "en": "Social media management", "it": "Gestione dei social" } },
+    { "icon": "map", "name": "QGIS", "desc": { "en": "Territorial analysis and maps", "it": "Analisi territoriale e mappe" } },
+    { "icon": "sheet", "name": "Microsoft Office", "desc": { "en": "Documents and spreadsheets", "it": "Documenti e fogli di calcolo" } }
+  ]
+}
