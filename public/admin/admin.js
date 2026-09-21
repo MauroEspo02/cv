@@ -1,5 +1,5 @@
 const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
-const OBJECTS = ["jar", "stage", "passport", "generic"];
+const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport"];
 
 const qs = (sel) => document.querySelector(sel);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -149,6 +149,18 @@ function renderOrgList(section) {
   )).join("") + addButton(section, section, "Aggiungi voce") + saveFooter(section);
 }
 
+function renderPassions() {
+  const items = content.passions;
+  qs('[data-body="passions"]').innerHTML = items.map((item, i) => itemCard("passions", "passions", i, (item.title && item.title.it) || "Passione " + (i + 1),
+    bilingualField("Titolo", `passions.${i}.title`, item.title) +
+    textField("URL (opzionale)", `passions.${i}.url`, item.url) +
+    selectField("Forma 3D", `passions.${i}.object`, item.object, OBJECTS) +
+    textField("Modello .glb (opzionale, sovrascrive la forma 3D)", `passions.${i}.model`, item.model) +
+    bilingualField("Sottotitolo (opzionale)", `passions.${i}.kind`, item.kind) +
+    bilingualField("Descrizione (opzionale)", `passions.${i}.text`, item.text, true)
+  )).join("") + addButton("passions", "passions", "Aggiungi passione") + saveFooter("passions");
+}
+
 function renderTools() {
   const items = content.tools;
   qs('[data-body="tools"]').innerHTML = items.map((item, i) => itemCard("tools", "tools", i, item.name || "Strumento " + (i + 1),
@@ -196,6 +208,7 @@ const RENDER = {
   bio: renderBio,
   skills: renderSkills,
   tools: renderTools,
+  passions: renderPassions,
 };
 
 function emptyFor(arrayPath) {
@@ -204,6 +217,7 @@ function emptyFor(arrayPath) {
   if (arrayPath === "work") return { year: "", title: { en: "", it: "" }, kind: { en: "", it: "" }, text: { en: "", it: "" } };
   if (arrayPath === "experience" || arrayPath === "education") return { org: { en: "", it: "" }, role: { en: "", it: "" }, year: "" };
   if (arrayPath === "tools") return { icon: "shapes", name: "", desc: { en: "", it: "" } };
+  if (arrayPath === "passions") return { title: { en: "", it: "" }, object: "generic", model: "", url: "", kind: { en: "", it: "" }, text: { en: "", it: "" } };
   if (arrayPath === "hero.route") return { city: { en: "", it: "" }, when: "" };
   if (arrayPath.startsWith("bio.")) return "";
   if (arrayPath.startsWith("skills.do.")) return "";

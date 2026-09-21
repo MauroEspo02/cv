@@ -105,9 +105,10 @@ si ripubblica da solo in automatico.
 ## Modificare i contenuti
 
 Una volta online, modifica tutto direttamente da `/admin` (bio, progetti,
-lavori, esperienze, formazione, competenze, strumenti, link, testo animato
-in home) — le modifiche sono subito vere e permanenti, non serve più
-passare da me. Ogni sezione ha un pulsante "Salva sezione" indipendente.
+lavori, esperienze, formazione, competenze, strumenti, passioni, link,
+testo animato in home) — le modifiche sono subito vere e permanenti, non
+serve più passare da me. Ogni sezione ha un pulsante "Salva sezione"
+indipendente.
 
 Per cambiare invece design, animazioni, font o la struttura HTML, serve
 modificare il codice (`public/index.html`) — per quello continua pure a
@@ -115,10 +116,11 @@ chiedere a me.
 
 Le icone disponibili per link e strumenti sono un set fisso definito nel
 codice (in `functions/_lib/validate.js` e in `public/admin/admin.js`); il
-pannello le propone come menu a tendina. Lo stesso vale per le "forme" 3D dei
-progetti (`jar`, `stage`, `passport`, `generic`): sono modelli scritti a mano
-in `public/index.html`. Aggiungerne uno nuovo richiede una piccola modifica
-al codice, non solo al contenuto.
+pannello le propone come menu a tendina. Lo stesso vale per le "forme" 3D di
+progetti e passioni (`jar`, `stage`, `passport`, `generic`, `ceramics`,
+`tshirt`, `music`, `guitar`, `sport`): sono modelli scritti a mano in
+`public/index.html`. Aggiungerne uno nuovo richiede una piccola modifica al
+codice, non solo al contenuto.
 
 ## Sicurezza
 
