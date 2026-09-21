@@ -1,5 +1,5 @@
 export const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
-export const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport"];
+export const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport", "map"];
 
 function fail(msg) {
   const err = new Error(msg);
