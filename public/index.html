@@ -629,9 +629,44 @@ function makeSport(){
   return holder;
 }
 
+function makeMap(){
+  const g = new THREE.Group();
+  const mapTex = canvasTex(896,1152,(ctx,w,h) => {
+    ctx.fillStyle = "#F4EEDA"; ctx.fillRect(0,0,w,h);
+    ctx.fillStyle = "rgba(74,28,245,.15)";
+    ctx.beginPath(); ctx.ellipse(w*.32,h*.28,w*.24,h*.14,0.3,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(w*.7,h*.62,w*.2,h*.12,-0.25,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle = "#E0306A"; ctx.lineWidth = 9; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(w*.12,h*.85); ctx.bezierCurveTo(w*.3,h*.65,w*.35,h*.4,w*.55,h*.32); ctx.bezierCurveTo(w*.72,h*.25,w*.8,h*.15,w*.9,h*.08); ctx.stroke();
+    ctx.strokeStyle = "#4A1CF5"; ctx.lineWidth = 6; ctx.setLineDash([18,14]);
+    ctx.beginPath(); ctx.moveTo(w*.15,h*.12); ctx.bezierCurveTo(w*.3,h*.32,w*.5,h*.45,w*.6,h*.55); ctx.bezierCurveTo(w*.7,h*.65,w*.78,h*.78,w*.88,h*.9); ctx.stroke();
+    ctx.setLineDash([]);
+  });
+  const panel = new THREE.Mesh(new THREE.BoxGeometry(1.9,2.35,.05), [
+    new THREE.MeshStandardMaterial({color:0xE4DCC2,roughness:.95}),
+    new THREE.MeshStandardMaterial({color:0xE4DCC2,roughness:.95}),
+    new THREE.MeshStandardMaterial({color:0xE4DCC2,roughness:.95}),
+    new THREE.MeshStandardMaterial({color:0xE4DCC2,roughness:.95}),
+    new THREE.MeshStandardMaterial({map:mapTex,roughness:.9}),
+    new THREE.MeshStandardMaterial({color:0xDCD2AE,roughness:.95}),
+  ]);
+  g.add(panel);
+  const pin = new THREE.Group();
+  const pinTip = new THREE.Mesh(new THREE.ConeGeometry(.06,.22,16), new THREE.MeshStandardMaterial({color:0xC9457F,roughness:.5}));
+  pinTip.rotation.x = -Math.PI/2; pinTip.position.z = .11;
+  const pinHead = new THREE.Mesh(new THREE.SphereGeometry(.13,20,16), new THREE.MeshStandardMaterial({color:0xFF5FA8,roughness:.4}));
+  pinHead.position.z = .28;
+  pin.add(pinTip); pin.add(pinHead);
+  pin.position.set(.35,.25,.025);
+  g.add(pin);
+  const holder = new THREE.Group(); holder.add(g);
+  return holder;
+}
+
 const MAKERS = {
   jar: makeJar, stage: makeStage, passport: makePassport, generic: makeGeneric,
   ceramics: makeCeramics, tshirt: makeTshirt, music: makeMusic, guitar: makeGuitar, sport: makeSport,
+  map: makeMap,
 };
 
 function initStage(p, elId, t){

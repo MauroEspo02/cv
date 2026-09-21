@@ -1,5 +1,5 @@
 const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
-const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport"];
+const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport", "map"];
 
 const qs = (sel) => document.querySelector(sel);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
