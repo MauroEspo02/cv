@@ -364,6 +364,7 @@ function renderProjects(lang){
 
 /* passions: same card/3D treatment as projects, without year or forced link */
 function buildPassions(){
+  if (!DATA.passions) DATA.passions = [];
   $("passList").innerHTML = DATA.passions.map((p,i) => `
     <li class="proj">
       <div class="stage" id="pstage${i}"><span class="shadow"></span><span class="hint" data-i18n="drag"></span></div>
