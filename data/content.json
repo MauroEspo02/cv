@@ -360,6 +360,48 @@
       ]
     }
   },
+  "passions": [
+    {
+      "title": { "en": "Ceramics", "it": "Ceramica" },
+      "object": "ceramics",
+      "model": "",
+      "url": "",
+      "kind": { "en": "", "it": "" },
+      "text": { "en": "", "it": "" }
+    },
+    {
+      "title": { "en": "T-shirt graphics", "it": "Grafiche magliette" },
+      "object": "tshirt",
+      "model": "",
+      "url": "",
+      "kind": { "en": "", "it": "" },
+      "text": { "en": "", "it": "" }
+    },
+    {
+      "title": { "en": "Music", "it": "Musica" },
+      "object": "music",
+      "model": "",
+      "url": "",
+      "kind": { "en": "", "it": "" },
+      "text": { "en": "", "it": "" }
+    },
+    {
+      "title": { "en": "Guitar", "it": "Chitarra" },
+      "object": "guitar",
+      "model": "",
+      "url": "",
+      "kind": { "en": "", "it": "" },
+      "text": { "en": "", "it": "" }
+    },
+    {
+      "title": { "en": "Sport", "it": "Sport" },
+      "object": "sport",
+      "model": "",
+      "url": "",
+      "kind": { "en": "", "it": "" },
+      "text": { "en": "", "it": "" }
+    }
+  ],
   "tools": [
     {
       "icon": "image",

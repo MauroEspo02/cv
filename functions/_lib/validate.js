@@ -1,5 +1,5 @@
 export const ICONS = ["mail", "card", "phone", "image", "vector", "layout", "shapes", "video", "keys", "chat", "map", "sheet"];
-export const OBJECTS = ["jar", "stage", "passport", "generic"];
+export const OBJECTS = ["jar", "stage", "passport", "generic", "ceramics", "tshirt", "music", "guitar", "sport"];
 
 function fail(msg) {
   const err = new Error(msg);
@@ -119,6 +119,17 @@ const validators = {
       return item;
     });
   },
+  passions(v) {
+    return array(v, "passions").map((item, i) => {
+      bilingual(item.title, `passions[${i}].title`);
+      oneOf(item.object, OBJECTS, `passions[${i}].object`);
+      if (item.model !== undefined && item.model !== "") str(item.model, `passions[${i}].model`);
+      if (item.url !== undefined && item.url !== "") str(item.url, `passions[${i}].url`);
+      bilingual(item.kind, `passions[${i}].kind`);
+      bilingual(item.text, `passions[${i}].text`);
+      return item;
+    });
+  },
 };
 
 export function validateSection(section, value) {
@@ -127,4 +138,4 @@ export function validateSection(section, value) {
   return fn(value);
 }
 
-export const SECTIONS = ["hero", "links", "projects", "work", "experience", "education", "bio", "skills", "tools"];
+export const SECTIONS = ["hero", "links", "projects", "work", "experience", "education", "bio", "skills", "tools", "passions"];
