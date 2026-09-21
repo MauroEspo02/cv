@@ -150,7 +150,7 @@ function renderOrgList(section) {
 }
 
 function renderPassions() {
-  const items = content.passions;
+  const items = content.passions || [];
   qs('[data-body="passions"]').innerHTML = items.map((item, i) => itemCard("passions", "passions", i, (item.title && item.title.it) || "Passione " + (i + 1),
     bilingualField("Titolo", `passions.${i}.title`, item.title) +
     textField("URL (opzionale)", `passions.${i}.url`, item.url) +
