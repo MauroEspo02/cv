@@ -664,9 +664,43 @@ function makeMap(){
   return holder;
 }
 
+function makeLandBox(){
+  const g = new THREE.Group();
+  const frontTex = canvasTex(1024,768,(ctx,w,h) => {
+    ctx.fillStyle = "#F3EEE1"; ctx.fillRect(0,0,w,h);
+    ctx.fillStyle = "#17151A";
+    ctx.beginPath();
+    ctx.moveTo(w*.64,0); ctx.lineTo(w,h*.1); ctx.lineTo(w,h); ctx.lineTo(w*.4,h); ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,.07)"; ctx.lineWidth = 3;
+    for (let x=w*.46; x<w+40; x+=24){ ctx.beginPath(); ctx.moveTo(x,h*.16); ctx.lineTo(x-34,h); ctx.stroke(); }
+    ctx.fillStyle = "#C23B2E";
+    ctx.beginPath(); ctx.arc(w*.54,h*.56,h*.13,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = "#3C4A2E";
+    [[w*.09,h*.86],[w*.15,h*.78],[w*.07,h*.72]].forEach(([x,y]) => { ctx.beginPath(); ctx.ellipse(x,y,25,10,-0.5,0,Math.PI*2); ctx.fill(); });
+    ctx.fillStyle = "#8C2A22";
+    ctx.beginPath(); ctx.arc(w*.065,h*.92,8,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = "#17151A"; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    ctx.font = "400 150px Tektur";
+    ctx.fillText("LAND", w*.06, h*.42);
+    ctx.font = 'italic 400 32px "EB Garamond"';
+    ctx.fillText("A six-week growing experience", w*.07, h*.5);
+  });
+  const sideMat = new THREE.MeshStandardMaterial({color:0xE4DCC5,roughness:.95});
+  const box = new THREE.Mesh(new THREE.BoxGeometry(2.3,1.75,.62), [
+    sideMat, sideMat, sideMat, sideMat,
+    new THREE.MeshStandardMaterial({map:frontTex,roughness:.85}),
+    sideMat,
+  ]);
+  g.add(box);
+  const holder = new THREE.Group(); holder.add(g);
+  return holder;
+}
+
 const MAKERS = {
   jar: makeJar, stage: makeStage, passport: makePassport, generic: makeGeneric,
   ceramics: makeCeramics, tshirt: makeTshirt, music: makeMusic, guitar: makeGuitar, sport: makeSport,
+  landbox: makeLandBox,
   map: makeMap,
 };
 
