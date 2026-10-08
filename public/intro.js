@@ -103,6 +103,8 @@
   // skip: jump straight to the exit
   function skip() { if (phase === "load") { shown = 100; pageLoaded = true; t0 = performance.now() - MIN_MS; phase = "spin"; exitT = performance.now() - 600; } }
   intro.addEventListener("click", skip);
+  // safety net: if animation frames never run (hidden tab, odd webview), don't trap the page
+  setTimeout(() => { if (document.body.contains(intro)) { intro.remove(); document.documentElement.classList.remove("intro-on"); veil.remove(); } }, HARD_MS + 3000);
   addEventListener("keydown", skip);
   requestAnimationFrame(tick);
 })();

@@ -54,7 +54,7 @@
 
   function resize() {
     PX = innerWidth < 600 ? 4 : innerWidth < 1400 ? 6 : 7;
-    W = Math.ceil(innerWidth / PX); H = Math.ceil(innerHeight / PX);
+    W = Math.max(1, Math.ceil(innerWidth / PX)); H = Math.max(1, Math.ceil(innerHeight / PX));
     cv.width = W; cv.height = H;
     cv.style.width = W * PX + "px"; cv.style.height = H * PX + "px";
     paintStatic();
