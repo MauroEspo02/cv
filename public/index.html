@@ -14,7 +14,7 @@
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
   --accent:#1D5C3A; --accent-2:#134229; --lav:#E5F0E8; --lav2:#C9DFD0; --pink:#FFE3B8; --rule:#D9E7DD;
-  --surface:#FFFFFF; --plate:rgba(255,255,255,.9); --on-accent:#FFFFFF; --panel:rgba(255,255,255,.62); --hot:#E8504A; --shadow:rgba(29,92,58,.16);
+  --surface:#FFFFFF; --plate:rgba(255,255,255,.9); --on-accent:#FFFFFF; --panel:rgba(255,255,255,.8); --plate-soft:rgba(255,255,255,.86); --hot:#E8504A; --shadow:rgba(29,92,58,.16);
   --display:"Pixelify Sans","Tektur","Courier New",monospace;
   --pixserif:"Jacquarda Bastarda 9","EB Garamond",Georgia,serif;
   --serif:"EB Garamond",Garamond,"Times New Roman",Georgia,serif;
@@ -24,9 +24,9 @@
 }
 /* night: Napoli by moonlight */
 :root[data-theme="dark"]{
-  --bg:#08122A; --ink:#EEF3EF; --muted:#A9B8C9;
+  --bg:#050B1C; --ink:#EEF3EF; --muted:#A9B8C9;
   --accent:#7FD19B; --accent-2:#A5E3B9; --lav:#16284A; --lav2:#2A4268; --rule:#1E3354;
-  --surface:#0E1B36; --plate:rgba(8,18,42,.88); --on-accent:#08122A; --panel:rgba(8,18,42,.64); --hot:#FFB347; --shadow:rgba(0,0,0,.4);
+  --surface:#0E1B36; --plate:rgba(5,11,28,.88); --on-accent:#08122A; --panel:rgba(5,11,28,.86); --plate-soft:rgba(5,11,28,.84); --hot:#FFB347; --shadow:rgba(0,0,0,.4);
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -57,7 +57,7 @@ a{color:inherit}
 .hero h1 .d{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.01em}
 .hero h1 em{font-family:var(--pixserif);font-style:normal;font-size:1.12em;color:var(--accent);white-space:nowrap}
 .hero h1 .l2{display:block;padding-left:clamp(1.25rem,11vw,9.5rem)}
-.intro{font-size:clamp(1.4rem,3.2vw,1.75rem);line-height:1.32;max-width:33em;text-indent:3.5em;margin:2.5rem 0 0 clamp(0rem,6vw,5.5rem)}
+.intro{font-size:clamp(1.4rem,3.2vw,1.75rem);line-height:1.32;max-width:33em;text-indent:3.5em;margin:2.5rem 0 0 clamp(0rem,6vw,5.5rem);padding:1rem 1.25rem;background:var(--plate-soft);border:2px solid var(--lav2);box-shadow:6px 6px 0 var(--lav2)}
 
 /* route */
 .route{list-style:none;margin:4.5rem 0 0;padding:0;display:grid}

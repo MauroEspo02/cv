@@ -24,15 +24,15 @@
   };
   const NIGHT = {
     night: true,
-    sky: ["#08122A", "#0A1631", "#0F2042", "#152B55", "#1D3866", "#284673"],
-    orb: "#F6F2DA", orb2: "#E4DFC2", orbHalo: "#2E4C7A", orbSpot: "#D8D2B2",
-    far: "#1B3049", far2: "#14263B", farLit: "#243D5C", ridge: "#30507A", green: "#1A3340", green2: "#152A36",
-    sea: "#163663", sea2: "#102A50", sea3: "#0B1F3E", foam: "#3D6A9E", glint: "#F6F2DA",
-    coast: "#13243A", win: "#FFD27A", light: ["#FFD27A", "#FFE9B0", "#FFC15A"],
+    sky: ["#050B1C", "#060E22", "#0A1630", "#0F1F40", "#15294F", "#1D355E"],
+    orb: "#F6F2DA", orb2: "#E4DFC2", orbHalo: "#1F3558", orbSpot: "#D8D2B2",
+    far: "#132438", far2: "#0E1C2E", farLit: "#1B3049", ridge: "#26446A", green: "#122733", green2: "#0E202B",
+    sea: "#0F2649", sea2: "#0B1E3C", sea3: "#07152C", foam: "#2E5585", glint: "#F6F2DA",
+    coast: "#0D1A2B", win: "#FFD27A", light: ["#FFD27A", "#FFE9B0", "#FFC15A"],
     castle: "#7A6A48", castleLit: "#B39A63",
     pine: "#10261F", pine2: "#0B1C17", pineLit: "#1A3A2D", trunk: "#0B1C17",
-    smoke: "#33507A", boat: "#C9D6E6", boatRed: "#B8443F", sail: "#DCE5F0", sailInk: "#14263B", lantern: "#FFD27A",
-    rail: "#2C4260", railDark: "#1C2E45", post: "#0F1C2E", lamp: "#FFE3A0"
+    smoke: "#24395A", boat: "#C9D6E6", boatRed: "#B8443F", sail: "#DCE5F0", sailInk: "#14263B", lantern: "#FFD27A",
+    rail: "#1F3048", railDark: "#142234", post: "#0A1422", lamp: "#FFE3A0"
   };
   let C = DAY;
 
@@ -108,7 +108,7 @@
       for (let x = 0; x < W; x++) set(d, x, y, dith(x, y, f) ? c1 : c0);
     }
     if (C.night) {
-      const n = Math.round(W * horizon / 160);
+      const n = Math.round(W * horizon / 380);
       for (let i = 0; i < n; i++) {
         const x = Math.floor(rnd(i * 1.7) * W), y = Math.floor(rnd(i * 2.9 + 5) * horizon * .8);
         stars.push([x, y, rnd(i * 4.1) > .92]);
