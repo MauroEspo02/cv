@@ -14,7 +14,7 @@
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
   --accent:#1D5C3A; --accent-2:#134229; --lav:#E5F0E8; --lav2:#C9DFD0; --pink:#FFE3B8; --rule:#D9E7DD;
-  --surface:#FFFFFF; --on-accent:#FFFFFF; --panel:rgba(255,255,255,.62); --hot:#E8504A; --shadow:rgba(29,92,58,.16);
+  --surface:#FFFFFF; --plate:rgba(255,255,255,.9); --on-accent:#FFFFFF; --panel:rgba(255,255,255,.62); --hot:#E8504A; --shadow:rgba(29,92,58,.16);
   --display:"Pixelify Sans","Tektur","Courier New",monospace;
   --pixserif:"Jacquarda Bastarda 9","EB Garamond",Georgia,serif;
   --serif:"EB Garamond",Garamond,"Times New Roman",Georgia,serif;
@@ -26,7 +26,7 @@
 :root[data-theme="dark"]{
   --bg:#08122A; --ink:#EEF3EF; --muted:#A9B8C9;
   --accent:#7FD19B; --accent-2:#A5E3B9; --lav:#16284A; --lav2:#2A4268; --rule:#1E3354;
-  --surface:#0E1B36; --on-accent:#08122A; --panel:rgba(8,18,42,.64); --hot:#FFB347; --shadow:rgba(0,0,0,.4);
+  --surface:#0E1B36; --plate:rgba(8,18,42,.88); --on-accent:#08122A; --panel:rgba(8,18,42,.64); --hot:#FFB347; --shadow:rgba(0,0,0,.4);
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -73,8 +73,8 @@ a{color:inherit}
 .route .seg{position:absolute;z-index:1;top:7px;left:50%;width:100%;height:4px;background:var(--accent);transform-origin:left;animation:draw .9s steps(12) var(--seg-delay,0s) both}
 .route .seg.dash{background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 16px);background-size:16px 100%;animation:draw .9s steps(12) var(--seg-delay,0s) both,march .8s steps(4) infinite}
 .route .traveler{position:absolute;top:50%;left:0;width:8px;height:8px;background:var(--hot);transform:translate(-50%,-50%);animation:travel 3.4s steps(28) 2s infinite both}
-.route .city{display:block;font-family:var(--display);text-transform:uppercase;font-size:clamp(.9rem,1.7vw,1.15rem);margin-top:.75rem}
-.route .when{display:block;font-style:italic;color:var(--muted);font-size:1.05rem}
+.route .city{display:block;width:fit-content;margin:.75rem auto 0;padding:.2rem .45rem 0;background:var(--plate);font-family:var(--display);text-transform:uppercase;font-size:clamp(.9rem,1.7vw,1.15rem)}
+.route .when{display:block;width:fit-content;margin:0 auto;padding:0 .45rem .15rem;background:var(--plate);font-style:italic;color:var(--muted);font-size:1.05rem}
 .ell{display:inline-block;width:1.1em;text-align:left}
 .ell::after{content:"...";animation:ell 1.6s steps(1) infinite}
 @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -189,8 +189,8 @@ html.intro-on,html.intro-on body{overflow:hidden}
   .route{grid-template-columns:1fr!important;margin-top:3.5rem}
   .route li{text-align:left;display:grid;grid-template-columns:2.6rem 1fr;padding-bottom:1.8rem;gap:0 .2rem}
   .route .dot{margin:.2rem 0 0}
-  .route .city{margin-top:0;font-size:1.15rem}
-  .route .when{grid-column:2;font-size:1.1rem}
+  .route .city{margin:0;font-size:1.15rem}
+  .route .when{grid-column:2;margin:0;font-size:1.1rem}
   .route .seg{top:calc(.2rem + 9px);left:7px;width:4px;height:100%;transform-origin:top;animation-name:drawv}
   .route .seg.dash{background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 16px);background-size:100% 16px;animation:drawv .9s cubic-bezier(.6,0,.2,1) var(--seg-delay,0s) both,marchv .8s linear infinite}
   .route .traveler{left:50%;top:0;animation-name:travelv}
