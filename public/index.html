@@ -8,7 +8,7 @@
 <title>Mauro Esposito · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Tektur:wght@400;500&family=Silkscreen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Tektur:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
@@ -74,7 +74,6 @@ a{color:inherit}
 /* Napoli pixelata: fixed generative backdrop (see /napoli.js) */
 #napoli{position:fixed;left:0;top:0;z-index:0;pointer-events:none;image-rendering:pixelated;image-rendering:crisp-edges}
 main.wrap{position:relative;z-index:1}
-.hero h1,.hero .intro,.route .city,.route .when{text-shadow:0 0 .4em #fff,0 0 .15em #fff,0 0 .08em #fff}
 
 /* intro caschetto (see /intro.js), only on the first visit of a session */
 html.intro-on,html.intro-on body{overflow:hidden}
@@ -84,7 +83,7 @@ html.intro-on,html.intro-on body{overflow:hidden}
 #introBlocks{display:flex;gap:4px}
 #introBlocks i{display:block;width:10px;height:10px;background:var(--lav)}
 #introBlocks i.on{background:var(--violet)}
-#introLine{font:400 12px/1 "Silkscreen","Courier New",monospace;letter-spacing:.06em;text-transform:uppercase;min-height:1em}
+#introLine{font:400 13px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;min-height:1em}
 #introLine::after{content:"_";color:var(--violet);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 #introVeil{position:fixed;left:0;top:0;z-index:101;pointer-events:none;image-rendering:pixelated}
