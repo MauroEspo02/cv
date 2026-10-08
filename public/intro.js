@@ -1,12 +1,8 @@
 /* Intro "caschetto": pixel-art bob spinning while the site loads.
-   Shown once per browser session. Needs #bobIntro markup + /img/caschetto.png. */
+   Plays on every load; a click or any key skips it. Needs #bobIntro markup + /img/caschetto.png. */
 (() => {
   const intro = document.getElementById("bobIntro");
   if (!intro) return;
-  let seen = false;
-  try { seen = sessionStorage.getItem("me-intro") === "1"; } catch (e) {}
-  if (seen) { intro.remove(); return; }
-  try { sessionStorage.setItem("me-intro", "1"); } catch (e) {}
   document.documentElement.classList.add("intro-on");
 
   const FRAMES = 24, W = 96, H = 96;
@@ -44,7 +40,7 @@
     for (let y = -ry; y <= ry; y++) for (let x = -rx; x <= rx; x++) {
       const d = (x * x) / (rx * rx) + (y * y) / (ry * ry);
       if (d > 1 || (d > .45 && (x + y) % 2)) continue;
-      ctx.fillStyle = d < .45 ? "#E3DDF2" : "#ECE8F7";
+      ctx.fillStyle = document.documentElement.dataset.theme === "dark" ? (d < .45 ? "#1A2C52" : "#13234A") : (d < .45 ? "#DCE9E0" : "#E8F1EB");
       ctx.fillRect(cx + x, cy + y, 1, 1);
     }
   }
@@ -93,8 +89,8 @@
     const cols = Math.ceil(innerWidth / cell), rows = Math.ceil(innerHeight / cell);
     veil.width = cols; veil.height = rows;
     veil.style.width = cols * cell + "px"; veil.style.height = rows * cell + "px";
-    const v = veil.getContext("2d"); v.fillStyle = "#ffffff"; v.fillRect(0, 0, cols, rows);
-    veil.hidden = false; intro.remove();
+    const v = veil.getContext("2d"); v.fillStyle = getComputedStyle(intro).backgroundColor || "#ffffff"; v.fillRect(0, 0, cols, rows);
+    veil.hidden = false; intro.remove(); removeEventListener("keydown", skip);
     document.documentElement.classList.remove("intro-on");
     const order = [...Array(cols * rows).keys()].sort(() => Math.random() - .5);
     const dur = reduce ? 1 : 650, start = performance.now(); let i = 0;
@@ -104,5 +100,9 @@
       if (k < 1) requestAnimationFrame(step); else veil.remove();
     })(start);
   }
+  // skip: jump straight to the exit
+  function skip() { if (phase === "load") { shown = 100; pageLoaded = true; t0 = performance.now() - MIN_MS; phase = "spin"; exitT = performance.now() - 600; } }
+  intro.addEventListener("click", skip);
+  addEventListener("keydown", skip);
   requestAnimationFrame(tick);
 })();
