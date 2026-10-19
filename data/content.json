@@ -128,6 +128,7 @@
   ],
   "work": [
     {
+      "slug": "beyond-2025-being-many",
       "year": "2025",
       "title": {
         "en": "BEYOND 2025: Being Many",
@@ -158,18 +159,19 @@
       }
     },
     {
-      "year": "2020–2026",
+      "slug": "pullme-up",
+      "year": "2020–",
       "title": {
-        "en": "Ten independent restaurants",
-        "it": "Dieci ristoranti indipendenti"
+        "en": "PULLME UP",
+        "it": "PULLME UP"
       },
       "kind": {
-        "en": "Social media management",
-        "it": "Social media management"
+        "en": "Social media, SEO and websites",
+        "it": "Social, SEO e siti web"
       },
       "text": {
-        "en": "Photos, videos, graphics and editorial plans on Meta platforms, shaped around each restaurant's identity and built together with the owners.",
-        "it": "Foto, video, grafiche e piani editoriali sulle piattaforme Meta, costruiti sull'identità di ciascun ristorante insieme ai titolari."
+        "en": "What I run with my business partner: social media and Meta campaigns, SEO, websites and content. Among the clients, ten independent restaurants, with photos, videos, graphics and editorial plans shaped around each one's identity.",
+        "it": "Quello che porto avanti con il mio socio: gestione dei social e campagne Meta, SEO, siti e contenuti. Tra i clienti, dieci ristoranti indipendenti, con foto, video, grafiche e piani editoriali costruiti sull'identità di ciascuno."
       }
     },
     {

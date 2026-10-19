@@ -11,7 +11,7 @@
 <title>Mauro Esposito · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
@@ -147,12 +147,35 @@ html.intro-on,html.intro-on body{overflow:hidden}
 
 /* work */
 .works{list-style:none;margin:0;padding:0}
-.works li{display:grid;grid-template-columns:9rem 1fr;gap:.3rem 2rem;padding:1.6rem 0;border-bottom:1.5px solid var(--rule)}
-.works li:first-child{padding-top:.4rem}
+.works>li{display:grid;grid-template-columns:9rem 1fr;gap:.3rem 2rem;padding:1.6rem 0;border-bottom:1.5px solid var(--rule)}
+.works>li:first-child{padding-top:.4rem}
+.works>li>div{min-width:0}
 .works .yr{font:400 1rem/1.6 var(--display);color:var(--accent)}
 .works h4{font:400 clamp(1.4rem,2.6vw,1.9rem)/1.15 var(--display);margin:0}
 .works .kind{font-style:italic;font-size:1.25rem;margin:.2rem 0 .45rem}
 .works p{margin:0;max-width:40em;font-size:1.25rem}
+
+/* a client's own logo stands in for the title, and links to their site */
+.works .brand{display:inline-block;position:relative;overflow:hidden;isolation:isolate;
+  padding:.55rem .95rem .6rem;border-radius:.55rem;background:#111434;color:#F2F3F7;text-decoration:none;
+  font:400 clamp(1.5rem,3vw,2.1rem)/1 "Anton",Impact,"Arial Narrow",sans-serif;letter-spacing:.012em;
+  transition:transform .18s ease,box-shadow .18s ease}
+.works .brand sup{font-size:.56em;top:-.62em;letter-spacing:.02em}
+.works .brand::after{content:"";position:absolute;z-index:1;top:-70%;bottom:-70%;left:-60%;width:34%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.72),transparent);transform:skewX(-18deg);
+  animation:sheen 5s cubic-bezier(.4,0,.3,1) infinite}
+.works .brand:hover,.works .brand:focus-visible{transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow)}
+.works .brand:hover::after{animation-duration:1.4s}
+:root[data-theme="dark"] .works .brand{box-shadow:0 0 0 1.5px var(--lav2)}
+@keyframes sheen{0%,70%{left:-60%}100%{left:135%}}
+
+/* photographs from an event, below its entry */
+.shots{list-style:none;max-width:100%;display:flex;gap:.6rem;margin:1.1rem 0 .2rem;padding:0 0 .5rem;
+  overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:thin}
+.shots li{flex:0 0 clamp(7.5rem,21%,10.5rem);scroll-snap-align:start}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;
+  border:1.5px solid var(--rule);border-radius:.5rem;background:var(--lav);transition:transform .2s ease}
+.shots img:hover{transform:scale(1.03)}
 
 /* skills */
 .skillgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem 4rem}
@@ -201,7 +224,8 @@ html.intro-on,html.intro-on body{overflow:hidden}
   .proj{grid-template-columns:1fr}
   .intro{text-indent:2em;margin-left:0}
   .about,.skillgrid{grid-template-columns:1fr}
-  .works li{grid-template-columns:1fr}
+  .works>li{grid-template-columns:1fr}
+  .shots li{flex:0 0 8.5rem}
 }
 /* touch screens: no hover, so tool names stay visible next to the icons */
 @media (hover:none){
@@ -352,6 +376,26 @@ const UI = {
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $ = id => document.getElementById(id);
 
+/* Logos and photographs that belong to a work entry, matched by its slug
+   (the "slug" field in the content, or the English title turned into one). */
+const slugify = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+  .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+const WORK_EXTRA = {
+  "pullme-up": {
+    brand: { url: "https://www.pullmeup.org", mark: 'PULLME<sup>UP↑</sup>' }
+  },
+  "beyond-2025-being-many": {
+    shots: [
+      { src: "/img/work/beyond-1.jpg", alt: { en: "The stand set up under the trees, with two tables and bunting across the avenue", it: "Lo stand allestito sotto gli alberi, con due tavoli e le bandierine lungo il viale" } },
+      { src: "/img/work/beyond-2.jpg", alt: { en: "Printed cards with hand-drawn flowers and the themes of the conference", it: "Le carte stampate con i fiori disegnati a mano e i temi della conferenza" } },
+      { src: "/img/work/beyond-3.jpg", alt: { en: "A t-shirt screen-printed with the BEYOND Torino 2025 stencil", it: "Una t-shirt stampata a stencil con la scritta BEYOND Torino 2025" } },
+      { src: "/img/work/beyond-4.jpg", alt: { en: "People gathered around the stand during the conference", it: "Il pubblico raccolto intorno allo stand durante la conferenza" } },
+      { src: "/img/work/beyond-5.jpg", alt: { en: "The evening set above the city, with blue neon over the Turin skyline", it: "Il set serale sopra la città, con il neon blu e Torino sullo sfondo" } }
+    ]
+  }
+};
+
 let DATA = null;
 
 function render(lang){
@@ -374,7 +418,16 @@ function render(lang){
   $("expList").innerHTML = orgList(DATA.experience);
   $("eduList").innerHTML = orgList(DATA.education);
 
-  $("workList").innerHTML = DATA.work.map(w => `<li><span class="yr">${esc(w.year)}</span><div><h4>${esc(w.title[lang])}</h4><div class="kind">${esc(w.kind[lang])}</div><p>${esc(w.text[lang])}</p></div></li>`).join("");
+  $("workList").innerHTML = DATA.work.map(w => {
+    const extra = WORK_EXTRA[w.slug || slugify(w.title.en)] || {};
+    const title = extra.brand
+      ? `<a class="brand" href="${esc(extra.brand.url)}" target="_blank" rel="noopener" aria-label="${esc(w.title[lang])} — ${UI[lang].visit}">${extra.brand.mark}</a>`
+      : esc(w.title[lang]);
+    const shots = extra.shots
+      ? `<ul class="shots">${extra.shots.map(s => `<li><img src="${esc(s.src)}" alt="${esc(s.alt[lang])}" loading="lazy" decoding="async" width="900" height="900"></li>`).join("")}</ul>`
+      : "";
+    return `<li><span class="yr">${esc(w.year)}</span><div><h4>${title}</h4><div class="kind">${esc(w.kind[lang])}</div><p>${esc(w.text[lang])}</p>${shots}</div></li>`;
+  }).join("");
 
   renderProjects(lang);
   renderPassions(lang);
