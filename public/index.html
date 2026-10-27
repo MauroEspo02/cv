@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
+<script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;
+let v;try{v=localStorage.getItem("me-scene")}catch(e){}document.documentElement.dataset.scene=v==="pixel"?"pixel":"clean"})()</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Mauro Esposito · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
@@ -47,6 +48,7 @@ a{color:inherit}
 .lang button:hover{background:var(--lav)}
 .lang button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
 
+.lang .scene{font:400 .95rem/1 var(--display);letter-spacing:.02em}
 .lang .theme{display:grid;place-items:center;padding:.3rem .45rem}
 .lang .theme svg{width:1.15rem;height:1.15rem;shape-rendering:crispEdges;fill:currentColor}
 .lang .theme .sun{display:none}
@@ -245,6 +247,85 @@ html.intro-on,html.intro-on body{overflow:hidden}
 @keyframes marchv{to{background-position:0 16px}}
 @keyframes travelv{0%{top:0;opacity:0}15%,80%{opacity:1}100%{top:100%;opacity:0}}
 
+/* tutto incolonnato al centro, a ogni larghezza */
+.hero{text-align:center}
+.hero h1{text-wrap:balance}
+.hero h1 .l2{padding-left:0}
+.intro{margin:2.5rem auto 0;text-indent:0;text-align:center}
+.route{max-width:64rem;margin:4rem auto 0}
+.links{margin:4.5rem auto 10rem;text-align:left}
+@media (max-width:760px){
+  .route{width:fit-content;margin-left:auto;margin-right:auto}   /* la linea resta verticale, ma al centro */
+}
+
+
+/* ---- versione pulita: nessuna veduta, caratteri morbidi ---- */
+body[data-scene="clean"] #napoli{display:none}
+body[data-scene="clean"]{
+  --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pixserif:"EB Garamond",Georgia,serif;
+  background:
+    radial-gradient(60rem 36rem at 78% -10%, var(--lav), transparent 70%),
+    linear-gradient(180deg, var(--surface) 0%, var(--lav) 100%);
+  background-attachment:fixed;
+}
+body[data-scene="clean"] .hero h1 em{font-style:italic}
+body[data-scene="clean"] .intro,
+body[data-scene="clean"] .links,
+body[data-scene="clean"] .panel .plate{border-width:0;border-radius:1rem;box-shadow:0 14px 40px rgba(20,40,60,.14)}
+body[data-scene="clean"] .route .dot::before,
+body[data-scene="clean"] .route .dot::after{clip-path:none;border-radius:50%}
+body[data-scene="clean"] .route .city,
+body[data-scene="clean"] .route .when{border-radius:.35rem}
+body[data-scene="clean"] .nav,
+body[data-scene="clean"] .lang{border-width:0;box-shadow:0 10px 30px rgba(20,40,60,.18)}
+body[data-scene="clean"] .tile{border-radius:.9rem}
+/* l'omino sul lungomare */
+.stagewalk{position:fixed;left:0;right:0;bottom:calc(max(10px,2.1vh) + env(safe-area-inset-bottom,0px));z-index:35;height:0;pointer-events:none}
+.omino{position:absolute;bottom:0;left:0;will-change:transform}
+.omino .guy{display:block;shape-rendering:crispEdges}
+
+.omino .leg{transform-box:fill-box}
+.omino.walking .leg0{animation:stepA .5s steps(4,end) infinite}
+.omino.walking .leg1{animation:stepB .5s steps(4,end) infinite}
+.omino.walking .guy{animation:bob .5s steps(2,end) infinite}
+@keyframes stepA{0%,100%{transform:rotate(16deg)}50%{transform:rotate(-16deg)}}
+@keyframes stepB{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+
+/* riquadro di dialogo, alla maniera dei giochi portatili */
+.dlg{position:fixed;z-index:55;left:50%;transform:translateX(-50%);
+  bottom:calc(5.6rem + env(safe-area-inset-bottom,0px));
+  width:min(54rem,calc(100vw - 2rem));display:flex;align-items:stretch;cursor:pointer;
+  --parch:#F7E7C1; --parch2:#FFF6DF; --ink:#3B2A17; --gold:#C9A253; --wood:#6B4A2A;
+  animation:dlgin .16s steps(3,end) both}
+.dlg-box{flex:1;min-width:0;position:relative;background:var(--parch);
+  border:4px solid var(--ink);box-shadow:inset 0 0 0 3px var(--gold),0 10px 30px rgba(0,0,0,.35);
+  padding:1.5rem 1.1rem 1.15rem 1.25rem}
+.dlg-name{position:absolute;top:-1.05rem;left:.9rem;padding:.2rem .85rem;
+  background:var(--wood);color:var(--parch2);border:3px solid var(--ink);
+  box-shadow:inset 0 0 0 2px var(--gold);
+  font-family:var(--display);font-size:clamp(.85rem,2.4vw,1.05rem);line-height:1.5;letter-spacing:.02em}
+.dlg-text{margin:0;color:var(--ink);font-family:var(--display);
+  font-size:clamp(1rem,2.9vw,1.45rem);line-height:1.35;min-height:1.35em}
+.dlg-next{display:inline-block;width:0;height:0;margin-left:.5rem;vertical-align:.1em;
+  border:.42em solid transparent;border-left-color:var(--ink);opacity:0}
+.dlg.ready .dlg-next{animation:blink 1s steps(1) infinite}
+.dlg-face{flex:0 0 auto;width:clamp(5.5rem,18vw,9rem);display:grid;place-items:end center;margin-left:-.6rem}
+.dlg-face img,.dlg-face svg{display:block;width:100%;height:auto;margin-bottom:-.4rem;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.dlg-face .face-px{image-rendering:pixelated}
+
+@keyframes dlgin{from{transform:translateX(-50%) scale(.94);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+@media (max-width:620px){
+  .dlg{bottom:calc(5rem + env(safe-area-inset-bottom,0px))}
+  .dlg-box{padding:1.35rem .8rem .9rem .9rem}
+  .hero{padding-top:clamp(7rem,19vh,9rem)}
+}
+@media (prefers-reduced-motion:reduce){.omino,.omino *{animation:none!important;transition:none!important}}
+
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .ell::after{content:"..."}
@@ -266,6 +347,7 @@ html.intro-on,html.intro-on body{overflow:hidden}
 <div class="lang" role="group" aria-label="Language">
   <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
   <button type="button" data-set-lang="it" aria-pressed="false">IT</button>
+  <button type="button" class="scene" id="sceneBtn" aria-pressed="false">PX</button>
   <button type="button" class="theme" id="themeBtn" aria-label="Night mode" aria-pressed="false">
     <svg class="moon" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h3v1H3zM2 1h2v1H2zM1 2h2v1H1zM1 3h2v2H1zM1 5h2v1H1zM2 6h2v1H2zM3 7h3V6h1v1H6v1H3z"/></svg>
     <svg class="sun" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM3 2h2v1h1v2H5v1H3V5H2V3h1z"/></svg>
@@ -346,6 +428,7 @@ html.intro-on,html.intro-on body{overflow:hidden}
 </nav>
 
 <script src="/napoli.js" defer></script>
+<script src="/omino.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
@@ -429,6 +512,7 @@ function render(lang){
     return `<li><span class="yr">${esc(w.year)}</span><div><h4>${title}</h4><div class="kind">${esc(w.kind[lang])}</div><p>${esc(w.text[lang])}</p>${shots}</div></li>`;
   }).join("");
 
+  if (window.ominoScene) ominoScene.setLang(lang);
   renderProjects(lang);
   renderPassions(lang);
   $("doList").innerHTML = DATA.skills.do[lang].map(x => `<li>${esc(x)}</li>`).join("");
@@ -917,6 +1001,19 @@ function setTheme(t, save){
   if (window.napoliScene) napoliScene.refresh();
 }
 setTheme(document.documentElement.dataset.theme || "light", false);
+
+/* veduta di Napoli accesa o spenta; da spenta la pagina resta pulita */
+const sceneBtn = $("sceneBtn");
+function setScene(v, save) {
+  document.documentElement.dataset.scene = v;
+  document.body.dataset.scene = v;
+  sceneBtn.setAttribute("aria-pressed", v === "pixel");
+  sceneBtn.setAttribute("aria-label", v === "pixel" ? "Napoli a pixel" : "Pagina pulita");
+  if (save) { try { localStorage.setItem("me-scene", v); } catch (e) {} }
+  if (window.napoliScene) napoliScene.setEnabled(v === "pixel");
+}
+setScene(document.documentElement.dataset.scene === "pixel" ? "pixel" : "clean", false);
+sceneBtn.addEventListener("click", () => setScene(document.body.dataset.scene === "pixel" ? "clean" : "pixel", true));
 themeBtn.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true));
 
 fetch("/api/content")
