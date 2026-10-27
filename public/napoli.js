@@ -337,12 +337,19 @@
   }
 
   function applyTheme() { C = document.documentElement.dataset.theme === "dark" ? NIGHT : DAY; }
-  addEventListener("resize", () => { resize(); draw(); });
-  applyTheme(); resize(); draw();
-  if (!still) raf = requestAnimationFrame(tick);
-  document.addEventListener("visibilitychange", () => {
-    cancelAnimationFrame(raf);
-    if (!document.hidden && !still) raf = requestAnimationFrame(tick);
-  });
-  window.napoliScene = { refresh() { applyTheme(); paintStatic(); draw(); } };
+  let on = document.documentElement.dataset.scene !== "clean";
+  const run = () => { cancelAnimationFrame(raf); if (on && !still && !document.hidden) raf = requestAnimationFrame(tick); };
+  addEventListener("resize", () => { if (!on) return; resize(); draw(); });
+  applyTheme(); resize(); if (on) draw();
+  run();
+  document.addEventListener("visibilitychange", run);
+  window.napoliScene = {
+    refresh() { if (!on) return; applyTheme(); paintStatic(); draw(); },
+    setEnabled(v) {
+      if (on === v) return;
+      on = v;
+      if (on) { applyTheme(); resize(); draw(); } else ctx.clearRect(0, 0, W, H);
+      run();
+    }
+  };
 })();
