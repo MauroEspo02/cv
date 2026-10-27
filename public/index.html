@@ -294,6 +294,7 @@ body[data-scene="clean"] .tile{border-radius:.9rem}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 
 /* riquadro di dialogo, alla maniera dei giochi portatili */
+.dlg[hidden]{display:none}          /* display:flex qui sotto vincerebbe sul [hidden] del browser */
 .dlg{position:fixed;z-index:55;left:50%;transform:translateX(-50%);
   bottom:calc(5.6rem + env(safe-area-inset-bottom,0px));
   width:min(54rem,calc(100vw - 2rem));display:flex;align-items:stretch;cursor:pointer;
