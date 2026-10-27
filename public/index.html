@@ -253,7 +253,10 @@ html.intro-on,html.intro-on body{overflow:hidden}
 .hero h1 .l2{padding-left:0}
 .intro{margin:2.5rem auto 0;text-indent:0;text-align:center}
 .route{max-width:64rem;margin:4rem auto 0}
-.links{margin:4.5rem auto 10rem;text-align:left}
+.links{margin:4.5rem auto 10rem;text-align:left;cursor:grab;will-change:transform}
+.links.dragging{cursor:grabbing;user-select:none;box-shadow:10px 10px 0 var(--lav2)}
+body[data-scene="clean"] .links.dragging{box-shadow:0 22px 50px rgba(20,40,60,.22)}
+.links h2{touch-action:none}                 /* da telefono si prende per la scritta LINKS */
 @media (max-width:760px){
   .route{width:fit-content;margin-left:auto;margin-right:auto}   /* la linea resta verticale, ma al centro */
 }
@@ -1015,6 +1018,33 @@ function setScene(v, save) {
 }
 setScene(document.documentElement.dataset.scene === "pixel" ? "pixel" : "clean", false);
 sceneBtn.addEventListener("click", () => setScene(document.body.dataset.scene === "pixel" ? "clean" : "pixel", true));
+
+/* il riquadro Links si prende e si sposta; per rimetterlo a posto si ricarica */
+(() => {
+  const card = document.querySelector(".links");
+  if (!card) return;
+  const handle = card.querySelector("h2");
+  let x = 0, y = 0, sx = 0, sy = 0, on = false, moved = false;
+  card.addEventListener("pointerdown", e => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    if (e.pointerType !== "mouse" && !handle.contains(e.target)) return;   // sul telefono la pagina scorre
+    on = true; moved = false;
+    sx = e.clientX - x; sy = e.clientY - y;
+    card.setPointerCapture(e.pointerId);
+    card.classList.add("dragging");
+  });
+  card.addEventListener("pointermove", e => {
+    if (!on) return;
+    x = e.clientX - sx; y = e.clientY - sy;
+    if (Math.abs(x) > 4 || Math.abs(y) > 4) moved = true;
+    card.style.transform = `translate(${x}px, ${y}px)`;
+  });
+  const stop = () => { if (on) { on = false; card.classList.remove("dragging"); } };
+  card.addEventListener("pointerup", stop);
+  card.addEventListener("pointercancel", stop);
+  card.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  card.addEventListener("dragstart", e => e.preventDefault());
+})();
 themeBtn.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true));
 
 fetch("/api/content")
