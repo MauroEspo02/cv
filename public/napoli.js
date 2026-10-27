@@ -339,7 +339,10 @@
   function applyTheme() { C = document.documentElement.dataset.theme === "dark" ? NIGHT : DAY; }
   let on = document.documentElement.dataset.scene !== "clean";
   const run = () => { cancelAnimationFrame(raf); if (on && !still && !document.hidden) raf = requestAnimationFrame(tick); };
-  addEventListener("resize", () => { if (!on) return; resize(); draw(); });
+  const onResize = () => { if (!on) return; resize(); draw(); };
+  addEventListener("resize", onResize);
+  addEventListener("orientationchange", onResize);
+  if (window.visualViewport) visualViewport.addEventListener("resize", onResize);
   applyTheme(); resize(); if (on) draw();
   run();
   document.addEventListener("visibilitychange", run);
