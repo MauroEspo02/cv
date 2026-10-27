@@ -83,8 +83,8 @@
   function paintStatic() {
     const id = ctx.createImageData(W, H), d = id.data;
     const small = W < 140;
-    horizon = Math.round(H * (small ? .74 : .72));
-    const vx = small ? W * .58 : W * .62, vw = Math.max(W * .62, 110), vh = Math.min(H * .2, vw * .2);
+    horizon = Math.round(H * (small ? .78 : .76));
+    const vx = small ? W * .58 : W * .62, vw = Math.max(W * .52, 95), vh = Math.min(H * .155, vw * .17);
     const ry = H - Math.max(7, Math.round(H * .045));
     G = { small, vx, vw, vh, ry,
           orbX: Math.round(W * (C.night ? (small ? .62 : .86) : .2)),
@@ -108,7 +108,7 @@
       for (let x = 0; x < W; x++) set(d, x, y, dith(x, y, f) ? c1 : c0);
     }
     if (C.night) {
-      const n = Math.round(W * horizon / 380);
+      const n = Math.round(W * horizon / 620);
       for (let i = 0; i < n; i++) {
         const x = Math.floor(rnd(i * 1.7) * W), y = Math.floor(rnd(i * 2.9 + 5) * horizon * .8);
         stars.push([x, y, rnd(i * 4.1) > .92]);
@@ -149,7 +149,7 @@
         if (y === top) c = x > edge ? C.ridge : C.far;
         set(d, x, y, c);
         // towns on the lower slopes (Ercolano, Torre del Greco...) light up at night
-        if (C.night && above < .32 && rnd(x * 13.1 + y * 7.7) > (above < .12 ? .82 : .93)) lights.push([x, y]);
+        if (C.night && above < .32 && rnd(x * 13.1 + y * 7.7) > (above < .12 ? .9 : .97)) lights.push([x, y]);
       }
     }
 
@@ -159,7 +159,7 @@
       const hh = 1 + Math.round(rnd(Math.floor(x / 2)) * 2);
       for (let y = horizon - hh; y < horizon; y++) {
         set(d, x, y, C.coast);
-        if (C.night && rnd(x * 5.3 + y * 3.1) > .55) lights.push([x, y]);
+        if (C.night && rnd(x * 5.3 + y * 3.1) > .78) lights.push([x, y]);
       }
       if (rnd(x * 7.3) > .7) set(d, x, horizon - hh - 1, C.coast);
     }
@@ -172,7 +172,7 @@
     }
 
     // Castel dell'Ovo on its rock (floodlit at night)
-    const cx0 = Math.round(small ? W * .08 : W * .3), cy = horizon + Math.round((H - horizon) * .28), cw = Math.max(22, Math.round(W * .07));
+    const cx0 = Math.round(small ? W * .08 : W * .3), cy = horizon + Math.round((H - horizon) * .28), cw = Math.max(18, Math.round(W * .055));
     for (let x = -2; x < cw + 2; x++) for (let y = 0; y < 3; y++) set(d, cx0 + x, cy + y, C.coast);
     for (let x = 0; x < cw; x++) for (let y = 1; y < 7; y++) set(d, cx0 + x, cy - y, (x < cw * .45) ? C.castleLit : C.castle);
     for (let x = 0; x < cw; x += 3) set(d, cx0 + x, cy - 7, C.castle);
@@ -188,7 +188,7 @@
       for (let y = ry + 2; y < H; y++) set(d, x, y, (x % 6 === 0 || x % 6 === 1) ? C.rail : (y > H - 3 ? C.railDark : (dith(x, y, .5) ? C.sea3 : C.sea2)));
     }
     for (let x = 0; x < W; x++) set(d, x, H - 2, C.railDark), set(d, x, H - 1, C.railDark);
-    const gap = small ? 34 : 44;
+    const gap = small ? 52 : 76;
     G.lamps = [];
     for (let x = Math.round(gap * .6); x < W; x += gap) {
       for (let y = ry - 9; y < ry; y++) set(d, x, y, C.post);
@@ -199,7 +199,7 @@
 
     // Posillipo umbrella pine, leaning in from the left edge (not on phones: it sits under the text)
     if (!small) {
-      const canW = Math.max(40, Math.round(W * .2)), canH = Math.max(10, Math.round(canW * .2));
+      const canW = Math.max(32, Math.round(W * .145)), canH = Math.max(8, Math.round(canW * .2));
       const px0 = Math.round(W * .015);
       const ptop = horizon - Math.round((H - horizon) * .2) - canH * 2;
       const trunkBase = px0 + Math.round(canW * .32), trunkTop = px0 + Math.round(canW * .55);
@@ -213,7 +213,7 @@
         const bx = trunkTop + (b ? 1 : -1) * Math.round(i * 1.4), by = ptop + canH - Math.round(i * .45);
         set(d, bx, by + canH * .25, C.trunk);
       }
-      const clusters = [[.5, 0, 1], [.2, .25, .55], [.8, .2, .6], [.38, -.15, .5], [.66, -.1, .55]];
+      const clusters = [[.5, 0, 1], [.24, .22, .55], [.78, .16, .55]];
       clusters.forEach(([cu, cvv, cs], ci) => {
         const ccx = px0 + canW * cu, ccy = ptop + canH * (.55 + cvv), rx = canW * .5 * cs, ryy = canH * .55 * cs + 2;
         for (let y = Math.floor(ccy - ryy); y <= ccy + ryy; y++) for (let x = Math.floor(ccx - rx); x <= ccx + rx; x++) {
@@ -258,13 +258,13 @@
         ctx.fillStyle = C.light[i % 3]; px(x, y);
       });
       // lamp glow on the lungomare
-      ctx.fillStyle = "rgba(255,210,122,.18)";
-      G.lamps.forEach(x => { px(x - 3, G.ry - 12, 7, 6); px(x - 2, G.ry - 13, 5, 8); });
+      ctx.fillStyle = "rgba(255,210,122,.1)";
+      G.lamps.forEach(x => { px(x - 2, G.ry - 11, 5, 4); px(x - 1, G.ry - 12, 3, 6); });
     }
 
     // glints on the water
     ctx.fillStyle = C.foam;
-    for (let i = 0; i < Math.round(W * seaH / 260); i++) {
+    for (let i = 0; i < Math.round(W * seaH / 420); i++) {
       const y = horizon + 2 + Math.floor(rnd(i * 3.1) * (seaH - 12));
       const len = 2 + Math.floor(rnd(i * 5.7) * 4);
       const x = Math.floor((rnd(i * 9.2) * W + frame * (.4 + rnd(i) * .6)) % (W + 10)) - 5;
@@ -272,16 +272,17 @@
     }
     // light path under the sun / moon
     ctx.fillStyle = C.glint;
-    const sx = G.orbX, rows = C.night ? 11 : 7;
+    const sx = G.orbX, rows = C.night ? 5 : 4;
     for (let k = 0; k < rows; k++) {
       const y = horizon + 2 + k * 3;
-      const w = (C.night ? 4 : 6) - Math.floor(k * .4) + ((frame + k) % 3);
+      if (y >= G.ry - 1) break;                    // the path stays on the water
+      const w = (C.night ? 3 : 4) - Math.floor(k * .35) + ((frame + k) % 2);
       if (w > 1) px(sx - w + ((frame + k) % 2), y, w * 2 - 2, 1);
     }
     // smoke puffs off the crater
     const cx = Math.round(G.vx - G.vw / 2 + G.vw * .6), cy = Math.round(horizon - G.vh - 1);
     ctx.fillStyle = C.smoke;
-    for (let p = 0; p < 5; p++) {
+    for (let p = 0; p < 3; p++) {
       const age = (frame * .12 + p * 1.6) % 8;
       if (age > 6.5) continue;
       const r = age < 2 ? 1 : 2;
@@ -295,7 +296,7 @@
   // the gozzo "ENZO" crossing the gulf
   function boat(seaH) {
     const L = 30;
-    const by = horizon + Math.round(seaH * (G.small ? .5 : .55));
+    const by = horizon + Math.round(seaH * (G.small ? .44 : .46));
     const bx = Math.round(((frame * .35) % (W + L * 2)) - L);
     const bob = frame % 8 < 4 ? 0 : 1;
     const y0 = by + bob;
