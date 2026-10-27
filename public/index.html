@@ -100,7 +100,7 @@ a{color:inherit}
 .links .desc{display:block;font-size:1.2rem}
 
 /* Napoli pixelata: fixed generative backdrop (see /napoli.js) */
-#napoli{position:fixed;left:0;top:0;z-index:0;pointer-events:none;image-rendering:pixelated;image-rendering:crisp-edges}
+#napoli{position:fixed;left:0;top:0;z-index:0;pointer-events:none;image-rendering:pixelated;image-rendering:crisp-edges;min-width:100%;min-height:100%}
 main.wrap{position:relative;z-index:1}
 
 /* intro caschetto (see /intro.js): plays on every load, click or any key skips it */
@@ -1033,9 +1033,13 @@ sceneBtn.addEventListener("click", () => setScene(document.body.dataset.scene ==
     card.setPointerCapture(e.pointerId);
     card.classList.add("dragging");
   });
+  const clamp = (v, lo, hi) => hi < lo ? lo : Math.min(Math.max(v, lo), hi);
   card.addEventListener("pointermove", e => {
     if (!on) return;
-    x = e.clientX - sx; y = e.clientY - sy;
+    const r = card.getBoundingClientRect();
+    const baseL = r.left - x, baseT = r.top - y, m = 8;
+    x = clamp(e.clientX - sx, m - baseL, innerWidth - baseL - r.width - m);
+    y = clamp(e.clientY - sy, m - baseT, innerHeight - baseT - r.height - m);
     if (Math.abs(x) > 4 || Math.abs(y) > 4) moved = true;
     card.style.transform = `translate(${x}px, ${y}px)`;
   });
