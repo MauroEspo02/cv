@@ -50,7 +50,7 @@
 
   let W = 0, H = 0, PX = 6, horizon = 0, base = null;
   let G = null;                 // scene geometry shared by static + animated layers
-  let lights = [], stars = [];
+  let lights = [], stars = [], front = [];
 
   function resize() {
     PX = innerWidth < 600 ? 4 : innerWidth < 1400 ? 6 : 7;
@@ -83,8 +83,8 @@
   function paintStatic() {
     const id = ctx.createImageData(W, H), d = id.data;
     const small = W < 140;
-    horizon = Math.round(H * (small ? .78 : .76));
-    const vx = small ? W * .58 : W * .62, vw = Math.max(W * .52, 95), vh = Math.min(H * .155, vw * .17);
+    horizon = Math.round(H * (small ? .82 : .8));
+    const vx = small ? W * .58 : W * .62, vw = Math.max(W * .44, 80), vh = Math.min(H * .115, vw * .15);
     const ry = H - Math.max(7, Math.round(H * .045));
     G = { small, vx, vw, vh, ry,
           orbX: Math.round(W * (C.night ? (small ? .62 : .86) : .2)),
@@ -96,7 +96,7 @@
       if (u > .3 && u < .46) h += (rnd(Math.floor(x)) - .5) * .05;
       return Math.max(0, h) * vh;
     };
-    lights = []; stars = [];
+    lights = []; stars = []; front = [];
 
     // sky
     const S = C.sky, stops = [[0, S[0]], [.38, S[1]], [.55, S[2]], [.72, S[3]], [.88, S[4]], [1, S[5]]];
@@ -108,7 +108,7 @@
       for (let x = 0; x < W; x++) set(d, x, y, dith(x, y, f) ? c1 : c0);
     }
     if (C.night) {
-      const n = Math.round(W * horizon / 620);
+      const n = Math.round(W * horizon / 760);
       for (let i = 0; i < n; i++) {
         const x = Math.floor(rnd(i * 1.7) * W), y = Math.floor(rnd(i * 2.9 + 5) * horizon * .8);
         stars.push([x, y, rnd(i * 4.1) > .92]);
@@ -172,12 +172,12 @@
     }
 
     // Castel dell'Ovo on its rock (floodlit at night)
-    const cx0 = Math.round(small ? W * .08 : W * .3), cy = horizon + Math.round((H - horizon) * .28), cw = Math.max(18, Math.round(W * .055));
+    const cx0 = Math.round(small ? W * .08 : W * .3), cy = horizon + Math.round((H - horizon) * .28), cw = Math.max(15, Math.round(W * .044));
     for (let x = -2; x < cw + 2; x++) for (let y = 0; y < 3; y++) set(d, cx0 + x, cy + y, C.coast);
-    for (let x = 0; x < cw; x++) for (let y = 1; y < 7; y++) set(d, cx0 + x, cy - y, (x < cw * .45) ? C.castleLit : C.castle);
+    for (let x = 0; x < cw; x++) for (let y = 1; y < 7; y++) { set(d, cx0 + x, cy - y, (x < cw * .45) ? C.castleLit : C.castle); front.push([cx0 + x, cy - y]); }
     for (let x = 0; x < cw; x += 3) set(d, cx0 + x, cy - 7, C.castle);
     const tw = Math.round(cw * .62);
-    for (let x = tw; x < tw + 6; x++) for (let y = 7; y < 12; y++) set(d, cx0 + x, cy - y, C.castle);
+    for (let x = tw; x < tw + 6; x++) for (let y = 7; y < 12; y++) { set(d, cx0 + x, cy - y, C.castle); front.push([cx0 + x, cy - y]); }
     for (let x = tw; x < tw + 6; x += 2) set(d, cx0 + x, cy - 12, C.castle);
     for (let x = 3; x < cw - 2; x += 5) set(d, cx0 + x, cy - 4, C.win);
     if (C.night) for (let x = -2; x < cw + 2; x++) if (dith(cx0 + x, cy + 4, .5)) set(d, cx0 + x, cy + 4, C.castleLit); // reflection
@@ -188,18 +188,19 @@
       for (let y = ry + 2; y < H; y++) set(d, x, y, (x % 6 === 0 || x % 6 === 1) ? C.rail : (y > H - 3 ? C.railDark : (dith(x, y, .5) ? C.sea3 : C.sea2)));
     }
     for (let x = 0; x < W; x++) set(d, x, H - 2, C.railDark), set(d, x, H - 1, C.railDark);
-    const gap = small ? 52 : 76;
+    const gap = small ? 60 : 92;
     G.lamps = [];
     for (let x = Math.round(gap * .6); x < W; x += gap) {
-      for (let y = ry - 9; y < ry; y++) set(d, x, y, C.post);
+      for (let y = ry - 9; y < ry; y++) { set(d, x, y, C.post); front.push([x, y]); }
       set(d, x - 1, ry - 10, C.post); set(d, x + 1, ry - 10, C.post);
       set(d, x - 1, ry - 9, C.lamp); set(d, x + 1, ry - 9, C.lamp);
+      front.push([x - 1, ry - 10], [x + 1, ry - 10], [x - 1, ry - 9], [x + 1, ry - 9]);
       G.lamps.push(x);
     }
 
     // Posillipo umbrella pine, leaning in from the left edge (not on phones: it sits under the text)
     if (!small) {
-      const canW = Math.max(32, Math.round(W * .145)), canH = Math.max(8, Math.round(canW * .2));
+      const canW = Math.max(26, Math.round(W * .11)), canH = Math.max(7, Math.round(canW * .2));
       const px0 = Math.round(W * .015);
       const ptop = horizon - Math.round((H - horizon) * .2) - canH * 2;
       const trunkBase = px0 + Math.round(canW * .32), trunkTop = px0 + Math.round(canW * .55);
@@ -207,7 +208,7 @@
         const k = (y - (ptop + canH)) / (ry - ptop - canH);
         const tx = Math.round(trunkTop + (trunkBase - trunkTop) * k + Math.sin(k * Math.PI) * canW * .06);
         const twk = 2 + (k > .7 ? 1 : 0);
-        for (let w = 0; w < twk + 1; w++) set(d, tx + w, y, w === 0 ? C.pine : C.trunk);
+        for (let w = 0; w < twk + 1; w++) { set(d, tx + w, y, w === 0 ? C.pine : C.trunk); front.push([tx + w, y]); }
       }
       for (let b = 0; b < 2; b++) for (let i = 0; i < canH * 1.2; i++) {
         const bx = trunkTop + (b ? 1 : -1) * Math.round(i * 1.4), by = ptop + canH - Math.round(i * .45);
@@ -221,6 +222,7 @@
           if (e > 1 - rnd(x * 3.7 + ci) * .25) continue;
           const v = (y - (ccy - ryy)) / (2 * ryy);
           set(d, x, y, v < .4 ? (dith(x, y, .55) ? C.pineLit : C.pine) : v > .78 ? C.pine2 : C.pine);
+          front.push([x, y]);
         }
       });
     }
@@ -272,7 +274,7 @@
     }
     // light path under the sun / moon
     ctx.fillStyle = C.glint;
-    const sx = G.orbX, rows = C.night ? 5 : 4;
+    const sx = G.orbX, rows = C.night ? 3 : 3;
     for (let k = 0; k < rows; k++) {
       const y = horizon + 2 + k * 3;
       if (y >= G.ry - 1) break;                    // the path stays on the water
@@ -291,19 +293,37 @@
       px(ox - r, oy - r + 1, r * 2 + 1, r * 2 - 1);
     }
     boat(seaH);
+    restampFront();
+  }
+
+  // the gozzo sails behind the pine, the lamps and the castle: their pixels go back on top
+  function restampFront() {
+    if (!front.length || !boatBox) return;
+    const [bx0, by0, bx1, by1] = boatBox, d = base.data;
+    let last = "";
+    for (let i = 0; i < front.length; i++) {
+      const x = front[i][0], y = front[i][1];
+      if (x < bx0 || x > bx1 || y < by0 || y > by1) continue;
+      const k = (y * W + x) * 4;
+      const c = `rgb(${d[k]},${d[k + 1]},${d[k + 2]})`;
+      if (c !== last) { ctx.fillStyle = c; last = c; }
+      px(x, y);
+    }
   }
 
   // the gozzo "ENZO" crossing the gulf
+  let boatBox = null;
   function boat(seaH) {
-    const L = 30;
+    const L = 24;
     const by = horizon + Math.round(seaH * (G.small ? .44 : .46));
-    const bx = Math.round(((frame * .35) % (W + L * 2)) - L);
+    const bx = Math.round(((frame * .3) % (W + L * 2)) - L);
     const bob = frame % 8 < 4 ? 0 : 1;
     const y0 = by + bob;
+    boatBox = [bx - 7, y0 - 15, bx + L + 3, y0 + 5];
     // hull with raised bow and stern
     ctx.fillStyle = C.boat;
     px(bx, y0 - 1, 2, 1); px(bx + L - 2, y0 - 2, 2, 2);
-    px(bx, y0, L, 2); px(bx + 2, y0 + 2, L - 4, 1); px(bx + 4, y0 + 3, L - 8, 1);
+    px(bx, y0, L, 2); px(bx + 2, y0 + 2, L - 4, 1);
     ctx.fillStyle = C.boatRed; px(bx + 1, y0 + 1, L - 2, 1);
     // mast and sail with the name
     const sw = 23, sh = 9, sx0 = bx + Math.round((L - sw) / 2) - 1, sy0 = y0 - sh - 2;
@@ -311,9 +331,9 @@
     ctx.fillStyle = C.sail; px(sx0, sy0, sw, sh); px(sx0 + 1, sy0 - 1, sw - 1, 1);
     ctx.fillStyle = C.sailInk;
     "ENZO".split("").forEach((ch, i) => FONT[ch].forEach((row, ry) => [...row].forEach((b, rx) => { if (b === "1") px(sx0 + 2 + i * 5 + rx, sy0 + 2 + ry); })));
-    if (C.lantern) { ctx.fillStyle = C.lantern; px(bx + L - 2, y0 - 4, 1, 1); ctx.fillStyle = "rgba(255,210,122,.25)"; px(bx + L - 4, y0 - 6, 5, 5); }
+    if (C.lantern) { ctx.fillStyle = C.lantern; px(bx + L - 2, y0 - 3, 1, 1); }
     // wake
-    ctx.fillStyle = C.foam; px(bx - 3 - (frame % 2), y0 + 3, 3, 1); px(bx - 7 - (frame % 3), y0 + 2, 2, 1);
+    ctx.fillStyle = C.foam; px(bx - 3 - (frame % 2), y0 + 2, 3, 1); px(bx - 6 - (frame % 3), y0 + 1, 2, 1);
   }
 
   function applyTheme() { C = document.documentElement.dataset.theme === "dark" ? NIGHT : DAY; }
