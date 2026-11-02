@@ -12,7 +12,7 @@ let v;try{v=localStorage.getItem("me-scene")}catch(e){}document.documentElement.
 <title>Mauro Esposito · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;700;800;900&family=Caveat:wght@600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
@@ -262,27 +262,84 @@ body[data-scene="clean"] .links.dragging{box-shadow:0 22px 50px rgba(20,40,60,.2
 }
 
 
-/* ---- versione pulita: nessuna veduta, caratteri morbidi ---- */
+/* ---- versione pulita: niente veduta, bianco, un solo blu ---- */
 body[data-scene="clean"] #napoli{display:none}
 body[data-scene="clean"]{
-  --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --pixserif:"EB Garamond",Georgia,serif;
-  background:
-    radial-gradient(60rem 36rem at 78% -10%, var(--lav), transparent 70%),
-    linear-gradient(180deg, var(--surface) 0%, var(--lav) 100%);
-  background-attachment:fixed;
+  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
+  --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
+  --lav:#EDEDFF; --lav2:#D9D9FF; --rule:#E6E6EC; --surface:#FFFFFF;
+  --plate:transparent; --plate-soft:transparent; --panel:rgba(255,255,255,.97);
+  --hot:#FD9829; --shadow:rgba(12,12,40,.1);
+  --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pixserif:"Figtree",system-ui,sans-serif;
+  --serif:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
 }
-body[data-scene="clean"] .hero h1 em{font-style:italic}
-body[data-scene="clean"] .intro,
-body[data-scene="clean"] .links,
-body[data-scene="clean"] .panel .plate{border-width:0;border-radius:1rem;box-shadow:0 14px 40px rgba(20,40,60,.14)}
+:root[data-theme="dark"] body[data-scene="clean"]{
+  --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
+  --accent:#5A5AFF; --accent-2:#8C8CFF; --on-accent:#07070E;
+  --lav:#17172B; --lav2:#242445; --rule:#1E1E33; --surface:#0B0B12; --panel:rgba(11,11,18,.97);
+}
+
+/* titoli grandi, stretti, e una sola parola d'accento */
+body[data-scene="clean"] .hero{padding:clamp(7rem,20vh,11rem) 0 1rem}
+body[data-scene="clean"] .hero h1{font-weight:800;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(2.6rem,7.2vw,5.6rem)}
+body[data-scene="clean"] .hero h1 .d{font-weight:800;text-transform:none;letter-spacing:-.035em}
+body[data-scene="clean"] .hero h1 em{font-family:var(--display);font-style:normal;font-weight:800;
+  font-size:1em;color:var(--accent);letter-spacing:-.035em}
+body[data-scene="clean"] .intro{font-family:var(--display);font-weight:400;
+  font-size:clamp(1.1rem,2.2vw,1.45rem);line-height:1.5;color:var(--muted);
+  max-width:34em;padding:0;background:none;border:0;box-shadow:none;margin-top:1.8rem}
+
+/* la linea dei luoghi: solo blu e testo, senza targhette */
+body[data-scene="clean"] .route{margin-top:5rem}
+body[data-scene="clean"] .route .dot{width:14px;height:14px}
 body[data-scene="clean"] .route .dot::before,
 body[data-scene="clean"] .route .dot::after{clip-path:none;border-radius:50%}
-body[data-scene="clean"] .route .city,
-body[data-scene="clean"] .route .when{border-radius:.35rem}
+@media (min-width:761px){
+  body[data-scene="clean"] .route .seg{height:2px;top:6px}
+}
+body[data-scene="clean"] .route .city{background:none;padding:.6rem 0 0;font-family:var(--display);
+  font-weight:700;letter-spacing:.06em;font-size:.8rem}
+body[data-scene="clean"] .route .when{background:none;padding:0;font-style:normal;
+  font-family:var(--display);font-size:.95rem}
+body[data-scene="clean"] .route .next .when{font-family:"Caveat",cursive;font-weight:600;
+  font-size:1.35rem;color:var(--hot)}
+body[data-scene="clean"] .route .traveler{background:var(--hot)}
+
+/* i contatti: niente riquadro, due righe grandi */
+body[data-scene="clean"] .links{background:none;border:0;box-shadow:none;padding:0;
+  width:min(34rem,100%);margin:5rem auto 10rem}
+body[data-scene="clean"] .links h2{font-family:var(--display);font-weight:700;letter-spacing:.1em;
+  font-size:.78rem;color:var(--muted);margin-bottom:1.1rem}
+body[data-scene="clean"] .links ul{gap:0}
+body[data-scene="clean"] .links li+li{border-top:1.5px solid var(--rule)}
+body[data-scene="clean"] .links a{padding:1.15rem .2rem;max-width:none;align-items:center}
+body[data-scene="clean"] .links .name{font-family:var(--display);font-weight:800;font-size:1.25rem;
+  letter-spacing:-.01em}
+body[data-scene="clean"] .links .desc{font-family:var(--display);font-size:1rem;color:var(--muted)}
+body[data-scene="clean"] .tile{border-radius:0;background:var(--accent);color:var(--on-accent);
+  width:3rem;height:3rem;transition:transform .18s ease}
+body[data-scene="clean"] .links a:hover .tile{background:var(--accent-2);transform:translateY(-2px)}
+
+/* barre e pannelli, puliti */
 body[data-scene="clean"] .nav,
-body[data-scene="clean"] .lang{border-width:0;box-shadow:0 10px 30px rgba(20,40,60,.18)}
-body[data-scene="clean"] .tile{border-radius:.9rem}
+body[data-scene="clean"] .lang{border:1.5px solid var(--rule);box-shadow:0 10px 30px var(--shadow)}
+body[data-scene="clean"] .nav button,
+body[data-scene="clean"] .lang button{font-family:var(--display);font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;font-size:clamp(.78rem,2vw,.95rem)}
+body[data-scene="clean"] .nav button[aria-expanded="true"],
+body[data-scene="clean"] .lang button[aria-pressed="true"]{border-radius:.7rem}
+body[data-scene="clean"] .panel h3{font-family:var(--display);font-weight:700;letter-spacing:.1em;
+  font-size:.78rem;color:var(--muted)}
+body[data-scene="clean"] .panel h4,
+body[data-scene="clean"] .works h4,
+body[data-scene="clean"] .proj h4{font-family:var(--display);font-weight:800;letter-spacing:-.02em}
+body[data-scene="clean"] .visit{font-family:var(--display);font-weight:700;border-radius:0;letter-spacing:.04em}
+body[data-scene="clean"] .close{font-family:var(--display);font-weight:700}
+body[data-scene="clean"] .works .kind,
+body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-family:var(--display)}
 /* l'omino sul lungomare */
 .stagewalk{position:fixed;left:0;right:0;bottom:calc(max(10px,2.1vh) + env(safe-area-inset-bottom,0px));z-index:35;height:0;pointer-events:none}
 .omino{position:absolute;bottom:0;left:0;will-change:transform}
