@@ -421,6 +421,51 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
 @media (prefers-reduced-motion:reduce){.omino,.omino *{animation:none!important;transition:none!important}}
 
 
+/* ---- tablet in orizzontale: spazio sotto per la barra ---- */
+@media (orientation:landscape) and (max-height:900px){
+  main.wrap{padding-bottom:6rem}
+  body[data-scene="clean"] .links,
+  body[data-scene="pixel"] .links{margin-bottom:8rem}
+}
+/* ---- schermi bassi: telefono e tablet in orizzontale ---- */
+@media (orientation:landscape) and (max-height:620px){
+  body[data-scene="clean"] .hero,
+  body[data-scene="pixel"] .hero{padding:clamp(3.6rem,12vh,4.6rem) 0 .4rem}
+  body[data-scene="clean"] .hero h1,
+  body[data-scene="pixel"] .hero h1{font-size:clamp(1.4rem,min(4.6vw,8vh),2.5rem)}
+  body[data-scene="clean"] .intro,
+  body[data-scene="pixel"] .intro{font-size:clamp(.9rem,2.2vh,1.05rem);margin-top:.9rem}
+  body[data-scene="clean"] .route,
+  body[data-scene="pixel"] .route{margin-top:.8rem}
+  body[data-scene="clean"] .links,
+  body[data-scene="pixel"] .links{margin-top:3rem;margin-bottom:7rem}
+  main.wrap{padding-bottom:5.5rem}          /* la barra in basso non copre piu il testo */
+}
+/* orizzontale molto basso (telefoni piccoli) */
+@media (orientation:landscape) and (max-height:430px){
+  body[data-scene="clean"] .hero,
+  body[data-scene="pixel"] .hero{padding:4.2rem 0 .3rem}
+  body[data-scene="clean"] .hero h1,
+  body[data-scene="pixel"] .hero h1{font-size:clamp(1.05rem,min(3.5vw,6.2vh),1.65rem)}
+  body[data-scene="clean"] .intro,
+  body[data-scene="pixel"] .intro{font-size:.9rem;margin-top:.7rem}
+  body[data-scene="clean"] .route,
+  body[data-scene="pixel"] .route{margin-top:.4rem}
+  .route .city{font-size:.7rem}
+  .route .when{font-size:.75rem}
+}
+/* in orizzontale la linea dei luoghi torna distesa */
+@media (orientation:landscape) and (max-height:620px) and (min-width:620px){
+  .route{grid-template-columns:repeat(5,1fr)!important}
+  .route li{text-align:center;display:block;padding-bottom:0}
+  .route .dot{margin:0 auto}
+  .route .city{margin:.55rem auto 0}
+  .route .when{margin:0 auto}
+  .route .seg{top:7px;left:50%;width:100%;height:4px;transform-origin:left;animation-name:draw}
+  .route .seg.dash{background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 16px);
+    background-size:16px 100%;animation:draw .9s steps(12) var(--seg-delay,0s) both,march .8s steps(4) infinite}
+  .route .traveler{left:0;top:50%;animation-name:travel}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .ell::after{content:"..."}
