@@ -1,2 +1,20 @@
 /*
   Cache-Control: no-cache
+
+/img/*
+  Cache-Control: public, max-age=604800
+
+/*.png
+  Cache-Control: public, max-age=604800
+
+/*.svg
+  Cache-Control: public, max-age=604800
+
+/napoli.js
+  Cache-Control: public, max-age=86400
+
+/omino.js
+  Cache-Control: public, max-age=86400
+
+/intro.js
+  Cache-Control: public, max-age=86400
