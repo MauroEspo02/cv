@@ -1,8 +1,15 @@
 /* Intro "caschetto": pixel-art bob spinning while the site loads.
-   Plays on every load; a click or any key skips it. Needs #bobIntro markup + /img/caschetto.png. */
+   Plays once per browsing session; a click or any key skips it. Needs #bobIntro markup + /img/caschetto.png. */
 (() => {
   const intro = document.getElementById("bobIntro");
   if (!intro) return;
+
+  /* Una volta per visita: chi torna entra subito nel sito. */
+  let seen = false;
+  try { seen = sessionStorage.getItem("me-intro") === "1"; } catch (e) {}
+  if (seen) { intro.remove(); return; }
+  try { sessionStorage.setItem("me-intro", "1"); } catch (e) {}
+
   document.documentElement.classList.add("intro-on");
 
   const FRAMES = 24, W = 96, H = 96;
