@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>CV — Mauro Esposito</title>
-<meta name="description" content="Curriculum di Mauro Esposito: esperienza, formazione, competenze e lingue. Economia della cultura e del territorio, comunicazione e graphic design.">
+<meta name="description" content="Curriculum di Mauro Esposito: economia della cultura e del territorio, comunicazione digitale, eventi culturali e graphic design. Esperienza, formazione, competenze e lingue.">
 <link rel="canonical" href="https://mauroesposito19.com/cv/">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://mauroesposito19.com/cv/">
@@ -61,9 +61,9 @@ a{color:inherit}
 .bar button:hover,.bar a:hover{background:var(--lav)}
 .bar button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
 .bar .ico{width:14px;height:14px;fill:currentColor;display:block}
+.bar .sun{display:none}
 :root[data-theme="dark"] .bar .sun{display:block}
 :root[data-theme="dark"] .bar .moon{display:none}
-.bar .sun{display:none}
 
 /* ---- intestazione ---- */
 .head{padding:clamp(5.5rem,14vh,8rem) 0 0}
@@ -71,11 +71,13 @@ a{color:inherit}
   color:var(--accent);margin:0 0 1rem}
 .head h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(2.4rem,7vw,4.6rem)}
-.tag{margin:1.2rem 0 0;max-width:38em;font-size:clamp(1.05rem,2.1vw,1.3rem);color:var(--muted)}
+.tag{margin:1.2rem 0 0;max-width:40em;font-size:clamp(1.05rem,2.1vw,1.25rem);color:var(--muted)}
 .facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.8rem 0 0;padding:0;list-style:none}
-.facts li{font-weight:600;font-size:.88rem;padding:.4rem .8rem;border:1.5px solid var(--rule);
+.facts li{font-weight:600;font-size:.86rem;padding:.4rem .8rem;border:1.5px solid var(--rule);
   border-radius:999px;color:var(--muted)}
 .facts li b{color:var(--ink);font-weight:700}
+.facts a{color:var(--accent);text-decoration:none;font-weight:700}
+.facts a:hover{text-decoration:underline}
 
 /* ---- sezioni ---- */
 section.block{margin-top:clamp(3.5rem,9vh,6rem)}
@@ -87,47 +89,47 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 .tl::before{content:"";position:absolute;left:5px;top:.6rem;bottom:.6rem;width:2px;background:var(--rule)}
 .tl .fill{position:absolute;left:5px;top:.6rem;width:2px;background:var(--accent);
   height:0;transition:height .25s linear}
-.tl li{position:relative;padding:0 0 2rem}
+.tl li{position:relative;padding:0 0 2.4rem}
 .tl li:last-child{padding-bottom:0}
 .tl .dot{position:absolute;left:-2.1rem;top:.45rem;width:12px;height:12px;border-radius:50%;
   background:var(--bg);border:2.5px solid var(--rule);transition:border-color .2s,transform .2s}
 .tl li.on .dot{border-color:var(--accent);transform:scale(1.15)}
-.tl .when{font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--accent);
-  text-transform:uppercase;display:block}
-.tl .what{margin:.25rem 0 0;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.3rem);letter-spacing:-.015em}
+.tl .when{font-weight:700;font-size:.78rem;letter-spacing:.08em;color:var(--accent);
+  text-transform:uppercase}
+.tl .where{font-weight:600;font-size:.78rem;letter-spacing:.08em;color:var(--muted);
+  text-transform:uppercase}
+.tl .line1{display:flex;flex-wrap:wrap;gap:.2rem .7rem;align-items:baseline}
+.tl .what{margin:.3rem 0 0;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.28rem);letter-spacing:-.015em}
 .tl .who{margin:.1rem 0 0;color:var(--muted)}
-.tl .more{margin:.7rem 0 0;color:var(--muted);font-size:.95rem;max-width:46em}
+.tl .pts{margin:.7rem 0 0;padding:0 0 0 1.05rem;color:var(--muted);font-size:.95rem;max-width:48em}
+.tl .pts li{padding:0 0 .35rem;list-style:disc}
+.tl .pts li::marker{color:var(--lav2)}
+.eqf{display:inline-block;margin-top:.65rem;font-weight:700;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);background:var(--lav);
+  padding:.25rem .55rem;border-radius:.4rem}
 .tl .go{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-weight:700;
   font-size:.85rem;color:var(--accent);text-decoration:none}
 .tl .go:hover{text-decoration:underline}
-/* entrata morbida */
 .rise{opacity:0;transform:translateY(14px)}
 .rise.seen{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 
-/* ---- due colonne ---- */
-.cols{display:grid;gap:clamp(2.5rem,6vw,4rem)}
-@media (min-width:860px){ .cols{grid-template-columns:1fr 1fr} }
-
-/* ---- etichette competenze ---- */
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
-.chips li{font-weight:600;font-size:.92rem;padding:.5rem .9rem;border-radius:999px;
+/* ---- competenze ---- */
+.groups{display:grid;gap:1.6rem}
+@media (min-width:760px){ .groups{grid-template-columns:1fr 1fr} }
+.groups h3{margin:0 0 .6rem;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+.chips li{font-weight:600;font-size:.9rem;padding:.42rem .85rem;border-radius:999px;
   background:var(--lav);color:var(--ink)}
-.chips.hot li{background:none;border:1.5px solid var(--rule)}
-
-/* ---- strumenti ---- */
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.6rem;
-  margin:0;padding:0;list-style:none}
-.tools li{border:1.5px solid var(--rule);border-radius:.9rem;padding:.8rem .9rem}
-.tools b{display:block;font-weight:700}
-.tools span{display:block;color:var(--muted);font-size:.85rem;margin-top:.1rem}
 
 /* ---- lingue ---- */
 .langs{margin:0;padding:0;list-style:none}
-.langs li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;
-  border-bottom:1.5px solid var(--rule)}
+.langs li{padding:.85rem 0;border-bottom:1.5px solid var(--rule)}
 .langs li:last-child{border-bottom:0}
+.langs .top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
 .langs b{font-weight:700}
-.langs span{color:var(--muted);text-align:right}
+.langs .lvl{color:var(--accent);font-weight:700}
+.langs small{display:block;color:var(--muted);font-size:.82rem;margin-top:.2rem}
 
 /* ---- lavori scelti ---- */
 .sel{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
@@ -147,8 +149,6 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 .foot a:hover{text-decoration:underline}
 .foot small{color:var(--muted)}
 
-.loading{padding:4rem 0;color:var(--muted)}
-
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rise{opacity:1;transform:none}
@@ -156,17 +156,30 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 
 /* ---- stampa: diventa un CV su carta (e un PDF) ---- */
 @media print{
-  :root{--bg:#fff;--ink:#000;--muted:#444;--accent:#000;--rule:#bbb;--lav:#eee;--surface:#fff}
-  .bar,.foot{display:none!important}
-  body{font-size:10.5pt}
+  :root{--bg:#fff;--ink:#000;--muted:#3a3a3a;--accent:#000;--rule:#bbb;--lav:#eee;--lav2:#ddd;--surface:#fff}
+  .bar,.foot,#selBlock{display:none!important}   /* su carta i link non servono: il CV resta su 2 pagine */
+  body{font-size:9.4pt;line-height:1.34}
   .wrap{width:100%}
   .head{padding:0}
-  .head h1{font-size:24pt}
-  .tag{font-size:11pt}
-  section.block{margin-top:14pt;break-inside:avoid}
-  .tl li{padding-bottom:9pt;break-inside:avoid}
+  .head h1{font-size:21pt}
+  .tag{font-size:10.5pt;max-width:none}
+  .eyebrow{margin-bottom:.3rem}
+  section.block{margin-top:8pt}
+  .groups{gap:.55rem 1rem;grid-template-columns:1fr 1fr 1fr}
+  .groups h3{margin-bottom:.3rem;font-size:7.5pt}
+  .langs li{padding:.3rem 0;break-inside:avoid}
+  .langs small{font-size:8.6pt;margin-top:.05rem}
+  .facts{margin-top:.8rem}
+  h2{font-size:12.5pt;border-bottom:1pt solid #999;padding-bottom:1.5pt;margin-bottom:.3rem}
+  .lede{display:none}
+  .tl li{padding-bottom:6pt;break-inside:avoid}
+  .tl .pts{font-size:9.1pt;margin-top:.35rem}
+  .tl .pts li{padding-bottom:.18rem}
+  .eqf{margin-top:.35rem}
+  .chips li{background:none;border:.6pt solid #999;padding:.15rem .45rem;font-size:8.6pt;white-space:nowrap}
+  .chips{gap:.3rem}
   .rise{opacity:1!important;transform:none!important}
-  .sel a,.sel div,.tools li{break-inside:avoid}
+  .sel a,.sel div{break-inside:avoid}
   a{text-decoration:none}
 }
 </style>
@@ -195,7 +208,7 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
   <section class="block">
     <h2 data-i18n="h_exp">Esperienza</h2>
     <p class="lede" data-i18n="l_exp">Dove ho lavorato e cosa ho fatto.</p>
-    <ol class="tl" id="exp"><li class="loading" data-i18n="loading">Carico...</li></ol>
+    <ol class="tl" id="exp"></ol>
   </section>
 
   <section class="block">
@@ -204,22 +217,18 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
     <ol class="tl" id="edu"></ol>
   </section>
 
-  <section class="block cols">
-    <div>
-      <h2 data-i18n="h_do">Competenze</h2>
-      <p class="lede" data-i18n="l_do">Quello che so fare.</p>
-      <ul class="chips" id="do"></ul>
-      <h2 style="margin-top:2.5rem" data-i18n="h_lang">Lingue</h2>
-      <ul class="langs" id="langs"></ul>
-    </div>
-    <div>
-      <h2 data-i18n="h_tools">Strumenti</h2>
-      <p class="lede" data-i18n="l_tools">Programmi che uso ogni giorno.</p>
-      <ul class="tools" id="tools"></ul>
-    </div>
+  <section class="block">
+    <h2 data-i18n="h_do">Competenze</h2>
+    <p class="lede" data-i18n="l_do">Quello che so fare.</p>
+    <div class="groups" id="skills"></div>
   </section>
 
   <section class="block">
+    <h2 data-i18n="h_lang">Lingue</h2>
+    <ul class="langs" id="langs"></ul>
+  </section>
+
+  <section class="block" id="selBlock" hidden>
     <h2 data-i18n="h_sel">Lavori scelti</h2>
     <p class="lede" data-i18n="l_sel">Qualche progetto, con il link per vederlo.</p>
     <ul class="sel" id="sel"></ul>
@@ -235,18 +244,16 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 const T = {
   it:{back:"Sito",eyebrow:"Curriculum",h_exp:"Esperienza",l_exp:"Dove ho lavorato e cosa ho fatto.",
       h_edu:"Formazione",l_edu:"Percorso di studi.",h_do:"Competenze",l_do:"Quello che so fare.",
-      h_lang:"Lingue",h_tools:"Strumenti",l_tools:"Programmi che uso ogni giorno.",
-      h_sel:"Lavori scelti",l_sel:"Qualche progetto, con il link per vederlo.",
-      f_back:"← Torna al sito",loading:"Carico...",print:"Stampa",now:"Oggi",
-      based:"Base",see:"Guarda",updated:"Aggiornato"},
+      h_lang:"Lingue",h_sel:"Lavori scelti",l_sel:"Qualche progetto, con il link per vederlo.",
+      f_back:"← Torna al sito",print:"Stampa",based:"Base",nat:"Cittadinanza",
+      see:"Guarda",updated:"Aggiornato",eqf:"Livello EQF"},
   en:{back:"Site",eyebrow:"Curriculum vitae",h_exp:"Experience",l_exp:"Where I worked and what I did.",
       h_edu:"Education",l_edu:"Study path.",h_do:"Skills",l_do:"What I can do.",
-      h_lang:"Languages",h_tools:"Tools",l_tools:"Software I use every day.",
-      h_sel:"Selected work",l_sel:"A few projects, with the link to see them.",
-      f_back:"← Back to the site",loading:"Loading...",print:"Print",now:"Today",
-      based:"Based in",see:"See",updated:"Updated"}
+      h_lang:"Languages",h_sel:"Selected work",l_sel:"A few projects, with the link to see them.",
+      f_back:"← Back to the site",print:"Print",based:"Based in",nat:"Nationality",
+      see:"See",updated:"Updated",eqf:"EQF level"}
 };
-let DATA = null, lang = "it";
+let CV = null, SITE = null, lang = "it";
 try { const s = localStorage.getItem("me-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
 
 const el = (t, c, x) => { const n = document.createElement(t); if (c) n.className = c; if (x !== undefined) n.textContent = x; return n; };
@@ -259,116 +266,104 @@ function paintLabels(){
   document.getElementById("printBtn").setAttribute("aria-label", T[lang].print);
 }
 
-/* una voce della linea del tempo */
-function entry(e, extra){
+function entry(e){
   const li = el("li", "rise");
   li.appendChild(el("span", "dot"));
-  li.appendChild(el("span", "when", e.year || ""));
+  const l1 = el("div", "line1");
+  l1.appendChild(el("span", "when", pick(e.when)));
+  if (pick(e.place)) l1.appendChild(el("span", "where", pick(e.place)));
+  li.appendChild(l1);
   li.appendChild(el("p", "what", pick(e.role)));
   li.appendChild(el("p", "who", pick(e.org)));
-  const d = pick(e.detail);
-  if (d) li.appendChild(el("p", "more", d));
-  if (extra && extra.url) {
-    const a = el("a", "go", T[lang].see + " → " + extra.label);
-    a.href = extra.url; a.target = "_blank"; a.rel = "noopener";
-    li.appendChild(a);
+  const pts = (e.points && e.points[lang]) || [];
+  if (pts.length) {
+    const ul = el("ul", "pts");
+    pts.forEach(p => ul.appendChild(el("li", null, p)));
+    li.appendChild(ul);
   }
+  if (e.eqf) li.appendChild(el("span", "eqf", T[lang].eqf + " " + e.eqf));
   return li;
-}
-
-/* collega una voce al progetto o al lavoro che le corrisponde */
-function related(e){
-  const org = (pick(e.org) || "").toLowerCase();
-  const all = [].concat(DATA.projects || [], DATA.work || []);
-  for (const it of all) {
-    const t = (typeof it.title === "string" ? it.title : pick(it.title) || "").toLowerCase();
-    if (!t) continue;
-    const key = t.split(/[—–-]/)[0].trim();
-    if (key.length > 4 && (org.includes(key) || key.includes(org))) {
-      if (it.url) return { url: it.url, label: (typeof it.title === "string" ? it.title : pick(it.title)) };
-    }
-  }
-  return null;
 }
 
 function fillList(id, rows){
   const ol = document.getElementById(id);
   ol.textContent = "";
-  const fill = el("span", "fill"); ol.appendChild(fill);
-  rows.forEach(r => ol.appendChild(entry(r, related(r))));
-  return ol;
+  ol.appendChild(el("span", "fill"));
+  rows.forEach(r => ol.appendChild(entry(r)));
 }
 
 function render(){
   paintLabels();
-  if (!DATA) return;
+  if (!CV) return;
 
-  document.getElementById("name").textContent = (DATA.hero && DATA.hero.name) || "Mauro Esposito";
-  document.getElementById("tag").textContent = pick(DATA.hero && DATA.hero.intro);
+  document.getElementById("name").textContent = CV.name || "Mauro Esposito";
+  document.getElementById("tag").textContent = pick(CV.profile);
 
   const facts = document.getElementById("facts");
   facts.textContent = "";
-  const cur = DATA.hero && DATA.hero.current;
-  if (cur) {
-    const li = el("li"); li.appendChild(el("b", null, T[lang].based + ": "));
-    li.appendChild(document.createTextNode(pick(cur.city))); facts.appendChild(li);
-  }
-  const langs = (DATA.skills && DATA.skills.languages && DATA.skills.languages[lang]) || [];
-  langs.forEach(l => {
-    const li = el("li"); li.appendChild(el("b", null, l.language + ": "));
-    li.appendChild(document.createTextNode(l.level)); facts.appendChild(li);
+  const fact = (label, value) => { const li = el("li"); li.appendChild(el("b", null, label + ": ")); li.appendChild(document.createTextNode(value)); facts.appendChild(li); };
+  if (pick(CV.where)) fact(T[lang].based, pick(CV.where));
+  (CV.languages || []).forEach(l => fact(pick(l.name), pick(l.level)));
+  if (CV.linkedin) { const li = el("li"), a = el("a", null, "LinkedIn"); a.href = CV.linkedin; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); facts.appendChild(li); }
+
+  fillList("exp", CV.experience || []);
+  fillList("edu", CV.education || []);
+
+  const sk = document.getElementById("skills");
+  sk.textContent = "";
+  (CV.skills || []).forEach(g => {
+    const box = el("div");
+    box.appendChild(el("h3", null, pick(g.group)));
+    const ul = el("ul", "chips");
+    ((g.items && g.items[lang]) || []).forEach(s => ul.appendChild(el("li", null, s)));
+    box.appendChild(ul); sk.appendChild(box);
   });
-
-  fillList("exp", DATA.experience || []);
-  fillList("edu", DATA.education || []);
-
-  const doList = document.getElementById("do");
-  doList.textContent = "";
-  ((DATA.skills && DATA.skills.do && DATA.skills.do[lang]) || []).forEach(s => doList.appendChild(el("li", null, s)));
 
   const lg = document.getElementById("langs");
   lg.textContent = "";
-  langs.forEach(l => { const li = el("li"); li.appendChild(el("b", null, l.language)); li.appendChild(el("span", null, l.level)); lg.appendChild(li); });
-
-  const tl = document.getElementById("tools");
-  tl.textContent = "";
-  (DATA.tools || []).forEach(t => { const li = el("li"); li.appendChild(el("b", null, t.name)); li.appendChild(el("span", null, pick(t.desc))); tl.appendChild(li); });
-
-  const sel = document.getElementById("sel");
-  sel.textContent = "";
-  [].concat(DATA.projects || [], DATA.work || []).slice(0, 6).forEach(p => {
-    const li = el("li");
-    const box = p.url ? el("a") : el("div");
-    if (p.url) { box.href = p.url; box.target = "_blank"; box.rel = "noopener"; }
-    box.appendChild(el("span", "y", p.year || ""));
-    box.appendChild(el("b", null, typeof p.title === "string" ? p.title : pick(p.title)));
-    box.appendChild(el("p", null, pick(p.kind)));
-    li.appendChild(box); sel.appendChild(li);
+  (CV.languages || []).forEach(l => {
+    const li = el("li"), top = el("div", "top");
+    top.appendChild(el("b", null, pick(l.name)));
+    top.appendChild(el("span", "lvl", pick(l.level)));
+    li.appendChild(top);
+    if (pick(l.detail)) li.appendChild(el("small", null, pick(l.detail)));
+    lg.appendChild(li);
   });
 
-  watch();
+  /* i progetti arrivano dal sito, cosi' restano allineati con la home */
+  const sel = document.getElementById("sel");
+  if (SITE) {
+    sel.textContent = "";
+    const rows = [].concat(SITE.projects || [], SITE.work || []).filter(p => p.url).slice(0, 6);
+    rows.forEach(p => {
+      const li = el("li"), box = el("a");
+      box.href = p.url; box.target = "_blank"; box.rel = "noopener";
+      box.appendChild(el("span", "y", p.year || ""));
+      box.appendChild(el("b", null, typeof p.title === "string" ? p.title : pick(p.title)));
+      box.appendChild(el("p", null, pick(p.kind)));
+      li.appendChild(box); sel.appendChild(li);
+    });
+    document.getElementById("selBlock").hidden = rows.length === 0;
+  }
+
+  document.getElementById("stamp").textContent = T[lang].updated + " " +
+    new Date().toLocaleDateString(lang === "it" ? "it-IT" : "en-GB", { month: "long", year: "numeric" });
+
+  requestAnimationFrame(paintFill);
 }
 
 /* la linea blu si riempie mentre scorri, come in home.
-   Niente IntersectionObserver: con i salti di scorrimento (ancore, fine pagina,
-   posizione ripristinata) una voce poteva non comparire mai. Qui si misura
-   a ogni scroll, quindi quello che e' passato e' sempre visibile. */
-function watch(){
-  requestAnimationFrame(paintFill);
-}
+   Misurata a ogni scroll: con i salti (ancore, fine pagina, posizione
+   ripristinata) nessuna voce puo' restare invisibile. */
 function paintFill(){
   const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const show = innerHeight * 0.92;
-  const mid = innerHeight * 0.58;
+  const show = innerHeight * 0.92, mid = innerHeight * 0.58;
   document.querySelectorAll(".tl").forEach(ol => {
-    const fill = ol.querySelector(".fill");
-    const b = ol.getBoundingClientRect();
+    const fill = ol.querySelector(".fill"), b = ol.getBoundingClientRect();
     let h = 0;
-    ol.querySelectorAll("li").forEach(li => {
-      const r = li.getBoundingClientRect();
-      if (rm || r.top < show) li.classList.add("seen");
-      const d = li.querySelector(".dot");
-      if (!d) return;
+    ol.querySelectorAll(":scope > li").forEach(li => {
+      if (rm || li.getBoundingClientRect().top < show) li.classList.add("seen");
+      const d = li.querySelector(".dot"); if (!d) return;
       const dr = d.getBoundingClientRect();
       li.classList.toggle("on", rm || dr.top < mid);
       if (rm || dr.top < mid) h = Math.max(h, dr.top - b.top + 6);
@@ -379,13 +374,17 @@ function paintFill(){
 addEventListener("scroll", paintFill, { passive: true });
 addEventListener("resize", paintFill);
 addEventListener("load", paintFill);
+addEventListener("beforeprint", () => document.querySelectorAll(".rise").forEach(n => n.classList.add("seen")));
 
 document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => {
   lang = b.dataset.setLang;
   try { localStorage.setItem("me-lang", lang); } catch (e) {}
   render();
 }));
-document.getElementById("printBtn").addEventListener("click", () => print());
+document.getElementById("printBtn").addEventListener("click", () => {
+  document.querySelectorAll(".rise").forEach(n => n.classList.add("seen"));
+  print();
+});
 const themeBtn = document.getElementById("themeBtn");
 themeBtn.setAttribute("aria-pressed", String(document.documentElement.dataset.theme === "dark"));
 themeBtn.addEventListener("click", () => {
@@ -396,10 +395,8 @@ themeBtn.addEventListener("click", () => {
 });
 
 paintLabels();
-fetch("/api/content")
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(d => { DATA = d; render(); document.getElementById("stamp").textContent = T[lang].updated + " " + new Date().toLocaleDateString(lang === "it" ? "it-IT" : "en-GB", { month: "long", year: "numeric" }); })
-  .catch(() => { document.getElementById("exp").textContent = ""; document.getElementById("exp").appendChild(el("li", "loading", "—")); });
+fetch("cv.json").then(r => r.json()).then(d => { CV = d; render(); });
+fetch("/api/content").then(r => r.ok ? r.json() : null).then(d => { SITE = d; if (CV) render(); }).catch(() => {});
 </script>
 </body>
 </html>
