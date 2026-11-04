@@ -77,6 +77,9 @@ a{color:inherit}
 .cap{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;font-weight:400}
 
 /* language */
+.lang .cvlink{font:400 .95rem/1 var(--display);color:var(--accent);background:transparent;
+  border-radius:.5rem;padding:.45rem .6rem;text-decoration:none;display:inline-flex;align-items:center}
+.lang .cvlink:hover{background:var(--lav)}
 .lang{position:fixed;top:1rem;right:clamp(1rem,3vw,2rem);z-index:40;display:flex;gap:.2rem;padding:.2rem;background:var(--surface);border:1.5px solid var(--lav2);border-radius:.7rem}
 .lang button{font:400 .95rem/1 var(--display);color:var(--accent);background:transparent;border:0;border-radius:.5rem;padding:.45rem .6rem;cursor:pointer}
 .lang button:hover{background:var(--lav)}
@@ -485,6 +488,7 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
 <canvas id="napoli" aria-hidden="true"></canvas>
 
 <div class="lang" role="group" aria-label="Language">
+  <a href="/cv/" class="cvlink">CV</a>
   <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
   <button type="button" data-set-lang="it" aria-pressed="false">IT</button>
   <button type="button" class="scene" id="sceneBtn" aria-pressed="false">PX</button>
@@ -568,7 +572,6 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
 </nav>
 
 <script src="/napoli.js" defer></script>
-<script src="/omino.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
@@ -652,7 +655,6 @@ function render(lang){
     return `<li><span class="yr">${esc(w.year)}</span><div><h4>${title}</h4><div class="kind">${esc(w.kind[lang])}</div><p>${esc(w.text[lang])}</p>${shots}</div></li>`;
   }).join("");
 
-  if (window.ominoScene) ominoScene.setLang(lang);
   renderProjects(lang);
   renderPassions(lang);
   $("doList").innerHTML = DATA.skills.do[lang].map(x => `<li>${esc(x)}</li>`).join("");

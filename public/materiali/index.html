@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Materiali — Mauro Esposito</title>
+<meta name="description" content="Tesi, ricerche, elaborati e mappe di Mauro Esposito: materiali di studio su economia della cultura, territorio e analisi territoriale.">
+<link rel="canonical" href="https://mauroesposito19.com/materiali/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mauroesposito19.com/materiali/">
+<meta property="og:site_name" content="Mauro Esposito">
+<meta property="og:title" content="Materiali — Mauro Esposito">
+<meta property="og:description" content="Tesi, ricerche, elaborati e mappe.">
+<meta property="og:image" content="https://mauroesposito19.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
+  --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
+  --lav:#EDEDFF; --rule:#E6E6EC; --surface:#FFFFFF; --hot:#FD9829;
+  --shadow:rgba(12,12,40,.1);
+  --font:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
+  --accent:#5A5AFF; --accent-2:#8C8CFF; --lav:#17172B; --rule:#1E1E33; --surface:#0B0B12;
+  --shadow:rgba(0,0,0,.5); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{width:min(100% - 2rem,64rem);margin-inline:auto}
+@media (min-width:700px){ .wrap{width:min(100% - 4rem,64rem)} }
+
+.bar{position:fixed;top:max(.75rem,env(safe-area-inset-top));right:.75rem;z-index:40;
+  display:flex;gap:.15rem;align-items:center;padding:.3rem;background:var(--surface);
+  border:1.5px solid var(--rule);border-radius:999px;box-shadow:0 6px 24px var(--shadow)}
+.bar button,.bar a{appearance:none;border:0;background:none;cursor:pointer;color:var(--ink);
+  font:700 .8rem/1 var(--font);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  padding:.55rem .7rem;border-radius:999px;display:inline-flex;align-items:center;gap:.35rem}
+.bar button:hover,.bar a:hover{background:var(--lav)}
+.bar button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.bar .ico{width:14px;height:14px;fill:currentColor;display:block}
+.bar .sun{display:none}
+:root[data-theme="dark"] .bar .sun{display:block}
+:root[data-theme="dark"] .bar .moon{display:none}
+
+.head{padding:clamp(5.5rem,14vh,8rem) 0 0}
+.eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 1rem}
+.head h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(2.4rem,7vw,4.6rem)}
+.tag{margin:1.2rem 0 0;max-width:38em;font-size:clamp(1.05rem,2.1vw,1.3rem);color:var(--muted)}
+
+/* filtri */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:2.5rem 0 0;padding:0;list-style:none}
+.filters button{appearance:none;cursor:pointer;font:700 .88rem/1 var(--font);
+  padding:.6rem 1rem;border-radius:999px;border:1.5px solid var(--rule);
+  background:none;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+
+/* schede */
+.items{display:grid;gap:.7rem;margin:2rem 0 0;padding:0;list-style:none}
+@media (min-width:760px){ .items{grid-template-columns:1fr 1fr} }
+.items li{border:1.5px solid var(--rule);border-radius:1rem;padding:1.2rem 1.3rem;
+  transition:border-color .2s,transform .2s}
+.items li:hover{border-color:var(--accent);transform:translateY(-2px)}
+.items .kind{font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.items h3{margin:.35rem 0 0;font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.items p{margin:.4rem 0 0;color:var(--muted);font-size:.93rem}
+.items .meta{margin-top:.8rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.items .meta a{font-weight:700;font-size:.85rem;color:var(--accent);text-decoration:none}
+.items .meta a:hover{text-decoration:underline}
+.items .meta small{color:var(--muted);font-size:.78rem}
+.items li.soon{border-style:dashed;opacity:.75}
+.items li.soon h3{color:var(--muted)}
+
+.note{margin:3rem 0 0;padding:1.1rem 1.2rem;border-radius:1rem;background:var(--lav);
+  color:var(--muted);font-size:.92rem}
+.foot{margin:clamp(4rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);padding-top:2rem;
+  border-top:1.5px solid var(--rule)}
+.foot a{font-weight:700;color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="/">← <span data-i18n="back">Sito</span></a>
+  <a href="/cv/">CV</a>
+  <button type="button" data-set-lang="it" aria-pressed="true">IT</button>
+  <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  <button type="button" id="themeBtn" aria-label="Notte" aria-pressed="false">
+    <svg class="ico moon" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h3v1H3zM2 1h2v1H2zM1 2h2v1H1zM1 3h2v2H1zM1 5h2v1H1zM2 6h2v1H2zM3 7h3V6h1v1H6v1H3z"/></svg>
+    <svg class="ico sun" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM3 2h2v1h1v2H5v1H3V5H2V3h1z"/></svg>
+  </button>
+</div>
+
+<main class="wrap">
+  <header class="head">
+    <p class="eyebrow" data-i18n="eyebrow">Per chi studia e per chi insegna</p>
+    <h1 data-i18n="title">Materiali</h1>
+    <p class="tag" data-i18n="tag"></p>
+    <ul class="filters" id="filters"></ul>
+  </header>
+
+  <ul class="items" id="items"></ul>
+
+  <p class="note" data-i18n="note"></p>
+
+  <footer class="foot"><a href="/" data-i18n="back_long">← Torna al sito</a></footer>
+</main>
+
+<script>
+/* =========================================================================
+   QUI DENTRO VANNO I MATERIALI.
+   Per ora e' una struttura vuota con qualche voce di esempio marcata "soon":
+   quando Mauro manda i file (PDF in /files/) si riempie questa lista e basta.
+   Regola: solo roba sua. Slide e dispense dei professori non vanno qui.
+   Più avanti questa lista si sposta nel pannello admin come le altre sezioni.
+   ========================================================================= */
+const MATERIALI = [
+  { kind: { it: "Tesi", en: "Thesis" },
+    title: { it: "Musica neomelodica e spazio urbano napoletano",
+             en: "Neomelodic music and Naples' urban space" },
+    text: { it: "Tesi magistrale in economia della cultura: come la musica neomelodica racconta e costruisce lo spazio urbano di Napoli.",
+            en: "Master's thesis in cultural economics: how neomelodic music tells and builds Naples' urban space." },
+    group: "tesi", year: "2026", file: "", soon: true },
+
+  { kind: { it: "Ricerca", en: "Research" },
+    title: { it: "LAND — agricoltura palestinese in Cisgiordania",
+             en: "LAND — Palestinian agriculture in the West Bank" },
+    text: { it: "Paper e analisi satellitare dell'effetto del muro sui terreni agricoli, con il kit didattico collegato.",
+            en: "Paper and satellite analysis of the wall's effect on farmland, with the companion teaching kit." },
+    group: "ricerche", year: "2025", file: "https://land.mauroesposito19.com/", soon: false },
+
+  { kind: { it: "Mappe", en: "Maps" },
+    title: { it: "Analisi territoriali in QGIS", en: "Territorial analysis in QGIS" },
+    text: { it: "Mappe e dati prodotti per i corsi di economia del territorio.",
+            en: "Maps and data produced for territorial economics courses." },
+    group: "mappe", year: "2025", file: "", soon: true },
+
+  { kind: { it: "Elaborati", en: "Coursework" },
+    title: { it: "Elaborati d'esame", en: "Exam coursework" },
+    text: { it: "Lavori e progetti consegnati durante la magistrale, condivisi per chi viene dopo.",
+            en: "Work and projects handed in during the master's, shared for whoever comes next." },
+    group: "elaborati", year: "2024–2026", file: "", soon: true }
+];
+
+const GROUPS = [
+  { id: "tutti", it: "Tutti", en: "All" },
+  { id: "tesi", it: "Tesi", en: "Thesis" },
+  { id: "ricerche", it: "Ricerche", en: "Research" },
+  { id: "mappe", it: "Mappe", en: "Maps" },
+  { id: "elaborati", it: "Elaborati", en: "Coursework" }
+];
+
+const T = {
+  it: { back: "Sito", back_long: "← Torna al sito", eyebrow: "Per chi studia e per chi insegna",
+        title: "Materiali",
+        tag: "Tesi, ricerche, mappe ed elaborati. Roba mia, scaricabile, per studenti e docenti.",
+        note: "Qui trovi solo materiale prodotto da me. Se cerchi qualcosa che non c'è, scrivimi.",
+        open: "Apri", soon: "In arrivo", none: "Ancora niente in questa sezione." },
+  en: { back: "Site", back_long: "← Back to the site", eyebrow: "For students and teachers",
+        title: "Materials",
+        tag: "Thesis, research, maps and coursework. My own work, downloadable, for students and teachers.",
+        note: "Only material I produced myself. If you are looking for something that is not here, write to me.",
+        open: "Open", soon: "Coming", none: "Nothing here yet." }
+};
+
+let lang = "it";
+try { const s = localStorage.getItem("me-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
+let group = "tutti";
+
+const el = (t, c, x) => { const n = document.createElement(t); if (c) n.className = c; if (x !== undefined) n.textContent = x; return n; };
+
+function render(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(n => { const k = n.dataset.i18n; if (T[lang][k]) n.textContent = T[lang][k]; });
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+
+  const f = document.getElementById("filters");
+  f.textContent = "";
+  GROUPS.forEach(g => {
+    const li = el("li"), b = el("button", null, g[lang]);
+    b.type = "button";
+    b.setAttribute("aria-pressed", String(group === g.id));
+    b.addEventListener("click", () => { group = g.id; render(); });
+    li.appendChild(b); f.appendChild(li);
+  });
+
+  const list = document.getElementById("items");
+  list.textContent = "";
+  const rows = MATERIALI.filter(m => group === "tutti" || m.group === group);
+  if (!rows.length) { list.appendChild(el("li", "soon", T[lang].none)); return; }
+  rows.forEach(m => {
+    const li = el("li", m.soon ? "soon" : "");
+    li.appendChild(el("span", "kind", m.kind[lang]));
+    li.appendChild(el("h3", null, m.title[lang]));
+    li.appendChild(el("p", null, m.text[lang]));
+    const meta = el("div", "meta");
+    if (m.file && !m.soon) {
+      const a = el("a", null, T[lang].open + " →");
+      a.href = m.file; a.target = "_blank"; a.rel = "noopener";
+      meta.appendChild(a);
+    } else {
+      meta.appendChild(el("small", null, T[lang].soon));
+    }
+    if (m.year) meta.appendChild(el("small", null, m.year));
+    li.appendChild(meta);
+    list.appendChild(li);
+  });
+}
+
+document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.setLang;
+  try { localStorage.setItem("me-lang", lang); } catch (e) {}
+  render();
+}));
+const themeBtn = document.getElementById("themeBtn");
+themeBtn.setAttribute("aria-pressed", String(document.documentElement.dataset.theme === "dark"));
+themeBtn.addEventListener("click", () => {
+  const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  themeBtn.setAttribute("aria-pressed", String(t === "dark"));
+  try { localStorage.setItem("me-theme", t); } catch (e) {}
+});
+render();
+</script>
+</body>
+</html>

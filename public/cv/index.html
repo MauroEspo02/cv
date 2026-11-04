@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>CV — Mauro Esposito</title>
+<meta name="description" content="Curriculum di Mauro Esposito: esperienza, formazione, competenze e lingue. Economia della cultura e del territorio, comunicazione e graphic design.">
+<link rel="canonical" href="https://mauroesposito19.com/cv/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://mauroesposito19.com/cv/">
+<meta property="og:site_name" content="Mauro Esposito">
+<meta property="og:title" content="CV — Mauro Esposito">
+<meta property="og:description" content="Esperienza, formazione, competenze e lingue.">
+<meta property="og:image" content="https://mauroesposito19.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CV — Mauro Esposito">
+<meta name="twitter:description" content="Esperienza, formazione, competenze e lingue.">
+<meta name="twitter:image" content="https://mauroesposito19.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
+  --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
+  --lav:#EDEDFF; --lav2:#D9D9FF; --rule:#E6E6EC; --surface:#FFFFFF;
+  --hot:#FD9829; --shadow:rgba(12,12,40,.1);
+  --font:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
+  --accent:#5A5AFF; --accent-2:#8C8CFF; --on-accent:#07070E;
+  --lav:#17172B; --lav2:#242445; --rule:#1E1E33; --surface:#0B0B12;
+  --shadow:rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(100% - 2rem,64rem);margin-inline:auto}
+@media (min-width:700px){ .wrap{width:min(100% - 4rem,64rem)} }
+
+/* ---- barra in alto ---- */
+.bar{position:fixed;top:max(.75rem,env(safe-area-inset-top));right:.75rem;z-index:40;
+  display:flex;gap:.15rem;align-items:center;padding:.3rem;
+  background:var(--surface);border:1.5px solid var(--rule);border-radius:999px;
+  box-shadow:0 6px 24px var(--shadow)}
+.bar button,.bar a{appearance:none;border:0;background:none;cursor:pointer;color:var(--ink);
+  font:700 .8rem/1 var(--font);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  padding:.55rem .7rem;border-radius:999px;display:inline-flex;align-items:center;gap:.35rem}
+.bar button:hover,.bar a:hover{background:var(--lav)}
+.bar button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.bar .ico{width:14px;height:14px;fill:currentColor;display:block}
+:root[data-theme="dark"] .bar .sun{display:block}
+:root[data-theme="dark"] .bar .moon{display:none}
+.bar .sun{display:none}
+
+/* ---- intestazione ---- */
+.head{padding:clamp(5.5rem,14vh,8rem) 0 0}
+.eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 1rem}
+.head h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(2.4rem,7vw,4.6rem)}
+.tag{margin:1.2rem 0 0;max-width:38em;font-size:clamp(1.05rem,2.1vw,1.3rem);color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.8rem 0 0;padding:0;list-style:none}
+.facts li{font-weight:600;font-size:.88rem;padding:.4rem .8rem;border:1.5px solid var(--rule);
+  border-radius:999px;color:var(--muted)}
+.facts li b{color:var(--ink);font-weight:700}
+
+/* ---- sezioni ---- */
+section.block{margin-top:clamp(3.5rem,9vh,6rem)}
+h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem,3.2vw,2rem)}
+.lede{margin:0 0 2rem;color:var(--muted);font-size:.95rem}
+
+/* ---- linea del tempo ---- */
+.tl{position:relative;margin:0;padding:0 0 0 2.1rem;list-style:none}
+.tl::before{content:"";position:absolute;left:5px;top:.6rem;bottom:.6rem;width:2px;background:var(--rule)}
+.tl .fill{position:absolute;left:5px;top:.6rem;width:2px;background:var(--accent);
+  height:0;transition:height .25s linear}
+.tl li{position:relative;padding:0 0 2rem}
+.tl li:last-child{padding-bottom:0}
+.tl .dot{position:absolute;left:-2.1rem;top:.45rem;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--rule);transition:border-color .2s,transform .2s}
+.tl li.on .dot{border-color:var(--accent);transform:scale(1.15)}
+.tl .when{font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--accent);
+  text-transform:uppercase;display:block}
+.tl .what{margin:.25rem 0 0;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.3rem);letter-spacing:-.015em}
+.tl .who{margin:.1rem 0 0;color:var(--muted)}
+.tl .more{margin:.7rem 0 0;color:var(--muted);font-size:.95rem;max-width:46em}
+.tl .go{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-weight:700;
+  font-size:.85rem;color:var(--accent);text-decoration:none}
+.tl .go:hover{text-decoration:underline}
+/* entrata morbida */
+.rise{opacity:0;transform:translateY(14px)}
+.rise.seen{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+
+/* ---- due colonne ---- */
+.cols{display:grid;gap:clamp(2.5rem,6vw,4rem)}
+@media (min-width:860px){ .cols{grid-template-columns:1fr 1fr} }
+
+/* ---- etichette competenze ---- */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+.chips li{font-weight:600;font-size:.92rem;padding:.5rem .9rem;border-radius:999px;
+  background:var(--lav);color:var(--ink)}
+.chips.hot li{background:none;border:1.5px solid var(--rule)}
+
+/* ---- strumenti ---- */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.6rem;
+  margin:0;padding:0;list-style:none}
+.tools li{border:1.5px solid var(--rule);border-radius:.9rem;padding:.8rem .9rem}
+.tools b{display:block;font-weight:700}
+.tools span{display:block;color:var(--muted);font-size:.85rem;margin-top:.1rem}
+
+/* ---- lingue ---- */
+.langs{margin:0;padding:0;list-style:none}
+.langs li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;
+  border-bottom:1.5px solid var(--rule)}
+.langs li:last-child{border-bottom:0}
+.langs b{font-weight:700}
+.langs span{color:var(--muted);text-align:right}
+
+/* ---- lavori scelti ---- */
+.sel{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+@media (min-width:760px){ .sel{grid-template-columns:1fr 1fr} }
+.sel a,.sel div{display:block;border:1.5px solid var(--rule);border-radius:1rem;padding:1.1rem 1.2rem;
+  text-decoration:none;height:100%;transition:border-color .2s,transform .2s}
+.sel a:hover{border-color:var(--accent);transform:translateY(-2px)}
+.sel .y{font-weight:700;font-size:.78rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+.sel b{display:block;font-weight:700;margin-top:.3rem;font-size:1.05rem}
+.sel p{margin:.35rem 0 0;color:var(--muted);font-size:.92rem}
+
+/* ---- fondo ---- */
+.foot{margin:clamp(4rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);padding-top:2rem;
+  border-top:1.5px solid var(--rule);display:flex;flex-wrap:wrap;gap:1rem;
+  align-items:center;justify-content:space-between}
+.foot a{font-weight:700;color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot small{color:var(--muted)}
+
+.loading{padding:4rem 0;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rise{opacity:1;transform:none}
+}
+
+/* ---- stampa: diventa un CV su carta (e un PDF) ---- */
+@media print{
+  :root{--bg:#fff;--ink:#000;--muted:#444;--accent:#000;--rule:#bbb;--lav:#eee;--surface:#fff}
+  .bar,.foot{display:none!important}
+  body{font-size:10.5pt}
+  .wrap{width:100%}
+  .head{padding:0}
+  .head h1{font-size:24pt}
+  .tag{font-size:11pt}
+  section.block{margin-top:14pt;break-inside:avoid}
+  .tl li{padding-bottom:9pt;break-inside:avoid}
+  .rise{opacity:1!important;transform:none!important}
+  .sel a,.sel div,.tools li{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="/" id="back">← <span data-i18n="back">Sito</span></a>
+  <button type="button" data-set-lang="it" aria-pressed="true">IT</button>
+  <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  <button type="button" id="printBtn" aria-label="Stampa"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h8v3H4zM2 5h12v6h-2v4H4v-4H2zm4 6h4v-1H6zm0 2h4v-1H6z"/></svg></button>
+  <button type="button" id="themeBtn" aria-label="Notte" aria-pressed="false">
+    <svg class="ico moon" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h3v1H3zM2 1h2v1H2zM1 2h2v1H1zM1 3h2v2H1zM1 5h2v1H1zM2 6h2v1H2zM3 7h3V6h1v1H6v1H3z"/></svg>
+    <svg class="ico sun" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM3 2h2v1h1v2H5v1H3V5H2V3h1z"/></svg>
+  </button>
+</div>
+
+<main class="wrap">
+  <header class="head">
+    <p class="eyebrow" data-i18n="eyebrow">Curriculum</p>
+    <h1 id="name">Mauro Esposito</h1>
+    <p class="tag" id="tag"></p>
+    <ul class="facts" id="facts"></ul>
+  </header>
+
+  <section class="block">
+    <h2 data-i18n="h_exp">Esperienza</h2>
+    <p class="lede" data-i18n="l_exp">Dove ho lavorato e cosa ho fatto.</p>
+    <ol class="tl" id="exp"><li class="loading" data-i18n="loading">Carico...</li></ol>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="h_edu">Formazione</h2>
+    <p class="lede" data-i18n="l_edu">Percorso di studi.</p>
+    <ol class="tl" id="edu"></ol>
+  </section>
+
+  <section class="block cols">
+    <div>
+      <h2 data-i18n="h_do">Competenze</h2>
+      <p class="lede" data-i18n="l_do">Quello che so fare.</p>
+      <ul class="chips" id="do"></ul>
+      <h2 style="margin-top:2.5rem" data-i18n="h_lang">Lingue</h2>
+      <ul class="langs" id="langs"></ul>
+    </div>
+    <div>
+      <h2 data-i18n="h_tools">Strumenti</h2>
+      <p class="lede" data-i18n="l_tools">Programmi che uso ogni giorno.</p>
+      <ul class="tools" id="tools"></ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="h_sel">Lavori scelti</h2>
+    <p class="lede" data-i18n="l_sel">Qualche progetto, con il link per vederlo.</p>
+    <ul class="sel" id="sel"></ul>
+  </section>
+
+  <footer class="foot">
+    <a href="/" data-i18n="f_back">← Torna al sito</a>
+    <small id="stamp"></small>
+  </footer>
+</main>
+
+<script>
+const T = {
+  it:{back:"Sito",eyebrow:"Curriculum",h_exp:"Esperienza",l_exp:"Dove ho lavorato e cosa ho fatto.",
+      h_edu:"Formazione",l_edu:"Percorso di studi.",h_do:"Competenze",l_do:"Quello che so fare.",
+      h_lang:"Lingue",h_tools:"Strumenti",l_tools:"Programmi che uso ogni giorno.",
+      h_sel:"Lavori scelti",l_sel:"Qualche progetto, con il link per vederlo.",
+      f_back:"← Torna al sito",loading:"Carico...",print:"Stampa",now:"Oggi",
+      based:"Base",see:"Guarda",updated:"Aggiornato"},
+  en:{back:"Site",eyebrow:"Curriculum vitae",h_exp:"Experience",l_exp:"Where I worked and what I did.",
+      h_edu:"Education",l_edu:"Study path.",h_do:"Skills",l_do:"What I can do.",
+      h_lang:"Languages",h_tools:"Tools",l_tools:"Software I use every day.",
+      h_sel:"Selected work",l_sel:"A few projects, with the link to see them.",
+      f_back:"← Back to the site",loading:"Loading...",print:"Print",now:"Today",
+      based:"Based in",see:"See",updated:"Updated"}
+};
+let DATA = null, lang = "it";
+try { const s = localStorage.getItem("me-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
+
+const el = (t, c, x) => { const n = document.createElement(t); if (c) n.className = c; if (x !== undefined) n.textContent = x; return n; };
+const pick = (v) => (v && typeof v === "object") ? (v[lang] || v.it || v.en || "") : (v || "");
+
+function paintLabels(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(n => { const k = n.dataset.i18n; if (T[lang][k]) n.textContent = T[lang][k]; });
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+  document.getElementById("printBtn").setAttribute("aria-label", T[lang].print);
+}
+
+/* una voce della linea del tempo */
+function entry(e, extra){
+  const li = el("li", "rise");
+  li.appendChild(el("span", "dot"));
+  li.appendChild(el("span", "when", e.year || ""));
+  li.appendChild(el("p", "what", pick(e.role)));
+  li.appendChild(el("p", "who", pick(e.org)));
+  const d = pick(e.detail);
+  if (d) li.appendChild(el("p", "more", d));
+  if (extra && extra.url) {
+    const a = el("a", "go", T[lang].see + " → " + extra.label);
+    a.href = extra.url; a.target = "_blank"; a.rel = "noopener";
+    li.appendChild(a);
+  }
+  return li;
+}
+
+/* collega una voce al progetto o al lavoro che le corrisponde */
+function related(e){
+  const org = (pick(e.org) || "").toLowerCase();
+  const all = [].concat(DATA.projects || [], DATA.work || []);
+  for (const it of all) {
+    const t = (typeof it.title === "string" ? it.title : pick(it.title) || "").toLowerCase();
+    if (!t) continue;
+    const key = t.split(/[—–-]/)[0].trim();
+    if (key.length > 4 && (org.includes(key) || key.includes(org))) {
+      if (it.url) return { url: it.url, label: (typeof it.title === "string" ? it.title : pick(it.title)) };
+    }
+  }
+  return null;
+}
+
+function fillList(id, rows){
+  const ol = document.getElementById(id);
+  ol.textContent = "";
+  const fill = el("span", "fill"); ol.appendChild(fill);
+  rows.forEach(r => ol.appendChild(entry(r, related(r))));
+  return ol;
+}
+
+function render(){
+  paintLabels();
+  if (!DATA) return;
+
+  document.getElementById("name").textContent = (DATA.hero && DATA.hero.name) || "Mauro Esposito";
+  document.getElementById("tag").textContent = pick(DATA.hero && DATA.hero.intro);
+
+  const facts = document.getElementById("facts");
+  facts.textContent = "";
+  const cur = DATA.hero && DATA.hero.current;
+  if (cur) {
+    const li = el("li"); li.appendChild(el("b", null, T[lang].based + ": "));
+    li.appendChild(document.createTextNode(pick(cur.city))); facts.appendChild(li);
+  }
+  const langs = (DATA.skills && DATA.skills.languages && DATA.skills.languages[lang]) || [];
+  langs.forEach(l => {
+    const li = el("li"); li.appendChild(el("b", null, l.language + ": "));
+    li.appendChild(document.createTextNode(l.level)); facts.appendChild(li);
+  });
+
+  fillList("exp", DATA.experience || []);
+  fillList("edu", DATA.education || []);
+
+  const doList = document.getElementById("do");
+  doList.textContent = "";
+  ((DATA.skills && DATA.skills.do && DATA.skills.do[lang]) || []).forEach(s => doList.appendChild(el("li", null, s)));
+
+  const lg = document.getElementById("langs");
+  lg.textContent = "";
+  langs.forEach(l => { const li = el("li"); li.appendChild(el("b", null, l.language)); li.appendChild(el("span", null, l.level)); lg.appendChild(li); });
+
+  const tl = document.getElementById("tools");
+  tl.textContent = "";
+  (DATA.tools || []).forEach(t => { const li = el("li"); li.appendChild(el("b", null, t.name)); li.appendChild(el("span", null, pick(t.desc))); tl.appendChild(li); });
+
+  const sel = document.getElementById("sel");
+  sel.textContent = "";
+  [].concat(DATA.projects || [], DATA.work || []).slice(0, 6).forEach(p => {
+    const li = el("li");
+    const box = p.url ? el("a") : el("div");
+    if (p.url) { box.href = p.url; box.target = "_blank"; box.rel = "noopener"; }
+    box.appendChild(el("span", "y", p.year || ""));
+    box.appendChild(el("b", null, typeof p.title === "string" ? p.title : pick(p.title)));
+    box.appendChild(el("p", null, pick(p.kind)));
+    li.appendChild(box); sel.appendChild(li);
+  });
+
+  watch();
+}
+
+/* la linea blu si riempie mentre scorri, come in home.
+   Niente IntersectionObserver: con i salti di scorrimento (ancore, fine pagina,
+   posizione ripristinata) una voce poteva non comparire mai. Qui si misura
+   a ogni scroll, quindi quello che e' passato e' sempre visibile. */
+function watch(){
+  requestAnimationFrame(paintFill);
+}
+function paintFill(){
+  const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const show = innerHeight * 0.92;
+  const mid = innerHeight * 0.58;
+  document.querySelectorAll(".tl").forEach(ol => {
+    const fill = ol.querySelector(".fill");
+    const b = ol.getBoundingClientRect();
+    let h = 0;
+    ol.querySelectorAll("li").forEach(li => {
+      const r = li.getBoundingClientRect();
+      if (rm || r.top < show) li.classList.add("seen");
+      const d = li.querySelector(".dot");
+      if (!d) return;
+      const dr = d.getBoundingClientRect();
+      li.classList.toggle("on", rm || dr.top < mid);
+      if (rm || dr.top < mid) h = Math.max(h, dr.top - b.top + 6);
+    });
+    if (fill) fill.style.height = Math.max(0, h) + "px";
+  });
+}
+addEventListener("scroll", paintFill, { passive: true });
+addEventListener("resize", paintFill);
+addEventListener("load", paintFill);
+
+document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.setLang;
+  try { localStorage.setItem("me-lang", lang); } catch (e) {}
+  render();
+}));
+document.getElementById("printBtn").addEventListener("click", () => print());
+const themeBtn = document.getElementById("themeBtn");
+themeBtn.setAttribute("aria-pressed", String(document.documentElement.dataset.theme === "dark"));
+themeBtn.addEventListener("click", () => {
+  const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  themeBtn.setAttribute("aria-pressed", String(t === "dark"));
+  try { localStorage.setItem("me-theme", t); } catch (e) {}
+});
+
+paintLabels();
+fetch("/api/content")
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(d => { DATA = d; render(); document.getElementById("stamp").textContent = T[lang].updated + " " + new Date().toLocaleDateString(lang === "it" ? "it-IT" : "en-GB", { month: "long", year: "numeric" }); })
+  .catch(() => { document.getElementById("exp").textContent = ""; document.getElementById("exp").appendChild(el("li", "loading", "—")); });
+</script>
+</body>
+</html>
