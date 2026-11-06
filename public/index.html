@@ -1273,6 +1273,28 @@ sceneBtn.addEventListener("click", () => setScene(document.body.dataset.scene ==
 /* il menu d'ingresso (menu.js) usa questi due */
 window.siteGate = { setScene, setLang: (l) => render(l), setTheme };
 
+/* Il tasto chiaro/scuro del menu d'ingresso sta qui e non in menu.js:
+   la pagina non viene mai messa in cache, quindi il tasto e il suo
+   comando restano sempre della stessa versione. */
+(() => {
+  const btn = $("gateTheme"), gate = $("gate");
+  if (!btn) return;
+  const paint = () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    btn.setAttribute("aria-pressed", String(dark));
+    const it = (localStorage.getItem("me-lang") || "en") === "it";
+    btn.setAttribute("aria-label", it ? (dark ? "Modalità chiara" : "Modalità scura")
+                                      : (dark ? "Light mode" : "Dark mode"));
+  };
+  btn.addEventListener("click", () => {
+    setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+    paint();
+    /* Safari non ridisegna gli strati fissi: lo si obbliga */
+    if (gate && !gate.hidden) { const d = gate.style.display; gate.style.display = "none"; void gate.offsetHeight; gate.style.display = d; }
+  });
+  paint();
+})();
+
 /* il riquadro Links si prende e si sposta; per rimetterlo a posto si ricarica */
 (() => {
   const card = document.querySelector(".links");
@@ -1318,6 +1340,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js" defer></script>
+<script src="/menu.js?v=3" defer></script>
 </body>
 </html>
