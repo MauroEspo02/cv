@@ -85,6 +85,11 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font
 .items li.soon{border-style:dashed;opacity:.75}
 .items li.soon h3{color:var(--muted)}
 
+.wip{display:flex;gap:.7rem;align-items:flex-start;margin:2rem 0 0;padding:.95rem 1.1rem;
+  border:1.5px dashed var(--accent);border-radius:1rem;color:var(--ink);background:var(--lav)}
+.wip .dot{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--hot);margin-top:.55rem}
+.wip b{display:block;font-weight:700;font-size:.95rem}
+.wip span{display:block;color:var(--muted);font-size:.88rem;margin-top:.15rem}
 .note{margin:3rem 0 0;padding:1.1rem 1.2rem;border-radius:1rem;background:var(--lav);
   color:var(--muted);font-size:.92rem}
 .foot{margin:clamp(4rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);padding-top:2rem;
@@ -112,6 +117,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font
     <p class="eyebrow" data-i18n="eyebrow">Per chi studia e per chi insegna</p>
     <h1 data-i18n="title">Materiali</h1>
     <p class="tag" data-i18n="tag"></p>
+    <div class="wip"><span class="dot"></span><span><b data-i18n="wip_t">Pagina in lavorazione</b><span data-i18n="wip_s"></span></span></div>
     <ul class="filters" id="filters"></ul>
   </header>
 
@@ -171,11 +177,15 @@ const T = {
         title: "Materiali",
         tag: "Tesi, ricerche, mappe ed elaborati. Roba mia, scaricabile, per studenti e docenti.",
         note: "Qui trovi solo materiale prodotto da me. Se cerchi qualcosa che non c'è, scrivimi.",
+        wip_t: "Pagina in lavorazione",
+        wip_s: "Sto caricando i materiali un po' alla volta. Quello che vedi qui è l'indice: le voci senza link arrivano nelle prossime settimane.",
         open: "Apri", soon: "In arrivo", none: "Ancora niente in questa sezione." },
   en: { back: "Site", back_long: "← Back to the site", eyebrow: "For students and teachers",
         title: "Materials",
         tag: "Thesis, research, maps and coursework. My own work, downloadable, for students and teachers.",
         note: "Only material I produced myself. If you are looking for something that is not here, write to me.",
+        wip_t: "Work in progress",
+        wip_s: "I am uploading the materials a few at a time. What you see here is the index: the entries without a link are coming in the next few weeks.",
         open: "Open", soon: "Coming", none: "Nothing here yet." }
 };
 
