@@ -9,19 +9,19 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>CV — Mauro Esposito</title>
-<meta name="description" content="Curriculum di Mauro Esposito: economia della cultura e del territorio, comunicazione digitale, eventi culturali e graphic design. Esperienza, formazione, competenze e lingue.">
+<meta name="description" content="Curriculum Europass di Mauro Esposito: economia della cultura e del territorio, comunicazione digitale, eventi culturali e graphic design. Formazione, esperienza, competenze e lingue.">
 <link rel="canonical" href="https://mauroesposito19.com/cv/">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://mauroesposito19.com/cv/">
 <meta property="og:site_name" content="Mauro Esposito">
 <meta property="og:title" content="CV — Mauro Esposito">
-<meta property="og:description" content="Esperienza, formazione, competenze e lingue.">
+<meta property="og:description" content="Formazione, esperienza, competenze e lingue.">
 <meta property="og:image" content="https://mauroesposito19.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CV — Mauro Esposito">
-<meta name="twitter:description" content="Esperienza, formazione, competenze e lingue.">
+<meta name="twitter:description" content="Formazione, esperienza, competenze e lingue.">
 <meta name="twitter:image" content="https://mauroesposito19.com/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
   --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
   --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
   --lav:#EDEDFF; --lav2:#D9D9FF; --rule:#E6E6EC; --surface:#FFFFFF;
-  --hot:#FD9829; --shadow:rgba(12,12,40,.1);
+  --head:#F4F4F8; --hot:#FD9829; --shadow:rgba(12,12,40,.1);
   --font:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:light;
 }
@@ -39,7 +39,7 @@
   --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
   --accent:#5A5AFF; --accent-2:#8C8CFF; --on-accent:#07070E;
   --lav:#17172B; --lav2:#242445; --rule:#1E1E33; --surface:#0B0B12;
-  --shadow:rgba(0,0,0,.5);
+  --head:#11111C; --shadow:rgba(0,0,0,.5);
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -65,76 +65,78 @@ a{color:inherit}
 :root[data-theme="dark"] .bar .sun{display:block}
 :root[data-theme="dark"] .bar .moon{display:none}
 
-/* ---- intestazione ---- */
-.head{padding:clamp(5.5rem,14vh,8rem) 0 0}
-.eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);margin:0 0 1rem}
-.head h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.02;
-  font-size:clamp(2.4rem,7vw,4.6rem)}
-.tag{margin:1.2rem 0 0;max-width:40em;font-size:clamp(1.05rem,2.1vw,1.25rem);color:var(--muted)}
-.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.8rem 0 0;padding:0;list-style:none}
-.facts li{font-weight:600;font-size:.86rem;padding:.4rem .8rem;border:1.5px solid var(--rule);
-  border-radius:999px;color:var(--muted)}
-.facts li b{color:var(--ink);font-weight:700}
-.facts a{color:var(--accent);text-decoration:none;font-weight:700}
+/* ---- testata in stile Europass ---- */
+.head{background:var(--head);border-bottom:1.5px solid var(--rule);
+  padding-block:clamp(4.5rem,11vh,6.5rem) clamp(1.6rem,4vh,2.4rem);margin-bottom:2.5rem}
+.ep{display:flex;justify-content:flex-end;margin-bottom:1.4rem}
+.ep .mark{display:inline-flex;align-items:center;gap:.6rem}
+.ep svg{display:block;width:3.4rem;height:auto;border-radius:.15rem}
+.ep .word{font-weight:700;font-size:1.45rem;letter-spacing:-.02em;color:#6A3FA0}
+:root[data-theme="dark"] .ep .word{color:#B48CE8}
+.idy{display:flex;gap:clamp(1rem,3vw,1.8rem);align-items:flex-start;flex-wrap:wrap}
+.idy img.me{flex:none;width:clamp(5.5rem,13vw,8rem);height:clamp(5.5rem,13vw,8rem);
+  border-radius:50%;object-fit:cover;border:2px solid var(--rule);background:var(--lav)}
+.idy .who{flex:1 1 20rem;min-width:0}
+.idy h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.05;
+  font-size:clamp(1.9rem,5vw,3rem)}
+.facts{margin:.9rem 0 0;padding:.9rem 0 0;border-top:1.5px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.3rem 1.1rem;list-style:none;font-size:.9rem}
+.facts li{color:var(--muted)}
+.facts b{color:var(--ink);font-weight:700}
+.facts a{color:var(--accent);text-decoration:none;font-weight:600;word-break:break-word}
 .facts a:hover{text-decoration:underline}
 
 /* ---- sezioni ---- */
-section.block{margin-top:clamp(3.5rem,9vh,6rem)}
-h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem,3.2vw,2rem)}
-.lede{margin:0 0 2rem;color:var(--muted);font-size:.95rem}
+section.block{margin-top:clamp(2.8rem,7vh,4.5rem)}
+h2{margin:0;font-weight:800;letter-spacing:.02em;text-transform:uppercase;
+  font-size:clamp(.95rem,2.1vw,1.1rem);padding-bottom:.5rem;
+  border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:.6rem}
+h2::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.about{margin:1.3rem 0 0;max-width:52em;font-size:1.03rem}
 
 /* ---- linea del tempo ---- */
-.tl{position:relative;margin:0;padding:0 0 0 2.1rem;list-style:none}
+.tl{position:relative;margin:1.6rem 0 0;padding:0 0 0 2.1rem;list-style:none}
 .tl::before{content:"";position:absolute;left:5px;top:.6rem;bottom:.6rem;width:2px;background:var(--rule)}
 .tl .fill{position:absolute;left:5px;top:.6rem;width:2px;background:var(--accent);
   height:0;transition:height .25s linear}
-.tl li{position:relative;padding:0 0 2.4rem}
+.tl li{position:relative;padding:0 0 2.2rem}
 .tl li:last-child{padding-bottom:0}
 .tl .dot{position:absolute;left:-2.1rem;top:.45rem;width:12px;height:12px;border-radius:50%;
   background:var(--bg);border:2.5px solid var(--rule);transition:border-color .2s,transform .2s}
 .tl li.on .dot{border-color:var(--accent);transform:scale(1.15)}
-.tl .when{font-weight:700;font-size:.78rem;letter-spacing:.08em;color:var(--accent);
-  text-transform:uppercase}
-.tl .where{font-weight:600;font-size:.78rem;letter-spacing:.08em;color:var(--muted);
-  text-transform:uppercase}
 .tl .line1{display:flex;flex-wrap:wrap;gap:.2rem .7rem;align-items:baseline}
-.tl .what{margin:.3rem 0 0;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.28rem);letter-spacing:-.015em}
+.tl .when{font-weight:700;font-size:.78rem;letter-spacing:.06em;color:var(--accent)}
+.tl .where{font-weight:600;font-size:.78rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.tl .what{margin:.3rem 0 0;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.25rem);letter-spacing:-.015em}
 .tl .who{margin:.1rem 0 0;color:var(--muted)}
 .tl .pts{margin:.7rem 0 0;padding:0 0 0 1.05rem;color:var(--muted);font-size:.95rem;max-width:48em}
 .tl .pts li{padding:0 0 .35rem;list-style:disc}
 .tl .pts li::marker{color:var(--lav2)}
 .eqf{display:inline-block;margin-top:.65rem;font-weight:700;font-size:.72rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--accent);background:var(--lav);
-  padding:.25rem .55rem;border-radius:.4rem}
-.tl .go{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-weight:700;
-  font-size:.85rem;color:var(--accent);text-decoration:none}
-.tl .go:hover{text-decoration:underline}
+  text-transform:uppercase;color:var(--accent);background:var(--lav);padding:.25rem .55rem;border-radius:.4rem}
 .rise{opacity:0;transform:translateY(14px)}
 .rise.seen{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 
 /* ---- competenze ---- */
-.groups{display:grid;gap:1.6rem}
-@media (min-width:760px){ .groups{grid-template-columns:1fr 1fr} }
-.groups h3{margin:0 0 .6rem;font-size:.78rem;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.5rem 0 0;padding:0;list-style:none}
 .chips li{font-weight:600;font-size:.9rem;padding:.42rem .85rem;border-radius:999px;
   background:var(--lav);color:var(--ink)}
 
 /* ---- lingue ---- */
-.langs{margin:0;padding:0;list-style:none}
-.langs li{padding:.85rem 0;border-bottom:1.5px solid var(--rule)}
-.langs li:last-child{border-bottom:0}
-.langs .top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
-.langs b{font-weight:700}
-.langs .lvl{color:var(--accent);font-weight:700}
-.langs small{display:block;color:var(--muted);font-size:.82rem;margin-top:.2rem}
+.mother{margin:1.4rem 0 1rem;font-size:.98rem;color:var(--muted)}
+.mother b{color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.tscroll{overflow-x:auto}
+table.lang{border-collapse:collapse;width:100%;min-width:34rem;font-size:.9rem}
+table.lang th,table.lang td{padding:.6rem .5rem;text-align:center;border-bottom:1.5px solid var(--rule)}
+table.lang thead th{font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+table.lang thead tr.grp th{color:var(--ink);border-bottom:0;padding-bottom:.1rem}
+table.lang tbody th{text-align:left;font-weight:700;color:var(--ink)}
+table.lang tbody td{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
 
 /* ---- lavori scelti ---- */
-.sel{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+.sel{display:grid;gap:.6rem;margin:1.5rem 0 0;padding:0;list-style:none}
 @media (min-width:760px){ .sel{grid-template-columns:1fr 1fr} }
-.sel a,.sel div{display:block;border:1.5px solid var(--rule);border-radius:1rem;padding:1.1rem 1.2rem;
+.sel a{display:block;border:1.5px solid var(--rule);border-radius:1rem;padding:1.1rem 1.2rem;
   text-decoration:none;height:100%;transition:border-color .2s,transform .2s}
 .sel a:hover{border-color:var(--accent);transform:translateY(-2px)}
 .sel .y{font-weight:700;font-size:.78rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
@@ -142,7 +144,7 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 .sel p{margin:.35rem 0 0;color:var(--muted);font-size:.92rem}
 
 /* ---- fondo ---- */
-.foot{margin:clamp(4rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);padding-top:2rem;
+.foot{margin:clamp(3.5rem,9vh,6rem) 0 clamp(3rem,8vh,5rem);padding-top:2rem;
   border-top:1.5px solid var(--rule);display:flex;flex-wrap:wrap;gap:1rem;
   align-items:center;justify-content:space-between}
 .foot a{font-weight:700;color:var(--accent);text-decoration:none}
@@ -154,32 +156,36 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
   .rise{opacity:1;transform:none}
 }
 
-/* ---- stampa: diventa un CV su carta (e un PDF) ---- */
+/* ---- stampa: due pagine A4 ---- */
 @media print{
-  :root{--bg:#fff;--ink:#000;--muted:#3a3a3a;--accent:#000;--rule:#bbb;--lav:#eee;--lav2:#ddd;--surface:#fff}
-  .bar,.foot,#selBlock{display:none!important}   /* su carta i link non servono: il CV resta su 2 pagine */
+  :root{--bg:#fff;--ink:#000;--muted:#3a3a3a;--accent:#000;--rule:#bbb;--lav:#eee;--lav2:#ddd;
+    --surface:#fff;--head:#fff}
+  .bar,.foot,#selBlock{display:none!important}
   body{font-size:9.4pt;line-height:1.34}
   .wrap{width:100%}
-  .head{padding:0}
-  .head h1{font-size:21pt}
-  .tag{font-size:10.5pt;max-width:none}
-  .eyebrow{margin-bottom:.3rem}
+  .head{padding-block:0 8pt;margin-bottom:10pt;background:none}
+  .ep{margin-bottom:6pt}
+  .ep svg{width:2.4rem}
+  .ep .word{font-size:1.05rem;color:#000}
+  .idy h1{font-size:20pt}
+  .idy img.me{width:4.6rem;height:4.6rem}
+  .facts{font-size:8.4pt;margin-top:.5rem;padding-top:.5rem}
   section.block{margin-top:8pt}
-  .groups{gap:.55rem 1rem;grid-template-columns:1fr 1fr 1fr}
-  .groups h3{margin-bottom:.3rem;font-size:7.5pt}
-  .langs li{padding:.3rem 0;break-inside:avoid}
-  .langs small{font-size:8.6pt;margin-top:.05rem}
-  .facts{margin-top:.8rem}
-  h2{font-size:12.5pt;border-bottom:1pt solid #999;padding-bottom:1.5pt;margin-bottom:.3rem}
-  .lede{display:none}
-  .tl li{padding-bottom:6pt;break-inside:avoid}
-  .tl .pts{font-size:9.1pt;margin-top:.35rem}
+  h2{font-size:10pt;margin-bottom:0}
+  .about{font-size:9.4pt;margin-top:.5rem}
+  .tl{margin-top:.6rem}
+  .tl li{padding-bottom:5.5pt;break-inside:avoid}
+  .tl .pts{font-size:9pt;margin-top:.35rem}
   .tl .pts li{padding-bottom:.18rem}
   .eqf{margin-top:.35rem}
-  .chips li{background:none;border:.6pt solid #999;padding:.15rem .45rem;font-size:8.6pt;white-space:nowrap}
-  .chips{gap:.3rem}
+  .chips{margin-top:.5rem;gap:.3rem}
+  .chips li{background:none;border:.6pt solid #999;padding:.12rem .4rem;font-size:8.4pt;white-space:nowrap}
+  .mother{margin:.5rem 0 .4rem;font-size:9pt}
+  .tscroll{overflow:visible;break-inside:avoid}
+  table.lang,.mother{break-inside:avoid}
+  table.lang{min-width:0;font-size:8.6pt}
+  table.lang th,table.lang td{padding:.25rem .3rem}
   .rise{opacity:1!important;transform:none!important}
-  .sel a,.sel div{break-inside:avoid}
   a{text-decoration:none}
 }
 </style>
@@ -197,40 +203,73 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
   </button>
 </div>
 
-<main class="wrap">
-  <header class="head">
-    <p class="eyebrow" data-i18n="eyebrow">Curriculum</p>
-    <h1 id="name">Mauro Esposito</h1>
-    <p class="tag" id="tag"></p>
-    <ul class="facts" id="facts"></ul>
-  </header>
+<header class="head">
+  <div class="wrap">
+    <div class="ep">
+      <span class="mark">
+        <svg viewBox="0 0 90 60" role="img" aria-label="Unione europea"><rect width="90" height="60" fill="#003399"/><g id="stars" fill="#FFCC00"></g></svg>
+        <span class="word">europass</span>
+      </span>
+    </div>
+    <div class="idy">
+      <img class="me" id="photo" src="mauro.jpg" width="250" height="250" alt="Mauro Esposito">
+      <div class="who">
+        <h1 id="name">Mauro Esposito</h1>
+        <ul class="facts" id="facts"></ul>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <section class="block">
-    <h2 data-i18n="h_exp">Esperienza</h2>
-    <p class="lede" data-i18n="l_exp">Dove ho lavorato e cosa ho fatto.</p>
-    <ol class="tl" id="exp"></ol>
+<main class="wrap">
+  <section class="block" style="margin-top:0">
+    <h2 data-i18n="h_about">Chi sono</h2>
+    <p class="about" id="about"></p>
   </section>
 
   <section class="block">
-    <h2 data-i18n="h_edu">Formazione</h2>
-    <p class="lede" data-i18n="l_edu">Percorso di studi.</p>
+    <h2 data-i18n="h_edu">Istruzione e formazione</h2>
     <ol class="tl" id="edu"></ol>
   </section>
 
   <section class="block">
-    <h2 data-i18n="h_do">Competenze</h2>
-    <p class="lede" data-i18n="l_do">Quello che so fare.</p>
-    <div class="groups" id="skills"></div>
+    <h2 data-i18n="h_exp">Esperienza lavorativa</h2>
+    <ol class="tl" id="exp"></ol>
   </section>
 
   <section class="block">
-    <h2 data-i18n="h_lang">Lingue</h2>
-    <ul class="langs" id="langs"></ul>
+    <h2 data-i18n="h_skills">Competenze</h2>
+    <ul class="chips" id="skills"></ul>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="h_lang">Competenze linguistiche</h2>
+    <p class="mother" id="mother"></p>
+    <div class="tscroll">
+      <table class="lang">
+        <thead>
+          <tr class="grp">
+            <th></th>
+            <th colspan="2" data-i18n="t_under">Comprensione</th>
+            <th colspan="2" data-i18n="t_speak">Parlato</th>
+            <th data-i18n="t_write">Scrittura</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th data-i18n="t_listen">Ascolto</th>
+            <th data-i18n="t_read">Lettura</th>
+            <th data-i18n="t_prod">Produzione orale</th>
+            <th data-i18n="t_inter">Interazione orale</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="langs"></tbody>
+      </table>
+    </div>
   </section>
 
   <section class="block" id="selBlock" hidden>
     <h2 data-i18n="h_sel">Lavori scelti</h2>
-    <p class="lede" data-i18n="l_sel">Qualche progetto, con il link per vederlo.</p>
     <ul class="sel" id="sel"></ul>
   </section>
 
@@ -242,22 +281,44 @@ h2{margin:0 0 .4rem;font-weight:800;letter-spacing:-.02em;font-size:clamp(1.4rem
 
 <script>
 const T = {
-  it:{back:"Sito",eyebrow:"Curriculum",h_exp:"Esperienza",l_exp:"Dove ho lavorato e cosa ho fatto.",
-      h_edu:"Formazione",l_edu:"Percorso di studi.",h_do:"Competenze",l_do:"Quello che so fare.",
-      h_lang:"Lingue",h_sel:"Lavori scelti",l_sel:"Qualche progetto, con il link per vederlo.",
-      f_back:"← Torna al sito",print:"Stampa",based:"Base",nat:"Cittadinanza",
-      see:"Guarda",updated:"Aggiornato",eqf:"Livello EQF"},
-  en:{back:"Site",eyebrow:"Curriculum vitae",h_exp:"Experience",l_exp:"Where I worked and what I did.",
-      h_edu:"Education",l_edu:"Study path.",h_do:"Skills",l_do:"What I can do.",
-      h_lang:"Languages",h_sel:"Selected work",l_sel:"A few projects, with the link to see them.",
-      f_back:"← Back to the site",print:"Print",based:"Based in",nat:"Nationality",
-      see:"See",updated:"Updated",eqf:"EQF level"}
+  it:{back:"Sito",h_about:"Chi sono",h_edu:"Istruzione e formazione",h_exp:"Esperienza lavorativa",
+      h_skills:"Competenze",h_lang:"Competenze linguistiche",h_sel:"Lavori scelti",
+      t_under:"Comprensione",t_speak:"Parlato",t_write:"Scrittura",t_listen:"Ascolto",
+      t_read:"Lettura",t_prod:"Produzione orale",t_inter:"Interazione orale",
+      f_back:"← Torna al sito",print:"Stampa",mother:"Lingua madre",updated:"Aggiornato",eqf:"Livello EQF"},
+  en:{back:"Site",h_about:"About me",h_edu:"Education and training",h_exp:"Work experience",
+      h_skills:"Skills",h_lang:"Language skills",h_sel:"Selected work",
+      t_under:"Understanding",t_speak:"Speaking",t_write:"Writing",t_listen:"Listening",
+      t_read:"Reading",t_prod:"Spoken production",t_inter:"Spoken interaction",
+      f_back:"← Back to the site",print:"Print",mother:"Mother tongue",updated:"Updated",eqf:"EQF level"}
 };
 let CV = null, SITE = null, lang = "it";
 try { const s = localStorage.getItem("me-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
 
 const el = (t, c, x) => { const n = document.createElement(t); if (c) n.className = c; if (x !== undefined) n.textContent = x; return n; };
 const pick = (v) => (v && typeof v === "object") ? (v[lang] || v.it || v.en || "") : (v || "");
+
+/* le dodici stelle della bandiera europea */
+(function stars(){
+  const g = document.getElementById("stars");
+  const pt = (cx, cy, r, rot) => {
+    let d = "";
+    for (let i = 0; i < 10; i++) {
+      const rr = i % 2 ? r * .382 : r;
+      const a = rot + i * Math.PI / 5;
+      d += (i ? "L" : "M") + (cx + rr * Math.sin(a)).toFixed(2) + "," + (cy - rr * Math.cos(a)).toFixed(2);
+    }
+    return d + "Z";
+  };
+  let d = "";
+  for (let i = 0; i < 12; i++) {
+    const a = i * Math.PI / 6;
+    d += pt(45 + 20 * Math.sin(a), 30 - 20 * Math.cos(a), 3, 0);
+  }
+  const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  p.setAttribute("d", d); p.setAttribute("fill", "#FFCC00");
+  g.appendChild(p);
+})();
 
 function paintLabels(){
   document.documentElement.lang = lang;
@@ -284,7 +345,6 @@ function entry(e){
   if (e.eqf) li.appendChild(el("span", "eqf", T[lang].eqf + " " + e.eqf));
   return li;
 }
-
 function fillList(id, rows){
   const ol = document.getElementById(id);
   ol.textContent = "";
@@ -297,42 +357,45 @@ function render(){
   if (!CV) return;
 
   document.getElementById("name").textContent = CV.name || "Mauro Esposito";
-  document.getElementById("tag").textContent = pick(CV.profile);
+  if (CV.photo) document.getElementById("photo").src = CV.photo;
+  document.getElementById("about").textContent = pick(CV.about);
 
   const facts = document.getElementById("facts");
   facts.textContent = "";
-  const fact = (label, value) => { const li = el("li"); li.appendChild(el("b", null, label + ": ")); li.appendChild(document.createTextNode(value)); facts.appendChild(li); };
-  if (pick(CV.where)) fact(T[lang].based, pick(CV.where));
-  (CV.languages || []).forEach(l => fact(pick(l.name), pick(l.level)));
-  if (CV.linkedin) { const li = el("li"), a = el("a", null, "LinkedIn"); a.href = CV.linkedin; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); facts.appendChild(li); }
+  (CV.details || []).forEach(d => {
+    const li = el("li");
+    li.appendChild(el("b", null, pick(d.label) + ": "));
+    if (d.url) { const a = el("a", null, pick(d.value)); a.href = d.url; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); }
+    else li.appendChild(document.createTextNode(pick(d.value)));
+    facts.appendChild(li);
+  });
 
-  fillList("exp", CV.experience || []);
   fillList("edu", CV.education || []);
+  fillList("exp", CV.experience || []);
 
   const sk = document.getElementById("skills");
   sk.textContent = "";
-  (CV.skills || []).forEach(g => {
-    const box = el("div");
-    box.appendChild(el("h3", null, pick(g.group)));
-    const ul = el("ul", "chips");
-    ((g.items && g.items[lang]) || []).forEach(s => ul.appendChild(el("li", null, s)));
-    box.appendChild(ul); sk.appendChild(box);
-  });
+  ((CV.skills && CV.skills[lang]) || []).forEach(s => sk.appendChild(el("li", null, s)));
+
+  const m = document.getElementById("mother");
+  m.textContent = "";
+  m.appendChild(document.createTextNode(T[lang].mother + ": "));
+  m.appendChild(el("b", null, pick(CV.mother)));
 
   const lg = document.getElementById("langs");
   lg.textContent = "";
   (CV.languages || []).forEach(l => {
-    const li = el("li"), top = el("div", "top");
-    top.appendChild(el("b", null, pick(l.name)));
-    top.appendChild(el("span", "lvl", pick(l.level)));
-    li.appendChild(top);
-    if (pick(l.detail)) li.appendChild(el("small", null, pick(l.detail)));
-    lg.appendChild(li);
+    const tr = document.createElement("tr");
+    const th = document.createElement("th"); th.scope = "row"; th.textContent = pick(l.name); tr.appendChild(th);
+    [l.listening, l.reading, l.spoken, l.interaction, l.writing].forEach(v => {
+      const td = document.createElement("td"); td.textContent = v || "—"; tr.appendChild(td);
+    });
+    lg.appendChild(tr);
   });
 
   /* i progetti arrivano dal sito, cosi' restano allineati con la home */
-  const sel = document.getElementById("sel");
   if (SITE) {
+    const sel = document.getElementById("sel");
     sel.textContent = "";
     const rows = [].concat(SITE.projects || [], SITE.work || []).filter(p => p.url).slice(0, 6);
     rows.forEach(p => {
@@ -352,9 +415,8 @@ function render(){
   requestAnimationFrame(paintFill);
 }
 
-/* la linea blu si riempie mentre scorri, come in home.
-   Misurata a ogni scroll: con i salti (ancore, fine pagina, posizione
-   ripristinata) nessuna voce puo' restare invisibile. */
+/* la linea blu si riempie mentre scorri. Misurata a ogni scroll, cosi' con i
+   salti (ancore, fine pagina, posizione ripristinata) nulla resta invisibile. */
 function paintFill(){
   const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const show = innerHeight * 0.92, mid = innerHeight * 0.58;

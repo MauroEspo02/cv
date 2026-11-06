@@ -1,20 +1,72 @@
 {
   "name": "Mauro Esposito",
-  "born": "19/02/2002",
-  "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
-  "nationality": { "it": "Italiana", "en": "Italian" },
-  "where": { "it": "Italia", "en": "Italy" },
-  "site": "www.mauroesposito19.com",
-  "linkedin": "https://www.linkedin.com/in/mauro-esposito-6890a825a",
-  "profile": {
+  "photo": "mauro.jpg",
+  "about": {
     "it": "Studente magistrale in Economia della cultura e del territorio, con una formazione in economia ambientale e oltre sei anni di esperienza in comunicazione digitale, contenuti visivi e social media.",
     "en": "Master's student in Cultural and Territorial Economics with a background in environmental economics and over six years of experience in digital communication, visual content and social media."
   },
 
+  "details": [
+    { "label": { "it": "Data di nascita", "en": "Date of birth" }, "value": { "it": "19/02/2002", "en": "19/02/2002" } },
+    { "label": { "it": "Luogo di nascita", "en": "Place of birth" }, "value": { "it": "Napoli, Italia", "en": "Naples, Italy" } },
+    { "label": { "it": "Cittadinanza", "en": "Nationality" }, "value": { "it": "Italiana", "en": "Italian" } },
+    { "label": { "it": "Sesso", "en": "Gender" }, "value": { "it": "Maschile", "en": "Male" } },
+    { "label": { "it": "Telefono", "en": "Phone" }, "value": { "it": "(+39) 379 197 9414", "en": "(+39) 379 197 9414" } },
+    { "label": { "it": "Sito", "en": "Website" }, "value": { "it": "www.mauroesposito19.com", "en": "www.mauroesposito19.com" }, "url": "https://www.mauroesposito19.com" },
+    { "label": { "it": "LinkedIn", "en": "LinkedIn" }, "value": { "it": "mauro-esposito-6890a825a", "en": "mauro-esposito-6890a825a" }, "url": "https://www.linkedin.com/in/mauro-esposito-6890a825a" },
+    { "label": { "it": "Indirizzo", "en": "Address" }, "value": { "it": "Italia", "en": "Italy (Home)" } }
+  ],
+
+  "education": [
+    {
+      "when": { "it": "09/09/2024 – oggi", "en": "09/09/2024 – Current" },
+      "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
+      "role": { "it": "Laurea magistrale in Economia della cultura e del territorio", "en": "Master's degree in Cultural and Territorial Economics" },
+      "org": { "it": "Università degli Studi di Torino e Politecnico di Torino", "en": "University of Turin and Politecnico di Torino" },
+      "eqf": "7",
+      "points": {
+        "it": ["Economia della cultura, industrie culturali e creative, sviluppo territoriale e locale, politiche culturali, economia ambientale e sostenibilità. Il percorso comprende anche sviluppo di progetti culturali, innovazione, partecipazione del pubblico e analisi delle dinamiche culturali e territoriali."],
+        "en": ["Studies focused on cultural economics, cultural and creative industries, territorial and local development, cultural policies, environmental economics and sustainability. The programme also covers cultural project development, innovation, audience participation and the analysis of cultural and territorial dynamics."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2023 – 20/02/2024", "en": "01/09/2023 – 20/02/2024" },
+      "place": { "it": "Liegi, Belgio", "en": "Liège, Belgium" },
+      "role": { "it": "Erasmus in Belgio", "en": "Erasmus in Belgium" },
+      "org": { "it": "HELMo Haute École", "en": "HELMo Haute École" },
+      "eqf": "",
+      "points": {
+        "it": ["Business internazionale, strategie di marketing, comunicazione interculturale e dinamiche dei mercati globali. L'esperienza Erasmus+ ha rafforzato la mia comprensione dell'istruzione superiore internazionale, della collaborazione interculturale e della cooperazione accademica europea."],
+        "en": ["International business, marketing strategies, intercultural communication and global market dynamics. The Erasmus+ mobility experience strengthened my understanding of international higher education, cross-cultural collaboration and European academic cooperation."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2021 – 13/12/2024", "en": "01/09/2021 – 13/12/2024" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Laurea triennale in Green Economy", "en": "Bachelor's degree in Green Economy" },
+      "org": { "it": "Università degli Studi Suor Orsola Benincasa", "en": "Università degli Studi Suor Orsola Benincasa" },
+      "eqf": "6",
+      "points": {
+        "it": ["Sviluppo sostenibile, economia ambientale, transizione verde, pratiche d'impresa responsabili e innovazione orientata alla sostenibilità, con particolare attenzione al rapporto tra sviluppo economico, ambiente e territori."],
+        "en": ["Sustainable development, environmental economics, green transition, responsible business practices and sustainability-oriented innovation, with particular attention to the relationship between economic development, environment and territories."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2020 – 01/09/2021", "en": "01/09/2020 – 01/09/2021" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Corso di grafica, social media e web marketing", "en": "Graphic design, social media and web marketing course" },
+      "org": { "it": "ILAS", "en": "ILAS" },
+      "eqf": "5",
+      "points": {
+        "it": ["Graphic design, comunicazione visiva, Adobe Creative Suite, gestione dei social media, creazione di contenuti digitali, web marketing e sviluppo di identità visive per la comunicazione digitale."],
+        "en": ["Graphic design, visual communication, Adobe Creative Suite, social media management, digital content creation, web marketing and development of visual identities for digital communication."]
+      }
+    }
+  ],
+
   "experience": [
     {
-      "from": "03/2025", "to": "06/2025",
-      "when": { "it": "mar 2025 – giu 2025", "en": "Mar 2025 – Jun 2025" },
+      "when": { "it": "01/03/2025 – 07/06/2025", "en": "01/03/2025 – 07/06/2025" },
       "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
       "role": { "it": "Assistente eventi", "en": "Event assistant" },
       "org": { "it": "Fondazione Club Silencio", "en": "Fondazione Club Silencio" },
@@ -36,8 +88,7 @@
       }
     },
     {
-      "from": "05/2025", "to": "05/2025",
-      "when": { "it": "19–22 mag 2025", "en": "19–22 May 2025" },
+      "when": { "it": "19/05/2025 – 22/05/2025", "en": "19/05/2025 – 22/05/2025" },
       "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
       "role": { "it": "Supporto all'International Week (mobilità accademica Erasmus+)", "en": "International Week support (Erasmus+ academic mobility event)" },
       "org": { "it": "Università degli Studi Suor Orsola Benincasa", "en": "Università degli Studi Suor Orsola Benincasa" },
@@ -47,8 +98,7 @@
       }
     },
     {
-      "from": "04/2025", "to": "",
-      "when": { "it": "apr 2025 – oggi", "en": "Apr 2025 – Current" },
+      "when": { "it": "01/04/2025 – oggi", "en": "01/04/2025 – Current" },
       "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
       "role": { "it": "Rappresentante degli studenti", "en": "Student representative" },
       "org": { "it": "Università degli Studi di Torino", "en": "University of Turin" },
@@ -58,8 +108,7 @@
       }
     },
     {
-      "from": "09/2020", "to": "09/2026",
-      "when": { "it": "set 2020 – set 2026", "en": "Sep 2020 – Sep 2026" },
+      "when": { "it": "01/09/2020 – 01/09/2026", "en": "01/09/2020 – 01/09/2026" },
       "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
       "role": { "it": "Social media manager", "en": "Social media manager" },
       "org": { "it": "Freelance", "en": "Freelance" },
@@ -69,8 +118,7 @@
       }
     },
     {
-      "from": "06/2023", "to": "12/2024",
-      "when": { "it": "giu 2023 – dic 2024", "en": "Jun 2023 – Dec 2024" },
+      "when": { "it": "01/06/2023 – 13/12/2024", "en": "01/06/2023 – 13/12/2024" },
       "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
       "role": { "it": "Progetto radio universitaria — \"Fammi un fisco\"", "en": "University radio project contributor — \"Fammi un fisco\"" },
       "org": { "it": "Radio universitaria / Suor Orsola Benincasa", "en": "University radio project / Suor Orsola Benincasa" },
@@ -81,95 +129,14 @@
     }
   ],
 
-  "education": [
-    {
-      "when": { "it": "set 2024 – oggi", "en": "Sep 2024 – Current" },
-      "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
-      "role": { "it": "Laurea magistrale in Economia della cultura e del territorio", "en": "Master's degree in Cultural and Territorial Economics" },
-      "org": { "it": "Università degli Studi di Torino", "en": "University of Turin" },
-      "eqf": "7",
-      "points": {
-        "it": ["Economia della cultura, industrie culturali e creative, sviluppo territoriale e locale, politiche culturali, economia ambientale e sostenibilità. Il percorso comprende anche sviluppo di progetti culturali, innovazione, partecipazione del pubblico e analisi delle dinamiche culturali e territoriali."],
-        "en": ["Studies focused on cultural economics, cultural and creative industries, territorial and local development, cultural policies, environmental economics and sustainability. The programme also covers cultural project development, innovation, audience participation and the analysis of cultural and territorial dynamics."]
-      }
-    },
-    {
-      "when": { "it": "set 2023 – feb 2024", "en": "Sep 2023 – Feb 2024" },
-      "place": { "it": "Liegi, Belgio", "en": "Liège, Belgium" },
-      "role": { "it": "Erasmus in Belgio", "en": "Erasmus in Belgium" },
-      "org": { "it": "HELMo Haute École", "en": "HELMo Haute École" },
-      "eqf": "",
-      "points": {
-        "it": ["Business internazionale, strategie di marketing, comunicazione interculturale e dinamiche dei mercati globali. L'esperienza Erasmus+ ha rafforzato la mia comprensione dell'istruzione superiore internazionale, della collaborazione interculturale e della cooperazione accademica europea."],
-        "en": ["International business, marketing strategies, intercultural communication and global market dynamics. The Erasmus+ mobility experience strengthened my understanding of international higher education, cross-cultural collaboration and European academic cooperation."]
-      }
-    },
-    {
-      "when": { "it": "set 2021 – dic 2024", "en": "Sep 2021 – Dec 2024" },
-      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
-      "role": { "it": "Laurea triennale in Green Economy", "en": "Bachelor's degree in Green Economy" },
-      "org": { "it": "Università degli Studi Suor Orsola Benincasa", "en": "Università degli Studi Suor Orsola Benincasa" },
-      "eqf": "6",
-      "points": {
-        "it": ["Sviluppo sostenibile, economia ambientale, transizione verde, pratiche d'impresa responsabili e innovazione orientata alla sostenibilità, con particolare attenzione al rapporto tra sviluppo economico, ambiente e territori."],
-        "en": ["Sustainable development, environmental economics, green transition, responsible business practices and sustainability-oriented innovation, with particular attention to the relationship between economic development, environment and territories."]
-      }
-    },
-    {
-      "when": { "it": "set 2020 – set 2021", "en": "Sep 2020 – Sep 2021" },
-      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
-      "role": { "it": "Corso di grafica, social media e web marketing", "en": "Graphic design, social media and web marketing course" },
-      "org": { "it": "ILAS", "en": "ILAS" },
-      "eqf": "5",
-      "points": {
-        "it": ["Graphic design, comunicazione visiva, Adobe Creative Suite, gestione dei social media, creazione di contenuti digitali, web marketing e sviluppo di identità visive per la comunicazione digitale."],
-        "en": ["Graphic design, visual communication, Adobe Creative Suite, social media management, digital content creation, web marketing and development of visual identities for digital communication."]
-      }
-    }
-  ],
+  "skills": {
+    "it": ["Microsoft Word", "Microsoft Office", "Microsoft PowerPoint", "Social media", "Rispetto delle scadenze", "Registrazione dei partecipanti agli eventi", "Microsoft Excel", "Google Drive", "Uso di internet", "Google Docs", "Ascolto e comunicazione", "Adobe Photoshop", "Adobe Illustrator", "Sistemi informativi geografici", "QGIS (base)", "Organizzazione e pianificazione", "Lavoro in squadra", "Monitoraggio delle attività degli eventi", "Gestione dei registri degli eventi", "Organizzazione di eventi speciali"],
+    "en": ["Microsoft Word", "Microsoft Office", "Microsoft Powerpoint", "Social Media", "Meet deadlines", "Organise event participants' registration", "Microsoft Excel", "Google Drive", "Internet user", "Google Docs", "Good listener and communicator", "Adobe Photoshop", "Adobe Illustrator", "Geographic information systems", "Basic QGIS skills", "Organizational and planning skills", "Team-work oriented", "Monitor event activities", "Maintain event records", "Arrange special events"]
+  },
 
-  "skills": [
-    {
-      "group": { "it": "Comunicazione e contenuti", "en": "Communication and content" },
-      "items": {
-        "it": ["Social media", "Contenuti visivi", "Comunicazione digitale", "Ascolto e comunicazione"],
-        "en": ["Social media", "Visual content", "Digital communication", "Good listener and communicator"]
-      }
-    },
-    {
-      "group": { "it": "Eventi", "en": "Events" },
-      "items": {
-        "it": ["Organizzazione di eventi", "Registrazione dei partecipanti", "Monitoraggio delle attività", "Gestione dei registri", "Eventi speciali"],
-        "en": ["Arrange special events", "Organise event participants' registration", "Monitor event activities", "Maintain event records", "Event planning"]
-      }
-    },
-    {
-      "group": { "it": "Programmi", "en": "Software" },
-      "items": {
-        "it": ["Adobe Photoshop", "Adobe Illustrator", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Google Drive", "Google Docs"],
-        "en": ["Adobe Photoshop", "Adobe Illustrator", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Google Drive", "Google Docs"]
-      }
-    },
-    {
-      "group": { "it": "Territorio e dati", "en": "Territory and data" },
-      "items": {
-        "it": ["Sistemi informativi geografici (GIS)", "QGIS (base)"],
-        "en": ["Geographic information systems (GIS)", "Basic QGIS skills"]
-      }
-    },
-    {
-      "group": { "it": "Trasversali", "en": "Transversal" },
-      "items": {
-        "it": ["Organizzazione e pianificazione", "Rispetto delle scadenze", "Lavoro in squadra"],
-        "en": ["Organizational and planning skills", "Meet deadlines", "Team-work oriented"]
-      }
-    }
-  ],
-
+  "mother": { "it": "Italiano", "en": "Italian" },
   "languages": [
-    { "name": { "it": "Italiano", "en": "Italian" }, "level": { "it": "madrelingua", "en": "mother tongue" }, "detail": { "it": "", "en": "" } },
-    { "name": { "it": "Inglese", "en": "English" }, "level": { "it": "C1", "en": "C1" },
-      "detail": { "it": "Ascolto C1 · Lettura C1 · Produzione orale C1 · Interazione orale C1 · Scrittura C1",
-                  "en": "Listening C1 · Reading C1 · Spoken production C1 · Spoken interaction C1 · Writing C1" } }
+    { "name": { "it": "Inglese", "en": "English" }, "listening": "C1", "reading": "C1", "spoken": "C1", "interaction": "C1", "writing": "C1" },
+    { "name": { "it": "Francese", "en": "French" }, "listening": "A1", "reading": "A1", "spoken": "A1", "interaction": "A1", "writing": "A1" }
   ]
 }
