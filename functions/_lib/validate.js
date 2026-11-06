@@ -35,6 +35,7 @@ function validateOrgList(label) {
       bilingual(item.org, `${label}[${i}].org`);
       bilingual(item.role, `${label}[${i}].role`);
       str(item.year, `${label}[${i}].year`);
+      if (item.detail !== undefined && item.detail !== null) bilingual(item.detail, `${label}[${i}].detail`);
       return item;
     });
   };

@@ -1,0 +1,142 @@
+{
+  "name": "Mauro Esposito",
+  "photo": "mauro.jpg",
+  "about": {
+    "it": "Studente magistrale in Economia della cultura e del territorio, con una formazione in economia ambientale e oltre sei anni di esperienza in comunicazione digitale, contenuti visivi e social media.",
+    "en": "Master's student in Cultural and Territorial Economics with a background in environmental economics and over six years of experience in digital communication, visual content and social media."
+  },
+
+  "details": [
+    { "label": { "it": "Data di nascita", "en": "Date of birth" }, "value": { "it": "19/02/2002", "en": "19/02/2002" } },
+    { "label": { "it": "Luogo di nascita", "en": "Place of birth" }, "value": { "it": "Napoli, Italia", "en": "Naples, Italy" } },
+    { "label": { "it": "Cittadinanza", "en": "Nationality" }, "value": { "it": "Italiana", "en": "Italian" } },
+    { "label": { "it": "Sesso", "en": "Gender" }, "value": { "it": "Maschile", "en": "Male" } },
+    { "label": { "it": "Telefono", "en": "Phone" }, "value": { "it": "(+39) 379 197 9414", "en": "(+39) 379 197 9414" } },
+    { "label": { "it": "Sito", "en": "Website" }, "value": { "it": "www.mauroesposito19.com", "en": "www.mauroesposito19.com" }, "url": "https://www.mauroesposito19.com" },
+    { "label": { "it": "LinkedIn", "en": "LinkedIn" }, "value": { "it": "mauro-esposito-6890a825a", "en": "mauro-esposito-6890a825a" }, "url": "https://www.linkedin.com/in/mauro-esposito-6890a825a" },
+    { "label": { "it": "Indirizzo", "en": "Address" }, "value": { "it": "Italia", "en": "Italy (Home)" } }
+  ],
+
+  "education": [
+    {
+      "when": { "it": "09/09/2024 – oggi", "en": "09/09/2024 – Current" },
+      "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
+      "role": { "it": "Laurea magistrale in Economia della cultura e del territorio", "en": "Master's degree in Cultural and Territorial Economics" },
+      "org": { "it": "Università degli Studi di Torino e Politecnico di Torino", "en": "University of Turin and Politecnico di Torino" },
+      "eqf": "7",
+      "points": {
+        "it": ["Economia della cultura, industrie culturali e creative, sviluppo territoriale e locale, politiche culturali, economia ambientale e sostenibilità. Il percorso comprende anche sviluppo di progetti culturali, innovazione, partecipazione del pubblico e analisi delle dinamiche culturali e territoriali."],
+        "en": ["Studies focused on cultural economics, cultural and creative industries, territorial and local development, cultural policies, environmental economics and sustainability. The programme also covers cultural project development, innovation, audience participation and the analysis of cultural and territorial dynamics."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2023 – 20/02/2024", "en": "01/09/2023 – 20/02/2024" },
+      "place": { "it": "Liegi, Belgio", "en": "Liège, Belgium" },
+      "role": { "it": "Erasmus in Belgio", "en": "Erasmus in Belgium" },
+      "org": { "it": "HELMo Haute École", "en": "HELMo Haute École" },
+      "eqf": "",
+      "points": {
+        "it": ["Business internazionale, strategie di marketing, comunicazione interculturale e dinamiche dei mercati globali. L'esperienza Erasmus+ ha rafforzato la mia comprensione dell'istruzione superiore internazionale, della collaborazione interculturale e della cooperazione accademica europea."],
+        "en": ["International business, marketing strategies, intercultural communication and global market dynamics. The Erasmus+ mobility experience strengthened my understanding of international higher education, cross-cultural collaboration and European academic cooperation."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2021 – 13/12/2024", "en": "01/09/2021 – 13/12/2024" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Laurea triennale in Green Economy", "en": "Bachelor's degree in Green Economy" },
+      "org": { "it": "Università degli Studi Suor Orsola Benincasa", "en": "Università degli Studi Suor Orsola Benincasa" },
+      "eqf": "6",
+      "points": {
+        "it": ["Sviluppo sostenibile, economia ambientale, transizione verde, pratiche d'impresa responsabili e innovazione orientata alla sostenibilità, con particolare attenzione al rapporto tra sviluppo economico, ambiente e territori."],
+        "en": ["Sustainable development, environmental economics, green transition, responsible business practices and sustainability-oriented innovation, with particular attention to the relationship between economic development, environment and territories."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2020 – 01/09/2021", "en": "01/09/2020 – 01/09/2021" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Corso di grafica, social media e web marketing", "en": "Graphic design, social media and web marketing course" },
+      "org": { "it": "ILAS", "en": "ILAS" },
+      "eqf": "5",
+      "points": {
+        "it": ["Graphic design, comunicazione visiva, Adobe Creative Suite, gestione dei social media, creazione di contenuti digitali, web marketing e sviluppo di identità visive per la comunicazione digitale."],
+        "en": ["Graphic design, visual communication, Adobe Creative Suite, social media management, digital content creation, web marketing and development of visual identities for digital communication."]
+      }
+    }
+  ],
+
+  "experience": [
+    {
+      "when": { "it": "01/03/2025 – 07/06/2025", "en": "01/03/2025 – 07/06/2025" },
+      "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
+      "role": { "it": "Assistente eventi", "en": "Event assistant" },
+      "org": { "it": "Fondazione Club Silencio", "en": "Fondazione Club Silencio" },
+      "points": {
+        "it": [
+          "Supporto alla progettazione e alla realizzazione delle attività di coinvolgimento del pubblico per BEYOND 2025: Being Many, conferenza internazionale per il settore culturale europeo.",
+          "Contributo all'ideazione, all'organizzazione e alla realizzazione di due stand interattivi su cultura, territorio, sostenibilità e partecipazione.",
+          "Tre mesi di preparazione, coordinando sviluppo creativo, organizzazione pratica e attività sul posto.",
+          "Relazione con professionisti della cultura, partecipanti internazionali e visitatori durante l'evento.",
+          "Esperienza pratica in supporto a progetti culturali, coordinamento di eventi, comunicazione con gli stakeholder e coinvolgimento del pubblico."
+        ],
+        "en": [
+          "Supported the planning and delivery of audience engagement activities for BEYOND 2025: Being Many, an international conference for the European cultural sector.",
+          "Contributed to the concept development, organisation and implementation of two interactive stands focused on culture, territory, sustainability and participation.",
+          "Worked throughout a three-month preparation process, coordinating creative development, practical organisation and on-site activities.",
+          "Interacted with cultural professionals, international participants and visitors during the event.",
+          "Gained practical experience in cultural project support, event coordination, stakeholder communication and audience engagement."
+        ]
+      }
+    },
+    {
+      "when": { "it": "19/05/2025 – 22/05/2025", "en": "19/05/2025 – 22/05/2025" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Supporto all'International Week (mobilità accademica Erasmus+)", "en": "International Week support (Erasmus+ academic mobility event)" },
+      "org": { "it": "Università degli Studi Suor Orsola Benincasa", "en": "Università degli Studi Suor Orsola Benincasa" },
+      "points": {
+        "it": ["Supporto all'organizzazione di una International Week Erasmus+, con accoglienza degli ospiti accademici internazionali e assistenza alle attività di networking e scambio tra università partner."],
+        "en": ["Supported the organisation of an Erasmus+ International Week, welcoming international academic guests and assisting networking and exchange activities between partner universities."]
+      }
+    },
+    {
+      "when": { "it": "01/04/2025 – oggi", "en": "01/04/2025 – Current" },
+      "place": { "it": "Torino, Italia", "en": "Turin, Italy" },
+      "role": { "it": "Rappresentante degli studenti", "en": "Student representative" },
+      "org": { "it": "Università degli Studi di Torino", "en": "University of Turin" },
+      "points": {
+        "it": ["Rappresento gli studenti nelle discussioni accademiche, porto le loro esigenze al corpo docente e partecipo alle riunioni sull'organizzazione dei corsi e sull'esperienza degli studenti."],
+        "en": ["Represent students in academic discussions, communicate their needs to teaching staff and contribute to meetings concerning course organisation and student experience."]
+      }
+    },
+    {
+      "when": { "it": "01/09/2020 – 01/09/2026", "en": "01/09/2020 – 01/09/2026" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Social media manager", "en": "Social media manager" },
+      "org": { "it": "Freelance", "en": "Freelance" },
+      "points": {
+        "it": ["Gestione della comunicazione social di diversi ristoranti: creazione di contenuti visivi, pianificazione editoriale e coordinamento diretto con i titolari."],
+        "en": ["Managed social media communication for multiple restaurants, creating visual content, planning editorial activities and coordinating directly with business owners."]
+      }
+    },
+    {
+      "when": { "it": "01/06/2023 – 13/12/2024", "en": "01/06/2023 – 13/12/2024" },
+      "place": { "it": "Napoli, Italia", "en": "Naples, Italy" },
+      "role": { "it": "Progetto radio universitaria — \"Fammi un fisco\"", "en": "University radio project contributor — \"Fammi un fisco\"" },
+      "org": { "it": "Radio universitaria / Suor Orsola Benincasa", "en": "University radio project / Suor Orsola Benincasa" },
+      "points": {
+        "it": ["Contributo all'ideazione, alla struttura editoriale e allo sviluppo dei contenuti di un programma radiofonico universitario pensato per rendere i temi fiscali accessibili a un pubblico giovane."],
+        "en": ["Contributed to the concept, editorial structure and content development of a university radio programme designed to make fiscal topics more accessible to younger audiences."]
+      }
+    }
+  ],
+
+  "skills": {
+    "it": ["Microsoft Word", "Microsoft Office", "Microsoft PowerPoint", "Social media", "Rispetto delle scadenze", "Registrazione dei partecipanti agli eventi", "Microsoft Excel", "Google Drive", "Uso di internet", "Google Docs", "Ascolto e comunicazione", "Adobe Photoshop", "Adobe Illustrator", "Sistemi informativi geografici", "QGIS (base)", "Organizzazione e pianificazione", "Lavoro in squadra", "Monitoraggio delle attività degli eventi", "Gestione dei registri degli eventi", "Organizzazione di eventi speciali"],
+    "en": ["Microsoft Word", "Microsoft Office", "Microsoft Powerpoint", "Social Media", "Meet deadlines", "Organise event participants' registration", "Microsoft Excel", "Google Drive", "Internet user", "Google Docs", "Good listener and communicator", "Adobe Photoshop", "Adobe Illustrator", "Geographic information systems", "Basic QGIS skills", "Organizational and planning skills", "Team-work oriented", "Monitor event activities", "Maintain event records", "Arrange special events"]
+  },
+
+  "mother": { "it": "Italiano", "en": "Italian" },
+  "languages": [
+    { "name": { "it": "Inglese", "en": "English" }, "listening": "C1", "reading": "C1", "spoken": "C1", "interaction": "C1", "writing": "C1" },
+    { "name": { "it": "Francese", "en": "French" }, "listening": "A1", "reading": "A1", "spoken": "A1", "interaction": "A1", "writing": "A1" }
+  ]
+}
