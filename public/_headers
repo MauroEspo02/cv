@@ -15,6 +15,3 @@
 
 /omino.js
   Cache-Control: public, max-age=86400
-
-/intro.js
-  Cache-Control: public, max-age=86400
