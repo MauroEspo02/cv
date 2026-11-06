@@ -13,7 +13,7 @@
       opts: {
         cv:        ["Vedi il curriculum", "Stai assumendo? Esperienza, formazione e competenze in due minuti."],
         materiali: ["Scarica il materiale universitario", "Per colleghi e docenti: tesi, ricerche, mappe ed elaborati."],
-        clean:     ["Curiosa tra i progetti", "Arrivi da LinkedIn o da una mail? Il sito normale: progetti, grafica, lavori."],
+        clean:     ["Guarda il sito interamente", "Progetti, lavori, grafica, passioni: tutto quello che c'è."],
         pixel:     ["Esplora Carditopoli", "La versione pokémon del portfolio, con vari giochi. Creata con Claude."]
       }
     },
@@ -24,7 +24,7 @@
       opts: {
         cv:        ["See the CV", "Hiring? Experience, education and skills in two minutes."],
         materiali: ["Get the university material", "For colleagues and teachers: thesis, research, maps and coursework."],
-        clean:     ["Browse the projects", "Here from LinkedIn or an email? The normal site: projects, graphics, work."],
+        clean:     ["See the whole site", "Projects, work, graphics, passions: everything that is here."],
         pixel:     ["Explore Carditopoli", "The pokémon version of the portfolio, with games inside. Built with Claude."]
       }
     }
@@ -89,7 +89,8 @@
   function go(where) {
     if (where === "cv") { location.href = "/cv/"; return; }
     if (where === "materiali") { location.href = "/materiali/"; return; }
-    if (window.siteGate) siteGate.setScene(where === "pixel" ? "pixel" : "clean", true);
+    if (where === "pixel") { location.href = "https://carditopoli.pages.dev/"; return; }
+    if (window.siteGate) siteGate.setScene("clean", true);
     close();
   }
 
