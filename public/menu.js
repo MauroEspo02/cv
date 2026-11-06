@@ -47,6 +47,8 @@
     });
     gate.querySelectorAll("[data-gate-lang]").forEach(b =>
       b.setAttribute("aria-pressed", String(b.dataset.gateLang === lang)));
+    const cb = document.getElementById("gateClose");
+    if (cb) cb.setAttribute("aria-label", lang === "it" ? "Chiudi" : "Close");
     /* se il disegno di nonna c'e', il promemoria sparisce */
     if (bollo && bollo.complete && bollo.naturalWidth) {
       bollo.hidden = false;
@@ -84,8 +86,9 @@
     paint();
   }));
 
-  /* vie d'uscita: Esc, oppure un tocco fuori dal riquadro */
-  gate.addEventListener("click", (e) => { if (!card.contains(e.target)) close(); });
+  /* vie d'uscita: la crocetta in alto a destra oppure Esc */
+  const closeBtn = document.getElementById("gateClose");
+  if (closeBtn) closeBtn.addEventListener("click", close);
   addEventListener("keydown", (e) => { if (!gate.hidden && e.key === "Escape") close(); });
 
   /* il fuoco resta dentro il riquadro finche' il menu e' aperto */
