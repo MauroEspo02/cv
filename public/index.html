@@ -492,7 +492,7 @@ html.gate-on,html.gate-on body{overflow:hidden}
   animation:gateUp .4s cubic-bezier(.2,.8,.2,1) both}
 .gate-inner{width:min(100%,66rem);margin-inline:auto}
 @keyframes gateUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.gate-card::before{content:"";position:fixed;inset:0;pointer-events:none;
+.gate-card::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(40rem 40rem at var(--gmx,50%) var(--gmy,10%),var(--gate-glow),transparent 70%)}
 .gate-inner{position:relative}
 .gate-card:focus{outline:none}
