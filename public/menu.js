@@ -107,18 +107,7 @@
   const closeBtn = document.getElementById("gateClose");
   if (closeBtn) closeBtn.addEventListener("click", close);
 
-  /* chiaro e scuro anche da qui: col menu aperto il tasto del sito sta sotto */
-  const themeBtn = document.getElementById("gateTheme");
-  if (themeBtn) themeBtn.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    if (window.siteGate && siteGate.setTheme) siteGate.setTheme(next, true);
-    else {
-      document.documentElement.dataset.theme = next;
-      try { localStorage.setItem("me-theme", next); } catch (e) {}
-    }
-    paint();
-    repaint();
-  });
+  /* il tasto chiaro/scuro e' gestito nella pagina, non qui */
   addEventListener("keydown", (e) => { if (!gate.hidden && e.key === "Escape") close(); });
 
   /* il fuoco resta dentro il riquadro finche' il menu e' aperto */
