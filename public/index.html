@@ -479,25 +479,31 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
 :root[data-theme="dark"]{--gate-accent:#C188F5; --gate-bollo:#8B45C4; --gate-glow:rgba(193,136,245,.15);
   --gate-bg:#0D0D12; --gate-ink:#F2F2F7; --gate-dim:#9C9CAC; --gate-faint:#73738A; --gate-line:#242433}
 html.gate-on,html.gate-on body{overflow:hidden}
-.gate{position:fixed;inset:0;z-index:120;display:grid;place-items:center;
-  padding:max(1rem,env(safe-area-inset-top)) max(1rem,env(safe-area-inset-right))
-          max(1rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left));
-  background:rgba(10,10,18,.45);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+.gate{position:fixed;inset:0;z-index:120;background:var(--gate-bg);
   animation:gateIn .35s ease both}
 .gate[hidden]{display:none}
 @keyframes gateIn{from{opacity:0}to{opacity:1}}
-.gate-card{position:relative;overflow:hidden auto;max-height:100%;width:min(100%,56rem);
-  background:var(--gate-bg);color:var(--gate-ink);border-radius:1.2rem;
-  box-shadow:0 30px 80px rgba(0,0,0,.35);container-type:inline-size;
+.gate-card{position:relative;width:100%;height:100%;overflow:auto;color:var(--gate-ink);
+  container-type:inline-size;background:transparent;
   font-family:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
-  padding:clamp(1.4rem,3.4cqw,3rem) clamp(1.1rem,3.4cqw,3rem) clamp(1.8rem,4cqw,3rem);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:max(1.6rem,env(safe-area-inset-top)) max(1.2rem,env(safe-area-inset-right))
+          max(2rem,env(safe-area-inset-bottom)) max(1.2rem,env(safe-area-inset-left));
   animation:gateUp .4s cubic-bezier(.2,.8,.2,1) both}
+.gate-inner{width:min(100%,66rem);margin-inline:auto}
 @keyframes gateUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.gate-card::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(34rem 34rem at var(--gmx,50%) var(--gmy,10%),var(--gate-glow),transparent 70%)}
-.gate-card>*{position:relative}
+.gate-card::before{content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(40rem 40rem at var(--gmx,50%) var(--gmy,10%),var(--gate-glow),transparent 70%)}
+.gate-inner{position:relative}
 .gate-card:focus{outline:none}
-.gate-lang{display:flex;gap:.1rem;margin:0 0 clamp(1rem,2.6cqw,1.8rem)}
+.gate-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin:0 0 clamp(1.4rem,3cqw,2.4rem)}
+.gate-lang{display:flex;gap:.1rem}
+.gate-close{appearance:none;cursor:pointer;background:none;border:0;border-radius:50%;
+  width:2.4rem;height:2.4rem;display:grid;place-items:center;color:var(--gate-faint);
+  font:400 1.5rem/1 inherit}
+.gate-close:hover{color:var(--gate-accent)}
+.gate-close:focus-visible{outline:2.5px solid var(--gate-accent);outline-offset:3px}
 .gate-lang button{appearance:none;cursor:pointer;background:none;border:0;border-radius:.4rem;
   font:700 .74rem/1 inherit;letter-spacing:.1em;color:var(--gate-faint);padding:.45rem .55rem}
 .gate-lang button:hover{color:var(--gate-accent)}
@@ -536,6 +542,18 @@ html.gate-on,html.gate-on body{overflow:hidden}
   .gate-opt .ln{width:1.2rem;margin-top:.6rem}
   .gate-opt:hover .ln,.gate-opt:focus-visible .ln{width:2.2rem}
 }
+/* telefono ruotato: schermo basso, tutto piu' compatto */
+@media (orientation:landscape) and (max-height:620px){
+  .gate-card{justify-content:flex-start}
+  .gate-head{margin-bottom:.9rem}
+  .gate-hello{font-size:clamp(1.3rem,4.2cqw,2.1rem)}
+  .gate-hello em{margin-top:.25em}
+  .gate-bollo{width:4.2rem;font-size:.42rem;padding:.5rem}
+  .gate-pick{margin-top:1.4rem}
+  .gate-lab{margin-bottom:.6rem}
+  .gate-opt{padding:.7rem .2rem}
+  .gate-opt .ln{margin-top:.55rem}
+}
 @media (prefers-reduced-motion:reduce){
   .gate,.gate-card{animation:none}
 }
@@ -546,9 +564,13 @@ html.gate-on,html.gate-on body{overflow:hidden}
 <!-- menu d'ingresso: sta sopra la pagina gia' carica, si chiude con Esc o toccando fuori -->
 <div id="gate" class="gate" hidden>
   <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gateHi" tabindex="-1">
-    <div class="gate-lang" role="group" aria-label="Language">
-      <button type="button" data-gate-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-gate-lang="it" aria-pressed="false">IT</button>
+    <div class="gate-inner">
+    <div class="gate-head">
+      <div class="gate-lang" role="group" aria-label="Language">
+        <button type="button" data-gate-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-gate-lang="it" aria-pressed="false">IT</button>
+      </div>
+      <button type="button" class="gate-close" id="gateClose" aria-label="Chiudi">&times;</button>
     </div>
     <div class="gate-top">
       <h2 class="gate-hello" id="gateHi"><span data-gate="hi"></span><em data-gate="iam"></em></h2>
@@ -560,6 +582,7 @@ html.gate-on,html.gate-on body{overflow:hidden}
       <button class="gate-opt" type="button" data-gate-go="materiali"><span class="ln"></span><span><b></b><small></small></span></button>
       <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span><b></b><small></small></span></button>
       <button class="gate-opt" type="button" data-gate-go="pixel"><span class="ln"></span><span><b></b><small></small></span></button>
+    </div>
     </div>
   </div>
 </div>
