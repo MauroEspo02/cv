@@ -589,9 +589,9 @@ html.gate-on,html.gate-on body{overflow:hidden}
     </div>
     <div class="gate-pick">
       <p class="gate-lab" data-gate="lab"></p>
+      <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span><b></b><small></small></span></button>
       <button class="gate-opt" type="button" data-gate-go="cv"><span class="ln"></span><span><b></b><small></small></span></button>
       <button class="gate-opt" type="button" data-gate-go="materiali"><span class="ln"></span><span><b></b><small></small></span></button>
-      <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span><b></b><small></small></span></button>
       <button class="gate-opt" type="button" data-gate-go="pixel"><span class="ln"></span><span><b></b><small></small></span></button>
     </div>
     </div>
@@ -1340,6 +1340,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js?v=3" defer></script>
+<script src="/menu.js?v=4" defer></script>
 </body>
 </html>
