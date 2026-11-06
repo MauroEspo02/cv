@@ -65,6 +65,15 @@
     }
   }
 
+  /* Safari su iPhone non ridisegna gli strati fissi quando cambia il tema:
+     si nasconde e si rimostra il menu per obbligarlo a rifare il disegno. */
+  function repaint() {
+    const d = gate.style.display;
+    gate.style.display = "none";
+    void gate.offsetHeight;
+    gate.style.display = d;
+  }
+
   function open() {
     gate.hidden = false;
     document.documentElement.classList.add("gate-on");
@@ -108,6 +117,7 @@
       try { localStorage.setItem("me-theme", next); } catch (e) {}
     }
     paint();
+    repaint();
   });
   addEventListener("keydown", (e) => { if (!gate.hidden && e.key === "Escape") close(); });
 
