@@ -49,6 +49,14 @@
       b.setAttribute("aria-pressed", String(b.dataset.gateLang === lang)));
     const cb = document.getElementById("gateClose");
     if (cb) cb.setAttribute("aria-label", lang === "it" ? "Chiudi" : "Close");
+    const tb = document.getElementById("gateTheme");
+    if (tb) {
+      const dark = document.documentElement.dataset.theme === "dark";
+      tb.setAttribute("aria-pressed", String(dark));
+      tb.setAttribute("aria-label", lang === "it"
+        ? (dark ? "Modalità chiara" : "Modalità scura")
+        : (dark ? "Light mode" : "Dark mode"));
+    }
     /* se il disegno di nonna c'e', il promemoria sparisce */
     if (bollo && bollo.complete && bollo.naturalWidth) {
       bollo.hidden = false;
@@ -89,6 +97,18 @@
   /* vie d'uscita: la crocetta in alto a destra oppure Esc */
   const closeBtn = document.getElementById("gateClose");
   if (closeBtn) closeBtn.addEventListener("click", close);
+
+  /* chiaro e scuro anche da qui: col menu aperto il tasto del sito sta sotto */
+  const themeBtn = document.getElementById("gateTheme");
+  if (themeBtn) themeBtn.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    if (window.siteGate && siteGate.setTheme) siteGate.setTheme(next, true);
+    else {
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("me-theme", next); } catch (e) {}
+    }
+    paint();
+  });
   addEventListener("keydown", (e) => { if (!gate.hidden && e.key === "Escape") close(); });
 
   /* il fuoco resta dentro il riquadro finche' il menu e' aperto */
