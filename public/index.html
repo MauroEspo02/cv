@@ -493,15 +493,15 @@ html.gate-on,html.gate-on body{overflow:hidden}
 /* Schermo largo: testo a sinistra su due righe di griglia, disegno a destra
    alto quanto tutta la colonna. Schermo stretto: tutto incolonnato, con il
    disegno fra il saluto e le scelte. */
-.gate-inner{width:min(100%,70rem);margin-inline:auto;text-align:left;
-  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  grid-template-areas:"saluto disegno" "scelte disegno";
-  column-gap:clamp(2rem,5cqw,4.5rem);row-gap:0;align-items:center}
-.gate-hello{grid-area:saluto;align-self:end}
+.gate-inner{width:min(100%,62rem);margin-inline:auto;text-align:left;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:"saluto disegno" "scelte scelte";
+  column-gap:clamp(1.5rem,4cqw,3rem);row-gap:0;align-items:center}
+.gate-hello{grid-area:saluto}
 .gate-pick{grid-area:scelte}
 /* il disegno di nonna: una sagoma sola, quindi prende il colore del tema */
-.gate-nonna{grid-area:disegno;height:clamp(7rem,32vh,19rem);aspect-ratio:1.682;
-  width:auto;max-width:100%;justify-self:center;background:var(--gate-ink);
+.gate-nonna{grid-area:disegno;height:clamp(5rem,21vh,12rem);aspect-ratio:1.682;
+  width:auto;max-width:100%;justify-self:end;background:var(--gate-ink);
   -webkit-mask:url(/img/nonna.svg) center/contain no-repeat;
           mask:url(/img/nonna.svg) center/contain no-repeat}
 @keyframes gateUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -532,7 +532,7 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-hello{margin:0;font-weight:800;letter-spacing:-.045em;line-height:.98;min-width:0;
   font-size:clamp(1.6rem,4.6cqw,3rem);font-family:inherit}
 .gate-hello em{display:block;margin-top:.42em;font-style:italic;font-weight:600;letter-spacing:-.035em}
-.gate-pick{margin:clamp(1.8rem,4.5cqw,2.6rem) 0 0;
+.gate-pick{margin:clamp(1.8rem,4.5cqw,2.8rem) 0 0;
   display:flex;flex-direction:column;text-align:left}
 .gate-lab{margin:0 0 1rem;font-weight:800;letter-spacing:-.02em;color:var(--gate-accent);
   font-size:clamp(1.05rem,2.2cqw,1.32rem)}
@@ -553,7 +553,8 @@ html.gate-on,html.gate-on body{overflow:hidden}
     grid-template-areas:"saluto" "disegno" "scelte";
     justify-items:center;text-align:center;row-gap:0}
   .gate-hello{align-self:auto}
-  .gate-nonna{height:clamp(5rem,21vh,13rem);margin:clamp(.8rem,3cqw,1.4rem) auto}
+  .gate-nonna{height:clamp(5rem,21vh,13rem);justify-self:center;
+    margin:clamp(.8rem,3cqw,1.4rem) auto}
   .gate-pick{width:100%;max-width:38rem}
 }
 @container (max-width:34rem){
@@ -1359,6 +1360,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js?v=7" defer></script>
+<script src="/menu.js?v=8" defer></script>
 </body>
 </html>
