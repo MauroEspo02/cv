@@ -490,11 +490,12 @@ html.gate-on,html.gate-on body{overflow:hidden}
   padding:calc(max(1.6rem,env(safe-area-inset-top)) + 3.6rem) max(1.2rem,env(safe-area-inset-right))
           max(2rem,env(safe-area-inset-bottom)) max(1.2rem,env(safe-area-inset-left));
   animation:gateUp .4s cubic-bezier(.2,.8,.2,1) both}
-.gate-inner{width:min(100%,44rem);margin-inline:auto;text-align:center}
+.gate-inner{width:min(100%,58rem);margin-inline:auto;text-align:left}
+/* saluto a sinistra, disegno a destra */
+.gate-top{display:grid;grid-template-columns:1fr auto;gap:clamp(1rem,4cqw,2.6rem);align-items:center}
 /* il disegno di nonna: una sagoma sola, quindi prende il colore del tema */
 .gate-nonna{height:clamp(5rem,21vh,13rem);aspect-ratio:1.682;width:auto;max-width:100%;
-  margin:0 auto clamp(.8rem,2.4cqw,1.4rem);
-  background:var(--gate-ink);
+  justify-self:end;background:var(--gate-ink);
   -webkit-mask:url(/img/nonna.svg) center/contain no-repeat;
           mask:url(/img/nonna.svg) center/contain no-repeat}
 @keyframes gateUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -525,7 +526,7 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-hello{margin:0;font-weight:800;letter-spacing:-.045em;line-height:.98;min-width:0;
   font-size:clamp(1.6rem,4.6cqw,3rem);font-family:inherit}
 .gate-hello em{display:block;margin-top:.42em;font-style:italic;font-weight:600;letter-spacing:-.035em}
-.gate-pick{margin:clamp(1.6rem,4cqw,2.6rem) auto 0;max-width:38rem;
+.gate-pick{margin:clamp(1.8rem,4.5cqw,3rem) 0 0;max-width:42rem;
   display:flex;flex-direction:column;text-align:left}
 .gate-lab{margin:0 0 1rem;font-weight:800;letter-spacing:-.02em;color:var(--gate-accent);
   font-size:clamp(1.05rem,2.2cqw,1.32rem)}
@@ -541,6 +542,10 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-opt:hover .ln,.gate-opt:focus-visible .ln{width:3.4rem;background:var(--gate-accent)}
 .gate-opt:hover b,.gate-opt:focus-visible b{color:var(--gate-accent)}
 .gate-opt:focus-visible,.gate-lang button:focus-visible{outline:2.5px solid var(--gate-accent);outline-offset:3px}
+@container (max-width:46rem){
+  .gate-top{grid-template-columns:1fr;gap:.9rem;justify-items:center;text-align:center}
+  .gate-nonna{justify-self:center}
+}
 @container (max-width:34rem){
   .gate-opt{gap:.8rem;padding:.95rem .1rem}
   .gate-opt .ln{width:1.2rem;margin-top:.6rem}
@@ -589,8 +594,10 @@ html.gate-on,html.gate-on body{overflow:hidden}
   </div>
   <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gateHi" tabindex="-1">
     <div class="gate-inner">
-      <div class="gate-nonna" role="img" aria-label="Ritratto di Mauro disegnato da sua nonna"></div>
-      <h2 class="gate-hello" id="gateHi"><span data-gate="hi"></span><em data-gate="iam"></em></h2>
+      <div class="gate-top">
+        <h2 class="gate-hello" id="gateHi"><span data-gate="hi"></span><em data-gate="iam"></em></h2>
+        <div class="gate-nonna" role="img" aria-label="Ritratto di Mauro disegnato da sua nonna"></div>
+      </div>
       <div class="gate-pick">
         <p class="gate-lab" data-gate="lab"></p>
         <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span><b></b><small></small></span></button>
@@ -1344,6 +1351,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js?v=5" defer></script>
+<script src="/menu.js?v=6" defer></script>
 </body>
 </html>
