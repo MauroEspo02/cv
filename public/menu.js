@@ -8,7 +8,6 @@
   const T = {
     it: {
       hi: "Ciao!", iam: "Sono Mauro",
-      bollo: "Qui metterò un disegno di nonna",
       lab: "Cosa cerchi?",
       opts: {
         cv:        ["Vedi il curriculum", "Stai assumendo? Esperienza, formazione e competenze in due minuti."],
@@ -19,7 +18,6 @@
     },
     en: {
       hi: "Hi!", iam: "I'm Mauro",
-      bollo: "A drawing by my grandma goes here",
       lab: "What are you after?",
       opts: {
         cv:        ["See the CV", "Hiring? Experience, education and skills in two minutes."],
@@ -35,7 +33,6 @@
   try { const s = localStorage.getItem("me-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
 
   const card = gate.querySelector(".gate-card");
-  const bollo = document.getElementById("gateBollo");
 
   function paint() {
     const t = T[lang];
@@ -56,12 +53,6 @@
       tb.setAttribute("aria-label", lang === "it"
         ? (dark ? "Modalità chiara" : "Modalità scura")
         : (dark ? "Light mode" : "Dark mode"));
-    }
-    /* se il disegno di nonna c'e', il promemoria sparisce */
-    if (bollo && bollo.complete && bollo.naturalWidth) {
-      bollo.hidden = false;
-      const txt = bollo.parentElement.querySelector("[data-gate='bollo']");
-      if (txt) txt.hidden = true;
     }
   }
 
@@ -131,7 +122,6 @@
     });
   }
 
-  if (bollo) bollo.addEventListener("load", paint);
   paint();
   open();
 })();
