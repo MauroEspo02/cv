@@ -474,9 +474,9 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
   .ell::after{content:"..."}
 }
 /* ---- menu d'ingresso ---- */
-:root{--gate-accent:#8E24C8; --gate-bollo:#A05AD6; --gate-glow:rgba(142,36,200,.11);
+:root{--gate-accent:#8E24C8; --gate-accent-soft:#F6ECFC; --gate-bollo:#A05AD6; --gate-glow:rgba(142,36,200,.11);
   --gate-bg:#FFFFFF; --gate-ink:#141418; --gate-dim:#5E5E6B; --gate-faint:#8E8E9C; --gate-line:#E2E2EA}
-:root[data-theme="dark"]{--gate-accent:#C188F5; --gate-bollo:#8B45C4; --gate-glow:rgba(193,136,245,.15);
+:root[data-theme="dark"]{--gate-accent:#C188F5; --gate-accent-soft:#1C1430; --gate-bollo:#8B45C4; --gate-glow:rgba(193,136,245,.15);
   --gate-bg:#0D0D12; --gate-ink:#F2F2F7; --gate-dim:#9C9CAC; --gate-faint:#73738A; --gate-line:#242433}
 html.gate-on,html.gate-on body{overflow:hidden}
 .gate{position:fixed;inset:0;z-index:120;background:var(--gate-bg);
@@ -537,8 +537,15 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-lab{margin:0 0 1rem;font-weight:800;letter-spacing:-.02em;color:var(--gate-accent);
   font-size:clamp(1.05rem,2.2cqw,1.32rem)}
 .gate-opt{display:flex;align-items:flex-start;gap:1.1rem;width:100%;text-align:left;cursor:pointer;
-  background:none;border:0;border-top:1.5px solid var(--gate-line);padding:1.1rem .2rem;
-  font-family:inherit;color:var(--gate-dim)}
+  background:none;border:0;border-top:1.5px solid var(--gate-line);padding:1.1rem .6rem;
+  border-radius:.7rem;font-family:inherit;color:var(--gate-dim);
+  transition:background .15s ease}
+.gate-opt .tx{flex:1 1 auto;min-width:0}
+.gate-opt .go{flex:none;align-self:center;font-size:1.15rem;line-height:1;color:var(--gate-accent);
+  opacity:.55;transition:transform .2s ease,opacity .2s ease}
+.gate-opt:hover,.gate-opt:focus-visible{background:var(--gate-accent-soft)}
+.gate-opt:hover .go,.gate-opt:focus-visible .go{transform:translateX(4px);opacity:1}
+.gate-opt:active{background:var(--gate-accent-soft);transform:scale(.995)}
 .gate-opt:last-of-type{border-bottom:1.5px solid var(--gate-line)}
 .gate-opt .ln{flex:none;width:1.7rem;height:1.5px;margin-top:.68rem;background:var(--gate-line);
   transition:width .2s ease,background .2s ease}
@@ -581,6 +588,11 @@ html.gate-on,html.gate-on body{overflow:hidden}
   .gate-opt{padding:.7rem .2rem}
   .gate-opt .ln{margin-top:.55rem}
 }
+/* senza mouse non esiste il passaggio sopra: i segnali devono vedersi subito */
+@media (hover:none){
+  .gate-opt .ln{background:var(--gate-accent);width:1.1rem}
+  .gate-opt .go{opacity:1}
+}
 @media (prefers-reduced-motion:reduce){
   .gate,.gate-card{animation:none}
 }
@@ -609,10 +621,10 @@ html.gate-on,html.gate-on body{overflow:hidden}
       <div class="gate-nonna" role="img" aria-label="Ritratto di Mauro disegnato da sua nonna"></div>
       <div class="gate-pick">
         <p class="gate-lab" data-gate="lab"></p>
-        <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span><b></b><small></small></span></button>
-        <button class="gate-opt" type="button" data-gate-go="cv"><span class="ln"></span><span><b></b><small></small></span></button>
-        <button class="gate-opt" type="button" data-gate-go="materiali"><span class="ln"></span><span><b></b><small></small></span></button>
-        <button class="gate-opt" type="button" data-gate-go="pixel"><span class="ln"></span><span><b></b><small></small></span></button>
+        <button class="gate-opt" type="button" data-gate-go="clean"><span class="ln"></span><span class="tx"><b></b><small></small></span><span class="go" aria-hidden="true">→</span></button>
+        <button class="gate-opt" type="button" data-gate-go="cv"><span class="ln"></span><span class="tx"><b></b><small></small></span><span class="go" aria-hidden="true">→</span></button>
+        <button class="gate-opt" type="button" data-gate-go="materiali"><span class="ln"></span><span class="tx"><b></b><small></small></span><span class="go" aria-hidden="true">→</span></button>
+        <button class="gate-opt" type="button" data-gate-go="pixel"><span class="ln"></span><span class="tx"><b></b><small></small></span><span class="go" aria-hidden="true">→</span></button>
       </div>
     </div>
   </div>
@@ -1360,6 +1372,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js?v=8" defer></script>
+<script src="/menu.js?v=9" defer></script>
 </body>
 </html>
