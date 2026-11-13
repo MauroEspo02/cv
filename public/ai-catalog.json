@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agentreadiness.org/schemas/ai-catalog/v1.json",
+  "version": "1.0",
+  "name": "Mauro Esposito",
+  "description": "Sito personale bilingue di Mauro Esposito: curriculum, progetti, lavori e materiali universitari.",
+  "url": "https://mauroesposito19.com/",
+  "contact": "https://www.linkedin.com/in/mauro-esposito-6890a825a",
+  "language": ["it", "en"],
+  "updated": "2026-11-13",
+  "resources": [
+    {
+      "name": "Curriculum",
+      "description": "CV Europass di Mauro Esposito: esperienza, formazione, competenze e lingue.",
+      "url": "https://mauroesposito19.com/cv/",
+      "type": "webpage"
+    },
+    {
+      "name": "Materiali universitari",
+      "description": "Tesi, ricerche, mappe ed elaborati condivisi con studenti e docenti.",
+      "url": "https://mauroesposito19.com/materiali/",
+      "type": "webpage"
+    },
+    {
+      "name": "Contenuti del sito",
+      "description": "Testi del sito in italiano e in inglese, in JSON.",
+      "url": "https://mauroesposito19.com/api/content",
+      "type": "api"
+    },
+    {
+      "name": "llms.txt",
+      "description": "Guida al sito per i modelli linguistici.",
+      "url": "https://mauroesposito19.com/llms.txt",
+      "type": "documentation"
+    }
+  ]
+}

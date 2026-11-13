@@ -1,0 +1,29 @@
+# Mauro Esposito
+
+> Economista della cultura e del territorio, creativo. Milano e Napoli.
+> Sito personale bilingue (italiano e inglese) con curriculum, progetti,
+> lavori, materiali universitari e una versione a pixel del portfolio.
+
+Mauro Esposito studia Economia dell'ambiente, della cultura e del territorio
+(laurea magistrale interateneo Università di Torino e Politecnico di Torino).
+Lavora su comunicazione digitale, contenuti visivi, eventi culturali e analisi
+territoriale con QGIS. Parla italiano (madrelingua), inglese (C1) e francese (A1).
+
+## Pagine
+
+- [Home](https://mauroesposito19.com/): chi è, percorso, progetti, lavori, competenze e passioni. Dalla home si aprono i pannelli ABOUT, PROGETTI, WORK, SKILLS e PASSIONS.
+- [Curriculum](https://mauroesposito19.com/cv/): CV in formato Europass con esperienza, formazione, competenze e lingue, in italiano e in inglese. Stampabile in PDF di due pagine.
+- [Materiali](https://mauroesposito19.com/materiali/): tesi, ricerche, mappe ed elaborati universitari da scaricare. Pagina in lavorazione.
+
+## Progetti
+
+- [Mercoleterry](https://passatadipomodoro.mauroesposito19.com/): sito del brand di passata di pomodoro.
+- [FRITZ](https://fritz.mauroesposito19.com/): sito del progetto FRITZ.
+- [Passaporto sabaudo](https://passaportosabaudo.mauroesposito19.com/): progetto sul passaporto e il territorio sabaudo.
+- [LAND](https://land.mauroesposito19.com/): ricerca sull'agricoltura palestinese in Cisgiordania, con analisi satellitare e kit didattico.
+- [Carditopoli](https://carditopoli.pages.dev/): versione in stile pokémon del portfolio, con giochi.
+
+## Contatti
+
+- [LinkedIn](https://www.linkedin.com/in/mauro-esposito-6890a825a)
+- [Sitemap](https://mauroesposito19.com/sitemap.xml)
