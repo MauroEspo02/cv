@@ -46,7 +46,27 @@ let v;try{v=localStorage.getItem("me-scene")}catch(e){}document.documentElement.
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<script>
+/* Gli altri quattro caratteri servono alla versione pixel, al logo PULLME UP
+   e alle scritte disegnate sulle tele: si caricano dopo, senza bloccare il
+   primo disegno della pagina. */
+(() => {
+  const extra = "https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pixelify+Sans:wght@400..700&family=Jacquarda+Bastarda+9&display=swap";
+  const put = () => {
+    if (document.getElementById("fontExtra")) return;
+    const l = document.createElement("link");
+    l.id = "fontExtra"; l.rel = "stylesheet"; l.href = extra;
+    document.head.appendChild(l);
+  };
+  window.loadExtraFonts = put;
+  let pixel = false;
+  try { pixel = localStorage.getItem("me-scene") === "pixel"; } catch (e) {}
+  if (pixel) put();
+  else if ("requestIdleCallback" in window) requestIdleCallback(put, { timeout: 3000 });
+  else addEventListener("load", () => setTimeout(put, 400));
+})();
+</script>
 <style>
 :root{
   --bg:#FFFFFF; --ink:#000000; --muted:#6B6880;
@@ -717,8 +737,6 @@ html.gate-on,html.gate-on body{overflow:hidden}
 </nav>
 
 <script src="/napoli.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
 const I = {
   mail:'<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
@@ -1185,9 +1203,28 @@ const MAKERS = {
   map: makeMap,
 };
 
+/* three.js pesa piu' di tutto il resto del sito messo insieme e serve solo
+   dentro PROGETTI e PASSIONI: si carica al primo pannello che lo usa. */
+const pending3D = [];
+let loading3D = null;
+function load3D(){
+  if (loading3D) return loading3D;
+  const add = src => new Promise((ok, no) => {
+    const sc = document.createElement("script");
+    sc.src = src; sc.onload = ok; sc.onerror = no;
+    document.head.appendChild(sc);
+  });
+  loading3D = add("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
+    .then(() => add("https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"))
+    .then(() => { pending3D.splice(0).forEach(a => initStage(a[0], a[1], a[2])); })
+    .catch(() => { loading3D = null; });
+  return loading3D;
+}
+
 function initStage(p, elId, t){
   const el = $(elId);
-  if (!window.THREE) return;
+  if (!el) return;
+  if (!window.THREE) { pending3D.push([p, elId, t]); return; }
   const renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   el.prepend(renderer.domElement);
@@ -1243,6 +1280,7 @@ function loop(){
 }
 function start3D(){
   if (!started) { started = true; }
+  load3D();
   if (!looping) { looping = true; requestAnimationFrame(loop); }
 }
 function stop3D(){ looping = false; }
@@ -1292,6 +1330,7 @@ setTheme(document.documentElement.dataset.theme || "light", false);
 /* veduta di Napoli accesa o spenta; da spenta la pagina resta pulita */
 const sceneBtn = $("sceneBtn");
 function setScene(v, save) {
+  if (v === "pixel" && window.loadExtraFonts) loadExtraFonts();
   document.documentElement.dataset.scene = v;
   document.body.dataset.scene = v;
   sceneBtn.setAttribute("aria-pressed", v === "pixel");
@@ -1372,6 +1411,6 @@ fetch("/api/content")
     document.querySelector(".hero").insertAdjacentHTML("beforeend", '<p class="state-msg">Contenuto non disponibile al momento. Riprova più tardi.</p>');
   });
 </script>
-<script src="/menu.js?v=9" defer></script>
+<script src="/menu.js?v=10" defer></script>
 </body>
 </html>
