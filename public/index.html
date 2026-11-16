@@ -535,9 +535,10 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-card::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(40rem 40rem at var(--gmx,50%) var(--gmy,10%),var(--gate-glow),transparent 70%)}
 .gate-inner{position:relative}
-/* il riquadro riceve il fuoco all'apertura: col tocco il browser non disegna
-   nulla da se', da tastiera l'anello si deve vedere */
-.gate-card:focus-visible{outline:2.5px solid var(--gate-accent);outline-offset:-6px}
+/* Il riquadro prende il fuoco all'apertura solo per i lettori di schermo:
+   nessun anello, perche' occupa tutto lo schermo e diventerebbe un rettangolo
+   viola attorno alla pagina. L'anello sta sui tasti, che sono le cose da usare. */
+.gate-card:focus,.gate-card:focus-visible{outline:none}
 .gate-head{position:absolute;z-index:2;
   top:max(1rem,env(safe-area-inset-top));
   left:max(1.2rem,env(safe-area-inset-left));
