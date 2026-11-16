@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
+  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#55555F;
   --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
   --lav:#EDEDFF; --lav2:#D9D9FF; --rule:#E6E6EC; --surface:#FFFFFF;
   --head:#F4F4F8; --hot:#FD9829; --shadow:rgba(12,12,40,.1);
@@ -37,11 +39,15 @@
 }
 :root[data-theme="dark"]{
   --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
-  --accent:#5A5AFF; --accent-2:#8C8CFF; --on-accent:#07070E;
+  --accent:#7272FF; --accent-2:#8C8CFF; --on-accent:#07070E;
   --lav:#17172B; --lav2:#242445; --rule:#1E1E33; --surface:#0B0B12;
   --head:#11111C; --shadow:rgba(0,0,0,.5);
   color-scheme:dark;
 }
+.skip{position:fixed;z-index:200;top:.6rem;left:.6rem;transform:translateY(-200%);
+  background:var(--accent);color:#fff;border-radius:.6rem;padding:.7rem 1rem;
+  font:700 .85rem/1 var(--font);text-decoration:none}
+.skip:focus{transform:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
@@ -191,6 +197,7 @@ table.lang tbody td{font-variant-numeric:tabular-nums;color:var(--accent);font-w
 </style>
 </head>
 <body>
+<a class="skip" href="#contenuto">Salta al contenuto</a>
 
 <div class="bar">
   <a href="/" id="back">← <span data-i18n="back">Sito</span></a>
@@ -221,7 +228,7 @@ table.lang tbody td{font-variant-numeric:tabular-nums;color:var(--accent);font-w
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="contenuto" tabindex="-1">
   <section class="block" style="margin-top:0">
     <h2 data-i18n="h_about">Chi sono</h2>
     <p class="about" id="about"></p>

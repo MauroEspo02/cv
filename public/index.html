@@ -6,6 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <script>(()=>{let t;try{t=localStorage.getItem("me-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;
 let v;try{v=localStorage.getItem("me-scene")}catch(e){}document.documentElement.dataset.scene=v==="pixel"?"pixel":"clean"})()</script>
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -122,7 +124,7 @@ a{color:inherit}
 
 /* route */
 .route{list-style:none;margin:4.5rem 0 0;padding:0;display:grid}
-.route li{position:relative;text-align:center}
+.route li{position:relative;text-align:center;text-wrap:pretty}
 .route .dot{display:block;width:18px;height:18px;margin:0 auto;position:relative;z-index:2}
 .route .dot::before,.route .dot::after{content:"";position:absolute;clip-path:var(--pxc)}
 .route .dot::before{inset:0;background:var(--accent)}
@@ -322,11 +324,11 @@ body[data-scene="clean"] .links.dragging{box-shadow:0 22px 50px rgba(20,40,60,.2
 /* ---- versione pulita: niente veduta, bianco, un solo blu ---- */
 body[data-scene="clean"] #napoli{display:none}
 body[data-scene="clean"]{
-  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#6E6E78;
+  --bg:#FFFFFF; --ink:#2B2B2B; --muted:#55555F;
   --accent:#0000FE; --accent-2:#0000C4; --on-accent:#FFFFFF;
   --lav:#EDEDFF; --lav2:#D9D9FF; --rule:#E6E6EC; --surface:#FFFFFF;
   --plate:transparent; --plate-soft:transparent; --panel:rgba(255,255,255,.97);
-  --hot:#FD9829; --shadow:rgba(12,12,40,.1);
+  --hot:#FD9829; --hot-ink:#A35C00; --shadow:rgba(12,12,40,.1);
   --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --pixserif:"Figtree",system-ui,sans-serif;
   --serif:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -334,7 +336,7 @@ body[data-scene="clean"]{
 }
 :root[data-theme="dark"] body[data-scene="clean"]{
   --bg:#0B0B12; --ink:#F3F3F7; --muted:#9B9BA8;
-  --accent:#5A5AFF; --accent-2:#8C8CFF; --on-accent:#07070E;
+  --accent:#7272FF; --accent-2:#8C8CFF; --on-accent:#07070E; --hot-ink:#FFB65C;
   --lav:#17172B; --lav2:#242445; --rule:#1E1E33; --surface:#0B0B12; --panel:rgba(11,11,18,.97);
 }
 
@@ -362,7 +364,7 @@ body[data-scene="clean"] .route .city{background:none;padding:.6rem 0 0;font-fam
 body[data-scene="clean"] .route .when{background:none;padding:0;font-style:normal;
   font-family:var(--display);font-size:.95rem}
 body[data-scene="clean"] .route .next .when{font-family:var(--display);font-weight:600;
-  font-size:.95rem;color:var(--hot)}
+  font-size:.95rem;color:var(--hot-ink)}
 body[data-scene="clean"] .route .traveler{background:var(--hot)}
 
 /* i contatti: niente riquadro, due righe grandi */
@@ -495,9 +497,14 @@ body[data-scene="clean"] .proj .kind{font-style:normal;color:var(--muted);font-f
 }
 /* ---- menu d'ingresso ---- */
 :root{--gate-accent:#8E24C8; --gate-accent-soft:#F6ECFC; --gate-bollo:#A05AD6; --gate-glow:rgba(142,36,200,.11);
-  --gate-bg:#FFFFFF; --gate-ink:#141418; --gate-dim:#5E5E6B; --gate-faint:#8E8E9C; --gate-line:#E2E2EA}
+  --gate-bg:#FFFFFF; --gate-ink:#141418; --gate-dim:#5E5E6B; --gate-faint:#6B6B79; --gate-line:#E2E2EA}
 :root[data-theme="dark"]{--gate-accent:#C188F5; --gate-accent-soft:#1C1430; --gate-bollo:#8B45C4; --gate-glow:rgba(193,136,245,.15);
-  --gate-bg:#0D0D12; --gate-ink:#F2F2F7; --gate-dim:#9C9CAC; --gate-faint:#73738A; --gate-line:#242433}
+  --gate-bg:#0D0D12; --gate-ink:#F2F2F7; --gate-dim:#9C9CAC; --gate-faint:#8E8EA8; --gate-line:#242433}
+/* salta al contenuto: invisibile finche' non ci arrivi col Tab */
+.skip{position:fixed;z-index:200;top:.6rem;left:.6rem;transform:translateY(-200%);
+  background:var(--accent);color:var(--on-accent);border-radius:.6rem;
+  padding:.7rem 1rem;font:700 .85rem/1 var(--display);text-decoration:none}
+.skip:focus{transform:none}
 html.gate-on,html.gate-on body{overflow:hidden}
 .gate{position:fixed;inset:0;z-index:120;background:var(--gate-bg);
   animation:gateIn .35s ease both}
@@ -528,7 +535,9 @@ html.gate-on,html.gate-on body{overflow:hidden}
 .gate-card::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(40rem 40rem at var(--gmx,50%) var(--gmy,10%),var(--gate-glow),transparent 70%)}
 .gate-inner{position:relative}
-.gate-card:focus{outline:none}
+/* il riquadro riceve il fuoco all'apertura: col tocco il browser non disegna
+   nulla da se', da tastiera l'anello si deve vedere */
+.gate-card:focus-visible{outline:2.5px solid var(--gate-accent);outline-offset:-6px}
 .gate-head{position:absolute;z-index:2;
   top:max(1rem,env(safe-area-inset-top));
   left:max(1.2rem,env(safe-area-inset-left));
@@ -620,6 +629,8 @@ html.gate-on,html.gate-on body{overflow:hidden}
 </head>
 <body>
 
+<a class="skip" href="#contenuto" data-i18n="skip">Salta al contenuto</a>
+
 <!-- menu d'ingresso: sta sopra la pagina gia' carica, si chiude con Esc o toccando fuori -->
 <div id="gate" class="gate" hidden>
   <div class="gate-head">
@@ -663,7 +674,7 @@ html.gate-on,html.gate-on body{overflow:hidden}
   </button>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="contenuto" tabindex="-1">
   <section class="hero">
     <h1 id="headline"><span class="d">Mauro Esposito</span> <em>vive tra</em><span class="l2"><span class="d">cultura</span> <em>e</em> <span class="d">musica</span></span></h1>
     <p class="intro" id="intro">Unisco ricerca culturale, comunicazione e creatività per dare vita a progetti significativi, accessibili e coinvolgenti per diversi tipi di pubblico</p>
@@ -757,9 +768,9 @@ const svg = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${I[k] || I.shapes
 /* UI chrome strings (menu, labels): not part of the editable content. */
 const UI = {
   en:{ n_about:"About", n_projects:"Projects", n_work:"Work", n_skills:"Skills", n_passions:"Passions", close:"Close", drag:"Drag to rotate", visit:"Visit the site",
-       h_exp:"Experience", h_edu:"Education", h_do:"What I do", h_lang:"Languages", h_tools:"Tools" },
+       h_exp:"Experience", h_edu:"Education", h_do:"What I do", h_lang:"Languages", h_tools:"Tools", skip:"Skip to the content" },
   it:{ n_about:"Chi sono", n_projects:"Progetti", n_work:"Lavori", n_skills:"Competenze", n_passions:"Passioni", close:"Chiudi", drag:"Trascina per ruotare", visit:"Visita il sito",
-       h_exp:"Esperienze", h_edu:"Formazione", h_do:"Cosa faccio", h_lang:"Lingue", h_tools:"Strumenti" }
+       h_exp:"Esperienze", h_edu:"Formazione", h_do:"Cosa faccio", h_lang:"Lingue", h_tools:"Strumenti", skip:"Salta al contenuto" }
 };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1372,25 +1383,37 @@ window.siteGate = { setScene, setLang: (l) => render(l), setTheme };
   if (!card) return;
   const handle = card.querySelector("h2");
   let x = 0, y = 0, sx = 0, sy = 0, on = false, moved = false;
+  let held = 0;
   card.addEventListener("pointerdown", e => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     if (e.pointerType !== "mouse" && !handle.contains(e.target)) return;   // sul telefono la pagina scorre
-    on = true; moved = false;
+    on = true; moved = false; held = 0;
     sx = e.clientX - x; sy = e.clientY - y;
-    card.setPointerCapture(e.pointerId);
-    card.classList.add("dragging");
+    /* Niente cattura del puntatore qui: con la cattura il clic arriva al
+       riquadro invece che al link, e i link smettono di funzionare. Si
+       cattura solo quando il dito o il mouse si muovono davvero. */
   });
   const clamp = (v, lo, hi) => hi < lo ? lo : Math.min(Math.max(v, lo), hi);
   card.addEventListener("pointermove", e => {
     if (!on) return;
+    if (!moved && Math.abs(e.clientX - sx - x) < 4 && Math.abs(e.clientY - sy - y) < 4) return;
+    if (!moved) {
+      moved = true; held = e.pointerId;
+      card.setPointerCapture(e.pointerId);
+      card.classList.add("dragging");
+    }
     const r = card.getBoundingClientRect();
     const baseL = r.left - x, baseT = r.top - y, m = 8;
     x = clamp(e.clientX - sx, m - baseL, innerWidth - baseL - r.width - m);
     y = clamp(e.clientY - sy, m - baseT, innerHeight - baseT - r.height - m);
-    if (Math.abs(x) > 4 || Math.abs(y) > 4) moved = true;
     card.style.transform = `translate(${x}px, ${y}px)`;
   });
-  const stop = () => { if (on) { on = false; card.classList.remove("dragging"); } };
+  const stop = () => {
+    if (!on) return;
+    on = false;
+    card.classList.remove("dragging");
+    if (held) { try { card.releasePointerCapture(held); } catch (e) {} held = 0; }
+  };
   card.addEventListener("pointerup", stop);
   card.addEventListener("pointercancel", stop);
   card.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
